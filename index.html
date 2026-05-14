@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Интеграция Честный ЗНАК и Текшер KG под ключ. Автоматизация для селлеров Wildberries и Ozon. Быстрый ввод в оборот без штрафов.">
-<title>KrasMatrix — Маркировка Честный ЗНАК под ключ</title>
+<meta name="description" content="Услуги маркировки товаров Честный ЗНАК под ключ. Официальная интеграция с Текшер KG. Выпуск КИЗ, ЭДО, создание карточек и УПД для селлеров Wildberries и Ozon. Без штрафов!">
+<title>KrasMatrix — Маркировка товаров Честный ЗНАК под ключ | Интеграция Текшер KG</title>
+<meta name="keywords" content="честный знак, маркировка товаров, текшер kg, маркировка одежды, киз, упд для маркетплейсов">
 <link rel="icon" href="https://optim.tildacdn.com/tild3462-6330-4231-b334-316263333635/-/format/webp/ChatGPT_Image_18__20.png.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +83,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 
 /* ─── КНОПКИ ─── */
 .btn { padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; transition: all 0.3s ease; border: none; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; flex-shrink: 0; user-select: none; }
-.btn:active { transform: scale(0.97); } /* Тактильный отклик на мобилках */
+.btn:active { transform: scale(0.97); }
 .btn-primary { background: var(--cz-yellow); color: #000; box-shadow: 0 4px 15px var(--cz-yellow-glow); }
 .btn-primary:hover { background: var(--cz-yellow-hover); transform: translateY(-2px); box-shadow: 0 8px 25px var(--cz-yellow-glow); }
 .btn-primary:active { transform: translateY(0) scale(0.97); }
@@ -115,7 +116,6 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .marketplaces-strip { margin-top: 80px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
 .mp-title { font-size: 14px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 30px; }
 .mp-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 50px; }
-/* Общий класс для всех логотипов - делает их серо-белыми, а при наведении возвращает цвет */
 .fandom-logo { height: 42px; filter: grayscale(100%) brightness(200%); opacity: 0.6; transition: all 0.3s ease; cursor: pointer; }
 .fandom-logo:hover { filter: none !important; opacity: 1 !important; transform: scale(1.08); }
 
@@ -141,7 +141,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .cat-card h4 { font-size: 18px; font-weight: 700; color: #fff; transition: 0.3s; }
 .cat-card:hover h4 { color: var(--cz-yellow); }
 
-/* ─── НОВЫЙ БЛОК ПРОЦЕСС РАБОТЫ С ИКОНКАМИ ─── */
+/* ─── ПРОЦЕСС РАБОТЫ ─── */
 .process-section { padding: 110px 5%; max-width: 1400px; margin: 0 auto; }
 .process-title { font-family: 'Unbounded', sans-serif; font-size: clamp(28px, 4vw, 36px); font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 40px; line-height: 1.2; }
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
@@ -157,76 +157,25 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .partner-card { background: #fff; border-radius: 16px; padding: 20px 30px; position: relative; display: flex; align-items: center; gap: 20px; min-width: 300px; transition: transform 0.3s; cursor: default; flex: 1; }
 .partner-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
 .partner-dot { position: absolute; top: 15px; right: 15px; width: 10px; height: 10px; background: #FF85BE; border-radius: 50%; }
-/* Лого ЧЗ */
 .cz-logo-wrap { display: flex; align-items: center; gap: 10px; }
 .cz-icon { width: 36px; height: 36px; background: #FDE02F; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 .cz-icon svg { width: 22px; height: 22px; stroke: #000; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
 .cz-texts { display: flex; flex-direction: column; justify-content: center; }
 .cz-title { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 900; color: #000; line-height: 1; margin-bottom: 2px; }
 .cz-sub { font-size: 7px; font-weight: 700; color: #666; text-transform: uppercase; line-height: 1.1; }
-/* Лого ЦРПТ */
 .crpt-logo-wrap { display: flex; align-items: center; gap: 10px; }
 .crpt-icon { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 900; color: #005BFF; line-height: 0.9; }
 .crpt-sub { font-size: 9px; font-weight: 700; color: #005BFF; text-transform: uppercase; line-height: 1.1; }
 
 /* ─── БЛОК ТЕКШЕР ─── */
-.teksher-new-container {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 32px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-}
-.teksher-new-header {
-  padding: 60px 5% 30px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
-}
-.teksher-badge {
-  display: inline-block;
-  background: rgba(34, 158, 217, 0.1);
-  color: var(--tk-blue);
-  border: 1px solid rgba(34, 158, 217, 0.3);
-  font-size: 13px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  padding: 8px 24px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-.teksher-new-header h2 {
-  font-family: 'Unbounded', sans-serif;
-  font-size: clamp(30px, 4vw, 48px);
-  font-weight: 900;
-  margin-bottom: 20px;
-  color: #fff;
-  line-height: 1.2;
-}
-.teksher-new-header h2 span { 
-  color: var(--tk-blue); 
-}
-.teksher-new-header p {
-  font-size: clamp(16px, 2vw, 18px);
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.teksher-btn {
-  background: var(--tk-blue);
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(34, 158, 217, 0.3);
-  padding: 18px 48px;
-  font-size: 16px;
-  width: auto;
-}
-.teksher-btn:hover {
-  background: #1c8ac2;
-  box-shadow: 0 8px 25px rgba(34, 158, 217, 0.5);
-  transform: translateY(-2px);
-}
+.teksher-new-container { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 32px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+.teksher-new-header { padding: 60px 5% 30px; text-align: center; max-width: 900px; margin: 0 auto; }
+.teksher-badge { display: inline-block; background: rgba(34, 158, 217, 0.1); color: var(--tk-blue); border: 1px solid rgba(34, 158, 217, 0.3); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 24px; border-radius: 100px; margin-bottom: 24px; }
+.teksher-new-header h2 { font-family: 'Unbounded', sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 900; margin-bottom: 20px; color: #fff; line-height: 1.2; }
+.teksher-new-header h2 span { color: var(--tk-blue); }
+.teksher-new-header p { font-size: clamp(16px, 2vw, 18px); color: var(--text-muted); line-height: 1.6; }
+.teksher-btn { background: var(--tk-blue); color: #fff; box-shadow: 0 4px 15px rgba(34, 158, 217, 0.3); padding: 18px 48px; font-size: 16px; width: auto; }
+.teksher-btn:hover { background: #1c8ac2; box-shadow: 0 8px 25px rgba(34, 158, 217, 0.5); transform: translateY(-2px); }
 .teksher-btn:active { transform: translateY(0) scale(0.97); }
 
 /* ─── ТАРИФЫ ─── */
@@ -300,7 +249,6 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 .modal-overlay.active { opacity: 1; pointer-events: all; }
 .modal-content { background: var(--bg-card); width: 100%; max-width: 480px; padding: 48px 40px; border-radius: 32px; border: 1px solid var(--border-color); text-align: center; position: relative; transform: scale(0.95); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 .modal-overlay.active .modal-content { transform: scale(1); }
-/* Увеличенная зона клика на крестике для мобилок */
 .modal-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.05); border: none; color: #fff; font-size: 24px; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
 .modal-close:hover { background: rgba(255,255,255,0.1); }
 
@@ -312,25 +260,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 .m-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(37, 211, 102, 0.5); }
 
 /* ─── ВЫЕЗЖАЮЩИЙ СИНИЙ TG-POPUP ─── */
-.tg-scroll-popup {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: var(--popup-blue);
-  width: 100%;
-  max-width: 600px;
-  border-radius: 24px;
-  padding: 40px 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  z-index: 9998;
-  box-shadow: 0 20px 50px rgba(0, 102, 255, 0.4);
-  transform: translateX(120%);
-  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  overflow: hidden;
-}
+.tg-scroll-popup { position: fixed; bottom: 30px; right: 30px; background: var(--popup-blue); width: 100%; max-width: 600px; border-radius: 24px; padding: 40px 50px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; z-index: 9998; box-shadow: 0 20px 50px rgba(0, 102, 255, 0.4); transform: translateX(120%); transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; }
 .tg-scroll-popup.show { transform: translateX(0); }
 .tg-scroll-close { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; opacity: 0.7; transition: 0.2s; z-index: 10; padding: 5px; }
 .tg-scroll-close:hover { opacity: 1; }
@@ -418,13 +348,57 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 }
 
 @media (max-width: 480px) {
+  /* Прячем телефон, чтобы освободить место */
   .nav-phone { display: none; } 
+  
+  /* Уменьшаем логотип и кнопки языков для узких экранов */
+  .nav-logo { font-size: 18px; }
+  .nav-logo span { font-size: 16px; padding: 2px 4px; }
+  .lang-btn { padding: 4px 6px; font-size: 11px; }
+  .lang-switcher { margin-right: 5px; }
+
+  /* Кнопки в первом экране */
   .hero-btns { flex-direction: column; width: 100%; }
   .hero-btns .btn { width: 100%; } 
   .f-val { font-size: 12px; padding: 4px 6px; } 
-  .lang-switcher { margin-right: 8px; }
+
+  /* Чиним VIP тариф, чтобы текст не вылезал */
+  .p-card.vip .p-mo { font-size: 26px !important; }
+  [data-i18n="pr-vip-badge"] { font-size: 16px !important; padding: 6px 12px !important; }
+  .vip-btn { font-size: 14px; padding: 14px 20px; width: 100%; }
+
+  /* Уменьшаем всплывающий Telegram-попап, чтобы он не закрывал весь экран */
+  .tg-scroll-popup { 
+    bottom: 15px; 
+    right: 15px; 
+    max-width: calc(100% - 30px); 
+    padding: 25px 20px; 
+    border-radius: 16px;
+  }
+  .tg-scroll-title { font-size: 16px; margin-bottom: 16px; line-height: 1.4; }
+  .tg-scroll-btn { padding: 12px 20px; font-size: 14px; width: 100%; text-align: center; }
+  .tg-scroll-close { top: 10px; right: 10px; font-size: 24px; }
 }
 </style>
+<!-- Микроразметка для поисковиков -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "KrasMatrix",
+  "description": "Услуги маркировки товаров в системе Честный ЗНАК и Текшер KG под ключ. Автоматизация для поставщиков Wildberries и Ozon.",
+  "url": "https://krasmatrix.com",
+  "telephone": "+79933717770",
+  "priceRange": "от 23290 RUB",
+  "areaServed": "RU",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://krasmatrix.com/#pricing",
+    "priceCurrency": "RUB",
+    "price": "23290"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -536,7 +510,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 </section>
 
 <section class="section reveal" id="categories">
-  <h2 class="section-title" data-i18n="cat-title">Работаем со всеми <span>категориями</span></h2>
+  <h2 class="section-title" data-i18n="cat-title">Категории товаров для <span>маркировки</span></h2>
   <p class="section-subtitle" data-i18n="cat-sub">Готовые решения «под ключ» для каждой обязательной товарной группы.</p>
   
   <div class="cat-container">
@@ -635,7 +609,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 </section>
 
 <section class="process-section reveal">
-  <h2 class="process-title" data-i18n="proc-title">ПРОЦЕСС РАБОТЫ</h2>
+  <h2 class="process-title" data-i18n="proc-title">Процесс маркировки Честный ЗНАК</h2>
   <div class="process-grid">
     <div class="process-card">
       <div class="process-dot"></div>
@@ -743,7 +717,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 
 <section class="pricing-section reveal" id="pricing">
   <div class="pr-header">
-    <h2 data-i18n="pr-title">КОМПЛЕКС</h2>
+    <h2 data-i18n="pr-title">Тарифы на услуги маркировки</h2>
     <p data-i18n="pr-desc">КИЗы включены в тарифы, пополнение личного кабинета <span>0,61₽/КИЗ</span></p>
   </div>
 
@@ -899,11 +873,11 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "hero-p": "Снимаем рутину с селлеров и импортеров. Правильный ввод в оборот, создание карточек и привязка УПД для отгрузки на маркетплейсы без штрафов.",
       "hero-btn": "Начать работу",
       "mp-title": "Работаем с маркетплейсами",
-      "cat-title": "Работаем со всеми <span>категориями</span>",
+      "cat-title": "Категории товаров для <span>маркировки</span>",
       "cat-sub": "Готовые решения «под ключ» для каждой обязательной товарной группы.",
       "tab-nonfood": "👕 Непродовольственные", "tab-food": "🛒 Продукты питания", "tab-health": "✨ Здоровье и Косметика",
       "c-clothes": "Одежда и текстиль", "c-shoes": "Обувь", "c-tires": "Шины и покрышки", "c-water": "Упакованная вода", "c-feed": "Корма для животных", "c-bads": "БАДы", "c-perfume": "Парфюмерия и Косметика", "c-med": "Медицинские изделия",
-      "proc-title": "ПРОЦЕСС РАБОТЫ",
+      "proc-title": "Процесс маркировки Честный ЗНАК",
       "proc-1": "Регистрируем личный<br>кабинет в системе<br>«Честный знак»",
       "proc-2": "Описываем карточки<br>каждого товара<br>и проходим модерацию",
       "proc-3": "Заказываем маркировку<br>товара в нужном<br>количестве",
@@ -914,7 +888,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "tek-badge": "Первые в РФ", "tek-title": "Официальная интеграция с<br><span>Текшер KG</span>",
       "tek-desc": "Мы — первая IT-компания в России, реализовавшая бесшовную работу с государственной системой маркировки Кыргызстана. Настраиваем ЭДО, легально вводим в оборот и гарантируем, что ваша партия пройдет таможню и будет принята маркетплейсами.",
       "tek-btn": "Подключить интеграцию",
-      "pr-title": "КОМПЛЕКС", "pr-desc": "КИЗы включены в тарифы, пополнение личного кабинета <span>0,61₽/КИЗ</span>",
+      "pr-title": "Тарифы на услуги маркировки", "pr-desc": "КИЗы включены в тарифы, пополнение личного кабинета <span>0,61₽/КИЗ</span>",
       "pr-1m": "1 месяц", "pr-3m": "3 месяца", "pr-6m": "6 месяцев", "pr-12m": "12 месяцев",
       "pr-select": "Выбрать", "pr-hit": "ХИТ СЕЛЛЕРОВ",
       "pr-sub-3": "20 996₽/мес", "pr-sub-6": "18 665₽/мес", "pr-sub-12": "16 249₽/мес",
@@ -941,13 +915,13 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "cat-sub": "Turnkey solutions for every mandatory product group.",
       "tab-nonfood": "👕 Non-food", "tab-food": "🛒 Food products", "tab-health": "✨ Health & Beauty",
       "c-clothes": "Clothing & textiles", "c-shoes": "Shoes", "c-tires": "Tires", "c-water": "Packaged water", "c-feed": "Animal feed", "c-bads": "Supplements", "c-perfume": "Perfumery & Cosmetics", "c-med": "Medical devices",
-      "proc-title": "WORK PROCESS",
+      "proc-title": "Honest ZNAK Labeling Process",
       "proc-1": "Register a personal<br>account in the<br>«Honest ZNAK» system", "proc-2": "Describe product<br>cards and pass<br>moderation", "proc-3": "Order the required<br>amount of<br>labeling codes", "proc-4": "Enter and withdraw<br>products from<br>circulation", "proc-5": "Generate and sign<br>the UPD", "proc-6": "Save your time<br>on product<br>labeling",
       "cz-sub": "national digital<br>labeling system", "crpt-sub": "Center for Research<br>in Perspective<br>Technologies", "tek-logo": "TEKSHER",
       "tek-badge": "First in the RF", "tek-title": "Official integration with<br><span>Teksher KG</span>",
       "tek-desc": "We are the first IT company in Russia to implement seamless work with the state labeling system of Kyrgyzstan. We set up EDI, legally put products into circulation, and guarantee that your batch will pass customs and be accepted by marketplaces.",
       "tek-btn": "Connect integration",
-      "pr-title": "COMPLEX", "pr-desc": "Identification marks included in tariffs, account top-up <span>0.61₽/mark</span>",
+      "pr-title": "Labeling Services Pricing", "pr-desc": "Identification marks included in tariffs, account top-up <span>0.61₽/mark</span>",
       "pr-1m": "1 month", "pr-3m": "3 months", "pr-6m": "6 months", "pr-12m": "12 months",
       "pr-select": "Select", "pr-hit": "BESTSELLER",
       "pr-sub-3": "20 996₽/mo", "pr-sub-6": "18 665₽/mo", "pr-sub-12": "16 249₽/mo",
@@ -974,13 +948,13 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "cat-sub": "Ар бир милдеттүү товардык топ үчүн «ачкычка чейин» даяр чечимдер.",
       "tab-nonfood": "👕 Азык-түлүк эмес", "tab-food": "🛒 Азык-түлүк", "tab-health": "✨ Ден-соолук жана Косметика",
       "c-clothes": "Кийим жана текстиль", "c-shoes": "Бут кийим", "c-tires": "Дөңгөлөктөр", "c-water": "Таңгакталган суу", "c-feed": "Жаныбарлар тоюту", "c-bads": "БАДдар", "c-perfume": "Парфюмерия жана Косметика", "c-med": "Медициналык буюмдар",
-      "proc-title": "ИШ ПРОЦЕССИ",
+      "proc-title": "Честный ЗНАК маркировкалоо процесси",
       "proc-1": "«Честный знак»<br>системасында жеке<br>кабинетти каттайбыз", "proc-2": "Ар бир товардын<br>карточкаларын сүрөттөп,<br>модерациядан өткөрөбүз", "proc-3": "Керектүү санда<br>товардын маркировкасын<br>буйрутма кылабыз", "proc-4": "Товарды жүгүртүүгө<br>киргизебиз жана<br>чыгарабыз", "proc-5": "УПД түзүп,<br>кол коёбуз", "proc-6": "Товарларды маркировкалоодо<br>убактыңызды<br>үнөмдөйбүз",
       "cz-sub": "улуттук санариптик<br>маркировкалоо системасы", "crpt-sub": "Перспективалуу<br>технологияларды өнүктүрүү<br>борбору", "tek-logo": "ТЕКШЕР",
       "tek-badge": "РФтеги биринчи", "tek-title": "<span>Текшер KG</span> менен<br>расмий интеграция",
       "tek-desc": "Биз — Кыргызстандын мамлекеттик маркировкалоо системасы менен үзгүлтүксүз ишти ишке ашырган Россиядагы биринчи IT-компаниябыз. ЭДОну жөнгө салабыз, мыйзамдуу жүгүртүүгө киргизебиз жана сиздин партияңыз бажыдан өтүп, маркетплейстерде кабыл алынарына кепилдик беребиз.",
       "tek-btn": "Интеграцияны кошуу",
-      "pr-title": "КОМПЛЕКС", "pr-desc": "КИЗдер тарифтерге киргизилген, жеке кабинетти толуктоо <span>0,61₽/КИЗ</span>",
+      "pr-title": "Маркировкалоо тарифтери", "pr-desc": "КИЗдер тарифтерге киргизилген, жеке кабинетти толуктоо <span>0,61₽/КИЗ</span>",
       "pr-1m": "1 ай", "pr-3m": "3 ай", "pr-6m": "6 ай", "pr-12m": "12 ай",
       "pr-select": "Тандоо", "pr-hit": "ХИТ САТУУЧУЛАР",
       "pr-sub-3": "20 996₽/ай", "pr-sub-6": "18 665₽/ай", "pr-sub-12": "16 249₽/ай",
