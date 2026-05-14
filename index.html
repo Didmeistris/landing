@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Интеграция Честный ЗНАК и Текшер KG под ключ. Автоматизация для селлеров Wildberries и Ozon. Быстрый ввод в оборот без штрафов.">
 <title>KrasMatrix — Маркировка Честный ЗНАК под ключ</title>
+<!-- Иконка сайта (Favicon) -->
+<link rel="icon" href="https://optim.tildacdn.com/tild3462-6330-4231-b334-316263333635/-/format/webp/ChatGPT_Image_18__20.png.webp" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
@@ -106,7 +108,6 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .hero { padding: 220px 5% 80px; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at 80% 20%, rgba(253, 224, 47, 0.08) 0%, transparent 40%); position: relative; }
 .hero-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; width: 100%; }
 .hero-text { text-align: left; }
-.hero-tag { display: inline-block; padding: 8px 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 100px; font-size: 13px; font-weight: 700; color: var(--cz-yellow); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
 .hero h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(40px, 5.5vw, 64px); font-weight: 900; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; }
 .hero p { font-size: 20px; color: var(--text-muted); margin-bottom: 40px; line-height: 1.5; max-width: 600px; }
 .hero-btns { display: flex; gap: 16px; }
@@ -362,6 +363,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   .nav-phone { font-size: 14px; }
   .btn { padding: 12px 20px; font-size: 14px; }
 }
+
 @media (max-width: 1024px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-text { text-align: center; margin: 0 auto; }
@@ -373,22 +375,60 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   .news-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 992px) {
-  .nav-links, .nav-actions .btn { display: none; }
-  .burger-btn { display: block; }
+  .nav-logo, .nav-actions { position: relative; z-index: 1001; }
+  
+  .nav-links {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(12, 14, 18, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  .nav-links.active {
+    transform: translateY(0);
+  }
+  .nav-links a { font-size: 20px; }
+  
+  .nav-actions .btn { display: none; }
+  .burger-btn { display: block; position: relative; z-index: 1001; }
 }
+
 @media (max-width: 768px) {
   .hero { padding-top: 150px; }
+  .hero h1 { font-size: clamp(28px, 8vw, 40px); }
+  .floating-cube { max-width: 250px; }
+  
   .cat-pane, .cards-wrap, .news-grid, .footer-grid, .process-grid { grid-template-columns: 1fr; }
   .p-card.vip { flex-direction: column; gap: 20px; text-align: center; padding: 30px 20px; }
+  
   .mp-grid { gap: 20px; }
   .mp-logo { font-size: 18px; }
+  
   .tg-scroll-title { font-size: 22px; max-width: 100%; }
   .tg-scroll-decor { opacity: 0.2; }
+  
   .teksher-new-header { padding: 50px 5% 30px; }
   
   .partners-grid { flex-direction: column; }
   .process-card { min-height: 160px; }
+  
+  .modal-content { padding: 32px 20px; }
+  .m-btn { font-size: 15px; padding: 16px; }
+}
+
+@media (max-width: 480px) {
+  .nav-phone { display: none; }
+  .pr-header h2 { font-size: 28px; }
+  .p-price { font-size: 32px; }
 }
 </style>
 </head>
@@ -467,7 +507,6 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 <section class="hero">
   <div class="hero-inner reveal">
     <div class="hero-text">
-      <div class="hero-tag">Официальный IT-интегратор</div>
       <h1>Маркировка<br><span>«Честный ЗНАК»</span><br>под ключ</h1>
       <p>Снимаем рутину с селлеров и импортеров. Правильный ввод в оборот, создание карточек и привязка УПД для отгрузки на маркетплейсы без штрафов.</p>
       <div class="hero-btns">
@@ -630,10 +669,28 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
         <div class="crpt-sub">Центр развития<br>перспективных<br>технологий</div>
       </div>
     </div>
+    
+    <!-- ДОБАВЛЕННЫЙ БЛОК ТЕКШЕР -->
+    <div class="partner-card">
+      <div class="partner-dot"></div>
+      <div class="cz-logo-wrap">
+        <div style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;">
+          <svg viewBox="0 0 32 32" width="30" height="30">
+            <path d="M9 13V9a2 2 0 0 1 2-2h3M20 7h3a2 2 0 0 1 2 2v3M9 19v3a2 2 0 0 0 2 2h3" stroke="#6b727a" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="4" stroke="#0078d4" stroke-width="3.5" fill="none"/>
+            <path d="M19.5 19.5l4 4" stroke="#0078d4" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="cz-texts">
+          <div class="cz-title" style="font-size: 18px; color: #282d32; letter-spacing: 0.5px;">ТЕКШЕР</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- БЛОК ТЕКШЕР (КАРТИНКА ЗАМЕНЕНА ПО ССЫЛКЕ ИЗ ГУГЛ ДИСКА) -->
+<!-- БЛОК ТЕКШЕР -->
 <section class="section reveal" id="teksher">
   <div class="teksher-new-container">
     <div class="teksher-new-header">
@@ -643,7 +700,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       <button onclick="openModal()" class="btn btn-primary teksher-btn">Подключить интеграцию</button>
     </div>
     <div class="teksher-new-image">
-      <img src="https://drive.google.com/uc?export=view&id=1ua8tM7H74F7urmZU4GgonOL-0mHeGseS" alt="Интеграция Текшер Логистика">
+      <img src="https://i.imgur.com/0fMf1bb.jpeg" alt="Интеграция Текшер Логистика">
     </div>
   </div>
 </section>
@@ -809,6 +866,24 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   function openModal() { document.getElementById('contactModal').classList.add('active'); }
   function closeModal() { document.getElementById('contactModal').classList.remove('active'); }
   document.getElementById('contactModal').addEventListener('click', e => { if(e.target === document.getElementById('contactModal')) closeModal(); });
+
+  // Логика работы мобильного меню (бургер)
+  const burgerBtn = document.querySelector('.burger-btn');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (burgerBtn && navLinks) {
+    burgerBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      burgerBtn.innerHTML = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        burgerBtn.innerHTML = '☰';
+      });
+    });
+  }
 
   function switchCategory(paneId, btn) {
     document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
