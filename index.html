@@ -103,7 +103,17 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .hero { padding: 220px 5% 80px; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; background: radial-gradient(circle at 80% 20%, rgba(253, 224, 47, 0.08) 0%, transparent 40%); position: relative; }
 .hero-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; width: 100%; }
 .hero-text { text-align: left; }
-.hero h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(36px, 5.5vw, 64px); font-weight: 900; line-height: 1.1; margin-bottom: 30px; text-transform: uppercase; }
+.hero h1 { 
+  font-family: 'Unbounded', sans-serif; 
+  /* УМЕНЬШЕН МИНИМАЛЬНЫЙ ШРИФТ ДО 26PX ДЛЯ КИРГИЗСКОГО ЯЗЫКА */
+  font-size: clamp(26px, 7vw, 64px); 
+  font-weight: 900; 
+  line-height: 1.1; 
+  margin-bottom: 30px; 
+  text-transform: uppercase; 
+  word-break: break-word; 
+  overflow-wrap: break-word;
+}
 .hero p { font-size: clamp(16px, 2vw, 20px); color: var(--text-muted); margin-bottom: 40px; line-height: 1.5; max-width: 600px; }
 .hero-btns { display: flex; gap: 16px; }
 
@@ -118,6 +128,10 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .mp-grid { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 50px; }
 .fandom-logo { height: 42px; filter: grayscale(100%) brightness(200%); opacity: 0.6; transition: all 0.3s ease; cursor: pointer; }
 .fandom-logo:hover { filter: none !important; opacity: 1 !important; transform: scale(1.08); }
+
+/* СПЕЦИАЛЬНЫЙ КЛАСС ДЛЯ ЧЕРНЫХ ЛОГОТИПОВ (ЯНДЕКС, ЯБЛОКО) */
+.fandom-logo.invert-logo { filter: grayscale(100%) brightness(0) invert(1); opacity: 0.6; }
+.fandom-logo.invert-logo:hover { filter: brightness(0) invert(1) !important; opacity: 1 !important; transform: scale(1.08); }
 
 /* ─── КАТЕГОРИИ ─── */
 .cat-container { display: flex; flex-direction: column; gap: 40px; }
@@ -291,12 +305,13 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   .cards-wrap { grid-template-columns: 1fr; } 
 }
 
+/* ИСПРАВЛЕНА ЛОГИКА МОБИЛЬНОГО МЕНЮ ДЛЯ ANDROID И IOS */
 @media (max-width: 992px) {
   .nav-logo, .nav-actions { position: relative; z-index: 1001; }
   
   .nav-links {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; left: 0; width: 100%; height: 100vh;
     background: rgba(12, 14, 18, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -304,11 +319,19 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
     justify-content: center;
     align-items: center;
     gap: 40px;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: all 0.3s ease-in-out;
     z-index: 1000;
   }
-  .nav-links.active { transform: translateY(0); }
+  .nav-links.active { 
+    opacity: 1; 
+    visibility: visible; 
+    pointer-events: all; 
+    transform: scale(1); 
+  }
   .nav-links a { font-size: 20px; padding: 10px; }
   
   .nav-actions .btn { display: none; }
@@ -355,7 +378,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   .nav-logo { font-size: 18px; }
   .nav-logo span { font-size: 16px; padding: 2px 4px; }
   .lang-btn { padding: 4px 6px; font-size: 11px; }
-  .lang-switcher { margin-right: 5px; }
+  .lang-switcher { margin-right: 12px; }
 
   /* Кнопки в первом экране */
   .hero-btns { flex-direction: column; width: 100%; }
@@ -367,7 +390,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   [data-i18n="pr-vip-badge"] { font-size: 16px !important; padding: 6px 12px !important; }
   .vip-btn { font-size: 14px; padding: 14px 20px; width: 100%; }
 
-  /* Уменьшаем всплывающий Telegram-попап, чтобы он не закрывал весь экран */
+  /* Уменьшаем всплывающий Telegram-попап */
   .tg-scroll-popup { 
     bottom: 15px; 
     right: 15px; 
@@ -380,7 +403,6 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   .tg-scroll-close { top: 10px; right: 10px; font-size: 24px; }
 }
 </style>
-<!-- Микроразметка для поисковиков -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -497,13 +519,13 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
         <img src="https://ru.wikipedia.org/wiki/Special:FilePath/OZON_2019.svg" alt="Ozon" class="fandom-logo">
       </div>
       <div class="mp-logo">
-        <img src="https://ru.wikipedia.org/wiki/Special:FilePath/Yandex_Market_cropp_logo.svg" alt="Yandex Market" class="fandom-logo" style="height: 30px;">
+        <img src="https://ru.wikipedia.org/wiki/Special:FilePath/Yandex_Market_cropp_logo.svg" alt="Yandex Market" class="fandom-logo invert-logo" style="height: 30px;">
       </div>
       <div class="mp-logo">
         <img src="https://ru.wikipedia.org/wiki/Special:FilePath/Мегамаркет_логотип_2023.png" alt="Megamarket" class="fandom-logo" style="height: 25px;">
       </div>
       <div class="mp-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/ru/8/86/Gold_apple_2022_logo.png" alt="Золотое Яблоко" class="fandom-logo" style="height: 30px;">
+        <img src="https://upload.wikimedia.org/wikipedia/ru/8/86/Gold_apple_2022_logo.png" alt="Золотое Яблоко" class="fandom-logo invert-logo" style="height: 30px;">
       </div>
     </div>
   </div>
