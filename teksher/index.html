@@ -3,66 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Операционное сопровождение в Teksher | KrasMatrix Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>Сопровождение в Teksher | KrasMatrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --primary: #059669; --dark: #0f172a; --text: #334155; --light: #f8fafc; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Lato', sans-serif; color: var(--text); background: var(--light); line-height: 1.6; }
-        header { background: white; padding: 20px 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: var(--dark); text-decoration: none; }
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 100px 20px; text-align: center; }
-        .hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(32px, 5vw, 56px); margin-bottom: 20px; }
-        .hero p { font-size: 20px; opacity: 0.9; max-width: 700px; margin: 0 auto; }
-        .main-content { max-width: 1100px; margin: -60px auto 60px; padding: 0 20px; }
-        .white-card { background: white; border-radius: 24px; padding: 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-bottom: 40px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .feature { padding: 30px; border-radius: 16px; background: #f1f5f9; border-left: 5px solid var(--primary); }
-        .feature i { color: var(--primary); font-size: 32px; margin-bottom: 15px; display: block; }
-        .feature h3 { font-family: 'Poppins', sans-serif; margin-bottom: 10px; color: var(--dark); }
-        .cta-section { text-align: center; padding: 60px 0; }
-        .btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; border-radius: 12px; text-decoration: none; font-weight: 700; transition: transform 0.2s; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(5,150,105,0.2); }
-        footer { padding: 40px; text-align: center; border-top: 1px solid #e2e8f0; color: #94a3b8; }
+        :root { --accent: #10b981; --bg: #0f172a; --card-bg: rgba(255, 255, 255, 0.03); }
+        /* Используй те же стили, что в блоке выше, изменив только --accent */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #050811; color: #fff; line-height: 1.6; }
+        header { padding: 25px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .logo { font-weight: 800; font-size: 24px; letter-spacing: -1px; text-decoration: none; color: #fff; }
+        .logo span { color: var(--accent); }
+        .hero { padding: 120px 20px 80px; text-align: center; background: radial-gradient(circle at top, #064e3b 0%, #050811 100%); }
+        .hero h1 { font-size: clamp(32px, 6vw, 64px); font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; line-height: 1.1; }
+        .hero p { font-size: 20px; color: #94a3b8; max-width: 700px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: -50px; }
+        .card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 40px; border-radius: 24px; transition: 0.3s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-5px); background: rgba(255,255,255,0.05); }
+        .card i { font-size: 32px; color: var(--accent); margin-bottom: 20px; display: block; }
+        .card h3 { font-size: 22px; margin-bottom: 15px; font-weight: 600; }
+        .card p { color: #94a3b8; font-size: 16px; }
+        .cta { text-align: center; padding: 80px 20px; }
+        .btn { background: var(--accent); color: #fff; padding: 18px 35px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 18px; transition: 0.3s; display: inline-block; }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); }
+        footer { padding: 40px; text-align: center; color: #475569; font-size: 14px; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <a href="/" class="logo">KRASMATRIX</a>
-            <a href="/#pricing" style="color: var(--primary); font-weight: 700; text-decoration: none;">Цены</a>
-        </div>
-    </header>
+    <header><a href="/" class="logo">KRAS<span>MATRIX</span></a></header>
     <section class="hero">
-        <h1>Операционная помощь в Teksher</h1>
-        <p>Ваш надежный партнер в Национальном каталоге Кыргызстана. Берем рутину на себя.</p>
+        <div class="container">
+            <h1>Сопровождение в Teksher</h1>
+            <p>Ваш операционный отдел в Кыргызстане. Полное ведение карточек и работы в Нацкаталоге КР под ключ.</p>
+        </div>
     </section>
-    <main class="main-content">
-        <div class="white-card">
-            <div class="grid">
-                <div class="feature">
-                    <i class="fa-solid fa-keyboard"></i>
-                    <h3>Работа руками</h3>
-                    <p>Никаких сложных настроек ПО с вашей стороны. Мы операционно ведем ваш кабинет и заводим карточки строго по регламентам КР.</p>
-                </div>
-                <div class="feature">
-                    <i class="fa-solid fa-globe"></i>
-                    <h3>Трансграничная торговля</h3>
-                    <p>Оформляем все необходимые процессы для легального перемещения промаркированного товара в Российскую Федерацию.</p>
-                </div>
-                <div class="feature">
-                    <i class="fa-solid fa-qrcode"></i>
-                    <h3>Выпуск кодов</h3>
-                    <p>Заказываем, валидируем и передаем вам полностью готовые к печати коды маркировки для любых категорий товаров.</p>
-                </div>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <h3>Нацкаталог КР</h3>
+                <p>Заведение карточек товаров согласно всем техническим регламентам системы Teksher и ГС1 Кыргызстан.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                <h3>Импорт в РФ</h3>
+                <p>Правильное оформление трансграничной передачи кодов для беспрепятственного ввоза товара на территорию России.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-user-gear"></i>
+                <h3>Ручное управление</h3>
+                <p>Берем на себя всю рутину по управлению кабинетом. Вам не нужно разбираться в технических тонкостях систем.</p>
             </div>
         </div>
-        <div class="cta-section">
-            <a href="/" class="btn">Вернуться на главную</a>
-        </div>
-    </main>
-    <footer>© 2026 KrasMatrix Premium. Экспертное сопровождение маркировки.</footer>
+    </div>
+    <section class="cta"><a href="/#pricing" class="btn">Рассчитать стоимость</a></section>
+    <footer>© 2026 KrasMatrix. Экспертный сервис маркировки.</footer>
 </body>
 </html>
