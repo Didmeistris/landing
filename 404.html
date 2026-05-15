@@ -1,47 +1,322 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Страница не найдена — KrasMatrix</title>
-<meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://krasmatrix.com/" />
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Manrope', sans-serif;
-    background: #0c0e12;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-  }
-  .wrap { max-width: 480px; }
-  .code { font-size: 96px; font-weight: 900; color: #FDE02F; line-height: 1; margin-bottom: 16px; }
-  h1 { font-size: 24px; margin-bottom: 12px; }
-  p { color: #94a1b2; margin-bottom: 32px; }
-  a {
-    display: inline-block;
-    background: #FDE02F;
-    color: #000;
-    font-weight: 700;
-    padding: 14px 32px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 15px;
-  }
-  a:hover { background: #ffea5c; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Страница не найдена | KrasMatrix</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main:    #0c0e12;
+      --bg-card:    #151820;
+      --border:     #262b36;
+      --yellow:     #FDE02F;
+      --yellow-glow:rgba(253,224,47,0.25);
+      --pink:       #FF107A;
+      --blue:       #229ED9;
+      --text:       #ffffff;
+      --muted:      #94a1b2;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg-main);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── фоновые декоры ─────────────────────────────── */
+    .bg-glow {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    }
+    .bg-glow::before {
+      content: '';
+      position: absolute;
+      top: -20%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse at center,
+        rgba(253,224,47,0.07) 0%,
+        rgba(255,16,122,0.04) 40%,
+        transparent 70%);
+    }
+    .bg-glow::after {
+      content: '';
+      position: absolute;
+      bottom: -10%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle,
+        rgba(34,158,217,0.06) 0%,
+        transparent 70%);
+    }
+
+    /* ── шапка ─────────────────────────────────────── */
+    .nav-logo {
+      position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
+      font-family: 'Unbounded', sans-serif;
+      font-size: 20px; font-weight: 900;
+      color: #fff; text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+      z-index: 10;
+    }
+    .nav-logo span {
+      background: var(--yellow); color: #000;
+      padding: 2px 6px; border-radius: 6px; font-size: 18px;
+    }
+
+    /* ── центральный контейнер ──────────────────────── */
+    .container-404 {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      padding: 20px;
+      max-width: 700px;
+      animation: fadeUp 0.8s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(30px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ── SVG кот + цифры ────────────────────────────── */
+    .illustration {
+      width: 100%;
+      max-width: 540px;
+      margin-bottom: 32px;
+      filter: drop-shadow(0 20px 60px rgba(253,224,47,0.12));
+      animation: floatCat 5s ease-in-out infinite;
+    }
+    @keyframes floatCat {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+
+    /* ── текст ──────────────────────────────────────── */
+    .label-404 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(13px, 2vw, 15px);
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+      background: rgba(253,224,47,0.08);
+      padding: 6px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(253,224,47,0.2);
+    }
+    h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(22px, 5vw, 36px);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--yellow); }
+    p.desc {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+
+    /* ── кнопки ─────────────────────────────────────── */
+    .btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      padding: 15px 32px;
+      border-radius: 12px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary {
+      background: var(--yellow); color: #000;
+      box-shadow: 0 4px 20px var(--yellow-glow);
+    }
+    .btn-primary:hover {
+      background: #ffea5c;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--yellow-glow);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #fff;
+    }
+    .btn-outline:hover {
+      background: var(--bg-card);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ── крошки снизу ───────────────────────────────── */
+    .hint {
+      position: fixed; bottom: 28px;
+      font-size: 13px; color: var(--muted);
+      z-index: 1;
+    }
+    .hint a { color: var(--blue); text-decoration: none; }
+    .hint a:hover { color: #fff; }
+
+    @media (max-width: 480px) {
+      .btns { flex-direction: column; align-items: center; width: 100%; }
+      .btn { width: 100%; justify-content: center; }
+      .nav-logo { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="code">404</div>
-    <h1>Страница не найдена</h1>
-    <p>Возможно, ссылка устарела или страница была перемещена.</p>
-    <a href="/">← Вернуться на главную</a>
+
+<div class="bg-glow"></div>
+
+<!-- Лого -->
+<a href="/" class="nav-logo">Kras<span>Matrix</span></a>
+
+<!-- Иллюстрация + текст -->
+<div class="container-404">
+
+  <!-- SVG: цифры 404 с котом внутри нуля -->
+  <svg class="illustration" viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" aria-label="Страница 404 с котом">
+
+    <!-- Левая 4 -->
+    <text x="20" y="230"
+      font-family="'Unbounded',sans-serif"
+      font-weight="900" font-size="220"
+      fill="#1a1d24" stroke="#262b36" stroke-width="1">4</text>
+    <!-- Правая 4 -->
+    <text x="350" y="230"
+      font-family="'Unbounded',sans-serif"
+      font-weight="900" font-size="220"
+      fill="#1a1d24" stroke="#262b36" stroke-width="1">4</text>
+
+    <!-- Ноль — жёлтый контур, кот внутри -->
+    <ellipse cx="284" cy="130" rx="102" ry="118"
+      fill="#151820" stroke="#FDE02F" stroke-width="5"/>
+
+    <!-- ── КОТ ── -->
+    <!-- Тело -->
+    <ellipse cx="284" cy="158" rx="48" ry="52" fill="#f0f0f0"/>
+    <!-- Полосы на теле -->
+    <path d="M252 140 Q284 135 316 140" stroke="#d4d4d4" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M248 155 Q284 150 320 155" stroke="#d4d4d4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M250 170 Q284 165 318 170" stroke="#d4d4d4" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Голова -->
+    <circle cx="284" cy="104" r="36" fill="#f0f0f0"/>
+    <!-- Полосы на голове -->
+    <path d="M270 90 Q284 85 298 90" stroke="#c8c8c8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M272 98 Q284 94 296 98" stroke="#c8c8c8" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Ушки -->
+    <polygon points="253,82 244,58 268,74" fill="#f0f0f0" stroke="#d4d4d4" stroke-width="1.5"/>
+    <polygon points="258,78 251,62 268,72" fill="#FFB3C6"/>
+    <polygon points="315,82 324,58 300,74" fill="#f0f0f0" stroke="#d4d4d4" stroke-width="1.5"/>
+    <polygon points="310,78 317,62 300,72" fill="#FFB3C6"/>
+
+    <!-- Глаза — закрытые (дуги, кот доволен) -->
+    <path d="M271 102 Q276 96 281 102" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M287 102 Q292 96 297 102" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- Нос -->
+    <ellipse cx="284" cy="110" rx="4" ry="3" fill="#FF9EB5"/>
+    <!-- Рот -->
+    <path d="M280 113 Q284 118 288 113" stroke="#888" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Усы -->
+    <line x1="256" y1="110" x2="278" y2="113" stroke="#aaa" stroke-width="1.5"/>
+    <line x1="256" y1="115" x2="278" y2="115" stroke="#aaa" stroke-width="1.5"/>
+    <line x1="290" y1="113" x2="312" y2="110" stroke="#aaa" stroke-width="1.5"/>
+    <line x1="290" y1="115" x2="312" y2="115" stroke="#aaa" stroke-width="1.5"/>
+
+    <!-- Лапы -->
+    <ellipse cx="255" cy="200" rx="20" ry="14" fill="#f0f0f0" stroke="#d4d4d4" stroke-width="1"/>
+    <ellipse cx="313" cy="200" rx="20" ry="14" fill="#f0f0f0" stroke="#d4d4d4" stroke-width="1"/>
+    <!-- Пальчики -->
+    <path d="M244 198 Q248 192 252 198" stroke="#d4d4d4" stroke-width="1.5" fill="none"/>
+    <path d="M252 195 Q256 189 260 195" stroke="#d4d4d4" stroke-width="1.5" fill="none"/>
+    <path d="M302 195 Q306 189 310 195" stroke="#d4d4d4" stroke-width="1.5" fill="none"/>
+    <path d="M310 198 Q314 192 318 198" stroke="#d4d4d4" stroke-width="1.5" fill="none"/>
+
+    <!-- Хвост — изогнутый -->
+    <path d="M330 195 Q370 160 355 120 Q345 90 370 80"
+      stroke="#d4d4d4" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Кончик хвоста жёлтый -->
+    <circle cx="370" cy="78" r="10" fill="#FDE02F"/>
+
+    <!-- Клубок ниток -->
+    <circle cx="248" cy="228" r="22" fill="#FF107A" opacity="0.85"/>
+    <circle cx="248" cy="228" r="22" fill="none" stroke="#ff4d9a" stroke-width="2" stroke-dasharray="6 4"/>
+    <path d="M232 215 Q248 224 264 215" stroke="#c00060" stroke-width="1.5" fill="none"/>
+    <path d="M228 225 Q248 230 268 225" stroke="#c00060" stroke-width="1.5" fill="none"/>
+    <!-- Нитка от клубка -->
+    <path d="M265 230 Q285 215 270 195" stroke="#FF107A" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Жёлтый акцент — маркировочный чип на ошейнике -->
+    <rect x="270" y="135" width="28" height="10" rx="5" fill="#FDE02F"/>
+    <text x="276" y="144" font-family="Manrope,sans-serif" font-weight="800" font-size="7" fill="#000">КОД</text>
+
+    <!-- Растение справа (декор) -->
+    <rect x="490" y="195" width="14" height="50" rx="4" fill="#1e2430"/>
+    <ellipse cx="497" cy="192" rx="18" ry="8" fill="#1e2430"/>
+    <path d="M497 195 Q520 160 510 130" stroke="#1e2430" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M510 158 Q540 150 535 130" stroke="#1e2430" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M497 175 Q475 155 478 130" stroke="#1e2430" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <!-- Лист с желтоватым оттенком -->
+    <path d="M497 195 Q520 160 510 130" stroke="#2a3040" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M510 158 Q540 150 535 130" stroke="#2a3040" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <path d="M497 175 Q475 155 478 130" stroke="#2a3040" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+    <!-- Горшок -->
+    <path d="M483 200 L511 200 L506 240 L488 240 Z" fill="#1e2430"/>
+    <rect x="480" y="196" width="34" height="8" rx="3" fill="#262b36"/>
+
+    <!-- Линия пола -->
+    <line x1="30" y1="245" x2="530" y2="245" stroke="#262b36" stroke-width="1.5"/>
+  </svg>
+
+  <div class="label-404">Ошибка 404</div>
+
+  <h1>Страница <span>не найдена</span></h1>
+
+  <p class="desc">
+    Котик искал эту страницу, но так и не смог её найти.<br>
+    Возможно, она была перемещена или удалена.
+  </p>
+
+  <div class="btns">
+    <a href="/" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/>
+      </svg>
+      На главную
+    </a>
+    <a href="/#pricing" class="btn btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+      </svg>
+      Тарифы
+    </a>
   </div>
+
+</div>
+
+<p class="hint">
+  Нужна маркировка?
+  <a href="/#pricing">Смотреть тарифы</a>
+  &nbsp;·&nbsp;
+  <a href="https://t.me/markirovka57" target="_blank" rel="noopener">Telegram</a>
+</p>
+
 </body>
 </html>
