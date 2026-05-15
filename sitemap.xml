@@ -8,23 +8,15 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ru" href="https://krasmatrix.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://krasmatrix.com/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="ky" href="https://krasmatrix.com/?lang=kg"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://krasmatrix.com/"/>
-  </url>
-
-  <url>
-    <loc>https://krasmatrix.com/#categories</loc>
-    <lastmod>2026-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://krasmatrix.com/?lang=en"/>
   </url>
 
   <url>
     <loc>https://krasmatrix.com/#teksher</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
@@ -35,17 +27,31 @@
   </url>
 
   <url>
+    <loc>https://krasmatrix.com/#categories</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://krasmatrix.com/#news</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://krasmatrix.com/#faq</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://krasmatrix.com/#marketplaces</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
