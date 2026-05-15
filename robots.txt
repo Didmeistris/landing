@@ -1,3 +1,18 @@
 User-agent: *
 Allow: /
+Disallow: /404.html
+
 Sitemap: https://krasmatrix.com/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Disallow: /404.html
+
+User-agent: Yandexbot
+Allow: /
+Disallow: /404.html
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Disallow: /404.html
