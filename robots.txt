@@ -1,18 +1,26 @@
 User-agent: *
 Allow: /
-
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
 Disallow: /*?*utm_
 
-Sitemap: https://krasmatrix.com/sitemap.xml
-
+# Настройки для Яндекса
 User-agent: Yandex
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*utm_
 Crawl-delay: 2
-Sitemap: https://krasmatrix.com/sitemap.xml
 
+# Настройки для Google
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*utm_
+
+# Ссылка на карту сайта
 Sitemap: https://krasmatrix.com/sitemap.xml
