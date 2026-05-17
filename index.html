@@ -9,9 +9,19 @@
 <link rel="icon" href="https://raw.githubusercontent.com/Didmeistris/landing/main/images/favicon.webp" type="image/webp">
 <link rel="shortcut icon" href="https://raw.githubusercontent.com/Didmeistris/landing/main/images/favicon.webp">
 <link rel="preload" href="https://raw.githubusercontent.com/Didmeistris/landing/main/images/cube.webp" as="image" type="image/webp">
+<link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+<link rel="dns-prefetch" href="https://api.allorigins.win">
+<link rel="dns-prefetch" href="https://telegram.org">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"></noscript>
+<style id="critical">
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0c0e12;color:#fff;margin:0;}
+.header-wrapper{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,14,18,.9);backdrop-filter:blur(16px);border-bottom:1px solid #262b36;}
+.reveal{opacity:0;transform:translateY(20px);}
+.reveal.active{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease;}
+</style>
 <style>
 /* ─── UX/UI ПЕРЕМЕННЫЕ И БАЗА ─── */
 :root {
@@ -707,6 +717,470 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   .cat-cz-pane.active{grid-template-columns:repeat(2,1fr)!important;}
 }
 </style>
+<style id="news-font-fix">
+.news-card,.news-card *,.news-source-badge,.news-grid{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif!important;
+}
+.news-card h4{
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:1.45!important;
+  color:#fff!important;
+  letter-spacing:-.01em!important;
+  margin:0!important;
+}
+.news-card p{
+  font-size:12px!important;
+  line-height:1.5!important;
+  color:rgba(255,255,255,.55)!important;
+  margin:0!important;
+}
+.news-card>span:last-child{
+  font-size:11px!important;
+  font-weight:600!important;
+  color:var(--cz-yellow)!important;
+}
+.news-source-badge{
+  font-size:9px!important;
+  font-weight:700!important;
+  letter-spacing:.06em!important;
+}
+</style>
+<style id="news-clean">
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.news-card{
+  background:var(--bg-card);
+  border:1px solid var(--border-color);
+  border-radius:14px;
+  padding:16px;
+  display:flex;flex-direction:column;gap:0;
+  text-decoration:none;color:inherit;
+  transition:border-color .2s,transform .2s;
+  cursor:pointer;
+}
+.news-card:hover{border-color:var(--cz-yellow);transform:translateY(-2px);}
+.nc-date{font-size:11px;color:rgba(255,255,255,.38);font-family:-apple-system,sans-serif;white-space:nowrap;}
+.nc-title{
+  font-size:14px;font-weight:600;color:#fff;
+  line-height:1.45;margin:0 0 10px 0;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  letter-spacing:-.01em;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+.nc-read{
+  font-size:11px;font-weight:700;color:var(--cz-yellow);
+  font-family:-apple-system,sans-serif;margin-top:auto;
+}
+@media(max-width:768px){.news-grid{grid-template-columns:1fr!important;}}
+@media(max-width:900px){.news-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+<style id="nav-flag-btns">
+/* Teksher KG nav button — тёмный фон, белый текст, цветная рамка */
+a#nav-teksher-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#111;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+  padding:5px 14px;border-radius:20px;
+  font-weight:800;font-size:13px;letter-spacing:.04em;
+  border:2px solid transparent;
+  background-clip:padding-box;
+  box-shadow:0 0 0 2px #C8102E;
+  animation:tek-glow 2.5s ease-in-out infinite;
+  text-decoration:none;white-space:nowrap;
+}
+a#nav-teksher-btn::before{
+  content:'';display:inline-block;width:12px;height:12px;border-radius:50%;
+  background:linear-gradient(135deg,#C8102E 50%,#F9C400 50%);
+  flex-shrink:0;
+}
+a#nav-teksher-btn:hover{background:#1a1a1a;box-shadow:0 0 0 2px #F9C400;}
+@keyframes tek-glow{
+  0%,100%{box-shadow:0 0 0 2px #C8102E,0 4px 14px rgba(200,16,46,.3);}
+  50%{box-shadow:0 0 0 2px #F9C400,0 4px 18px rgba(249,196,0,.35);}
+}
+/* KZ link */
+li a[href="#kz-import"]{
+  background:linear-gradient(90deg,#00AFCA,#FFE600)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  font-weight:700!important;
+}
+@supports not (-webkit-background-clip:text){
+  li a[href="#kz-import"]{color:#00AFCA!important;-webkit-text-fill-color:unset!important;background:none!important;}
+}
+</style>
+<style id="lang-fonts">
+:lang(en), [data-lang="en"] body { font-family: 'Plus Jakarta Sans', -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+:lang(ky), [data-lang="kg"] body { font-family: 'Noto Sans', -apple-system, Arial, sans-serif; }
+</style>
+<style id="teksher-promo-css">
+/* ── Teksher promo banner ── */
+.teksher-promo-wrap{padding:0 4% 40px;}
+.teksher-promo{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#1a0a0c 0%,#2c0d14 40%,#1a1205 100%);
+  border:1px solid rgba(200,16,46,.35);
+  border-radius:20px;padding:32px 36px;
+  display:flex;align-items:center;gap:32px;
+  box-shadow:0 8px 40px rgba(200,16,46,.15),inset 0 1px 0 rgba(249,196,0,.1);
+}
+.teksher-promo::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#C8102E,#F9C400,#C8102E);
+}
+.tp-flag-stripe{
+  position:absolute;right:-10px;top:0;bottom:0;width:6px;
+  background:linear-gradient(180deg,#C8102E 50%,#F9C400 50%);
+  opacity:.4;
+}
+.tp-body{flex:1;}
+.tp-badge{
+  display:inline-block;background:rgba(200,16,46,.2);border:1px solid rgba(200,16,46,.4);
+  color:#ff4d6d;font-size:11px;font-weight:800;letter-spacing:.1em;
+  padding:4px 12px;border-radius:20px;margin-bottom:12px;
+  font-family:-apple-system,sans-serif;
+}
+.tp-title{font-size:clamp(18px,2.5vw,26px);font-weight:800;color:#fff;line-height:1.3;margin:0 0 10px;}
+.tp-title span{color:#F9C400;}
+.tp-desc{font-size:14px;color:rgba(255,255,255,.65);margin:0 0 20px;line-height:1.6;}
+.tp-stats{display:flex;gap:24px;}
+.tp-stat{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.tp-stat strong{font-size:20px;font-weight:800;color:#F9C400;line-height:1;}
+.tp-stat span{font-size:11px;color:rgba(255,255,255,.5);margin-top:3px;}
+.tp-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;flex-shrink:0;}
+.tp-kg-flag{font-size:52px;line-height:1;filter:drop-shadow(0 4px 12px rgba(200,16,46,.4));}
+.tp-cta{
+  background:linear-gradient(90deg,#C8102E,#F9C400);
+  color:#fff;font-weight:800;font-size:14px;
+  padding:12px 24px;border-radius:12px;text-decoration:none;
+  white-space:nowrap;box-shadow:0 4px 16px rgba(200,16,46,.4);
+  transition:transform .2s,box-shadow .2s;
+}
+.tp-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,16,46,.5);}
+
+@media(max-width:768px){
+  .teksher-promo{flex-direction:column;padding:24px;gap:20px;text-align:center;}
+  .tp-stats{justify-content:center;}
+  .tp-cta-wrap{flex-direction:row;width:100%;justify-content:center;}
+  .tp-kg-flag{font-size:36px;}
+  .teksher-promo-wrap{padding:0 4% 24px;}
+}
+
+/* ── MOBILE GLOBAL ── */
+@media(max-width:480px){
+  :root{--section-pad:48px 5%;}
+  .section{padding:48px 5%!important;}
+  .hero h1{font-size:clamp(24px,7vw,36px)!important;}
+  .hero-btns{gap:10px!important;}
+  .btn{width:100%;justify-content:center;box-sizing:border-box;}
+  .pricing-grid{grid-template-columns:1fr!important;}
+  .cat-cz-sidebar{flex-wrap:nowrap;}
+  .cat-cz-tab{font-size:12px!important;padding:8px 12px!important;}
+  .tp-stats{gap:16px;}
+  .tp-stat strong{font-size:16px;}
+  /* Nav mobile */
+  .nav-actions{gap:6px!important;}
+  .nav-phone{font-size:12px!important;}
+  a#nav-teksher-btn{font-size:11px!important;padding:4px 10px!important;}
+}
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none){
+  .btn, .tp-cta, a#nav-teksher-btn{-webkit-tap-highlight-color:transparent;}
+  body{-webkit-text-size-adjust:100%;}
+}
+
+/* Android Chrome */
+@media screen and (max-width:768px){
+  input,textarea,select{font-size:16px!important;} /* prevent zoom */
+  .header-wrapper{position:fixed;-webkit-backface-visibility:hidden;}
+}
+</style>
+<style id="header-redesign">
+/* ══ HEADER FOUNDATION ══ */
+.header-wrapper{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(10,11,15,0.88);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  transition:box-shadow .3s,background .3s;
+}
+.header-wrapper::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,200,0,0.35) 30%,rgba(255,255,255,0.12) 60%,transparent 100%);
+}
+.header-wrapper.scrolled{
+  background:rgba(8,9,12,0.97);
+  box-shadow:0 4px 32px rgba(0,0,0,0.6);
+}
+
+/* ══ NAV LAYOUT ══ */
+nav{
+  padding:0 5%;max-width:1440px;margin:0 auto;
+  display:flex;align-items:center;
+  gap:0;height:62px;
+}
+
+/* ══ LOGO ══ */
+.nav-logo{
+  font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:900;
+  color:#fff;text-decoration:none;
+  display:flex;align-items:center;gap:3px;
+  letter-spacing:-0.5px;white-space:nowrap;flex-shrink:0;
+  margin-right:36px;
+}
+.nav-logo .logo-accent{
+  background:linear-gradient(135deg,#FFD700,#FFA500);
+  color:#000;border-radius:6px;padding:2px 7px;
+  font-weight:900;letter-spacing:0;
+}
+
+/* ══ NAV LINKS ══ */
+.nav-links{
+  display:flex;align-items:center;gap:2px;
+  list-style:none;margin:0;padding:0;flex:1;
+}
+.nav-links li a{
+  position:relative;display:inline-flex;align-items:center;
+  color:rgba(255,255,255,0.65);
+  font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;padding:8px 12px;border-radius:8px;
+  transition:color .2s,background .2s;white-space:nowrap;
+}
+.nav-links li a::after{
+  content:'';position:absolute;bottom:4px;left:12px;right:12px;height:1.5px;
+  background:var(--cz-yellow);border-radius:2px;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s cubic-bezier(.4,0,.2,1);
+}
+.nav-links li a:hover{color:#fff;background:rgba(255,255,255,0.05);}
+.nav-links li a:hover::after{transform:scaleX(1);}
+.nav-links li a.active-nav{color:#fff;}
+.nav-links li a.active-nav::after{transform:scaleX(1);}
+
+/* ══ KZ LINK ══ */
+li a[href="#kz-import"]{
+  background:linear-gradient(90deg,#00AFCA,#FFE600)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+  font-weight:700!important;
+}
+li a[href="#kz-import"]::after{background:linear-gradient(90deg,#00AFCA,#FFE600)!important;}
+@supports not (-webkit-background-clip:text){
+  li a[href="#kz-import"]{color:#00AFCA!important;background:none!important;-webkit-text-fill-color:unset!important;}
+}
+
+/* ══ NAV ACTIONS ══ */
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0;margin-left:12px;}
+
+/* ══ LANG SWITCHER ══ */
+.lang-switcher{
+  display:flex;align-items:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:3px;border-radius:10px;gap:1px;
+}
+.lang-btn{
+  background:transparent;border:none;
+  color:rgba(255,255,255,0.45);
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  padding:5px 9px;border-radius:7px;
+  cursor:pointer;transition:all .2s;
+}
+.lang-btn:hover{color:rgba(255,255,255,0.8);}
+.lang-btn.active{
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  box-shadow:0 1px 4px rgba(0,0,0,0.3);
+}
+.lang-btn#lang-kg.active{
+  background:linear-gradient(90deg,rgba(200,16,46,0.7),rgba(249,196,0,0.7));
+  color:#fff;
+}
+
+/* ══ PHONE ══ */
+.nav-phone{
+  color:rgba(255,255,255,0.85);font-weight:700;font-size:14px;
+  text-decoration:none;white-space:nowrap;letter-spacing:-.01em;
+  padding:7px 14px;border-radius:10px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  transition:all .2s;
+}
+.nav-phone:hover{color:#fff;border-color:rgba(255,255,255,0.18);background:rgba(255,255,255,0.07);}
+
+/* ══ CTA BUTTON ══ */
+.btn-nav-cta,.nav-cta-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,#FFD700,#FFA500);
+  color:#000!important;font-weight:800;font-size:13px;
+  padding:9px 18px;border-radius:10px;
+  text-decoration:none;white-space:nowrap;
+  box-shadow:0 2px 16px rgba(255,180,0,0.3);
+  transition:transform .2s,box-shadow .2s;
+  border:none;cursor:pointer;
+}
+.btn-nav-cta:hover,.nav-cta-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 20px rgba(255,180,0,0.45);
+}
+
+/* ══ MOBILE ══ */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .nav-phone{display:none;}
+  nav{padding:0 5%;height:56px;}
+}
+</style>
+
+<script>
+/* Scroll-aware header shadow */
+window.addEventListener('scroll',function(){
+  var h=document.querySelector('.header-wrapper');
+  if(!h) return;
+  h.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+</script>
+<style id="kz-section-redesign">
+/* ══ KZ SECTION WRAP ══ */
+.kz-wrap{
+  max-width:1340px;margin:0 auto;
+  padding:90px 5%;
+}
+
+/* ══ BADGE ══ */
+.kz-badge-row{margin-bottom:32px;}
+.kz-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(0,119,51,0.1);
+  border:1px solid rgba(0,175,80,0.28);
+  border-radius:30px;padding:8px 20px;
+  backdrop-filter:blur(8px);
+}
+.kz-badge-flag{font-size:18px;line-height:1;}
+.kz-badge-text{
+  font-size:11px;font-weight:800;letter-spacing:.12em;
+  color:#00c853;text-transform:uppercase;
+}
+
+/* ══ GRID ══ */
+.kz-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:72px;align-items:center;
+}
+
+/* ══ LEFT ══ */
+.kz-h2{
+  font-size:clamp(32px,4vw,56px);font-weight:900;
+  line-height:1.1;margin:0 0 20px;color:#fff;
+  letter-spacing:-.02em;
+}
+.kz-h2-accent{
+  background:linear-gradient(90deg,#FFD700,#FFA500);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.kz-p{
+  font-size:15px;line-height:1.75;
+  color:rgba(255,255,255,0.62);
+  margin:0 0 28px;max-width:480px;
+}
+.kz-p strong{color:#fff;}
+
+/* ══ CHECKLIST ══ */
+.kz-checks{
+  list-style:none;margin:0 0 36px;padding:0;
+  display:flex;flex-direction:column;gap:12px;
+}
+.kz-checks li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:14px;color:rgba(255,255,255,0.75);
+  line-height:1.5;
+}
+.kz-check-icon{
+  flex-shrink:0;width:22px;height:22px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,200,83,0.15);
+  border:1px solid rgba(0,200,83,0.3);
+  border-radius:50%;
+  color:#00c853;font-size:11px;font-weight:800;
+  margin-top:1px;
+}
+
+/* ══ CTA ══ */
+.kz-cta{
+  display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg,#00875A,#00c853);
+  color:#fff;font-weight:800;font-size:15px;
+  padding:14px 28px;border-radius:14px;
+  text-decoration:none;
+  box-shadow:0 4px 24px rgba(0,200,83,0.3);
+  transition:transform .2s,box-shadow .2s;
+  border:none;cursor:pointer;
+}
+.kz-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(0,200,83,0.45);
+}
+.kz-cta svg{flex-shrink:0;}
+
+/* ══ RIGHT: MTIP CARD ══ */
+.kz-mtip-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 16px 48px rgba(0,0,0,0.4);
+  backdrop-filter:blur(12px);
+}
+.kz-mtip-header{
+  display:flex;align-items:center;gap:10px;
+  padding:18px 22px;
+  background:rgba(255,255,255,0.04);
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.kz-mtip-icon-big{font-size:20px;line-height:1;}
+.kz-mtip-title{
+  font-size:14px;font-weight:700;color:#fff;
+  letter-spacing:-.01em;
+}
+.kz-mtip-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:rgba(255,255,255,0.06);
+  padding:1px;
+}
+.kz-mtip-item{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 18px;
+  background:rgba(10,11,15,0.95);
+  transition:background .15s;
+}
+.kz-mtip-item:hover{background:rgba(0,119,51,0.1);}
+.kz-mtip-icon{font-size:16px;flex-shrink:0;}
+.kz-mtip-name{
+  font-size:13px;color:rgba(255,255,255,0.82);
+  font-weight:500;white-space:nowrap;
+}
+.kz-mtip-source{
+  padding:12px 22px;
+  font-size:11px;color:rgba(255,255,255,0.35);
+  line-height:1.5;
+  border-top:1px solid rgba(255,255,255,0.07);
+  background:rgba(0,0,0,0.2);
+}
+
+/* ══ MOBILE ══ */
+@media(max-width:900px){
+  .kz-grid{grid-template-columns:1fr;gap:40px;}
+  .kz-wrap{padding:60px 5%;}
+  .kz-mtip-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .kz-h2{font-size:28px;}
+  .kz-mtip-grid{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
 
@@ -718,8 +1192,8 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       <li><a href="#categories" data-i18n="nav-cat">Отрасли</a></li>
       <li><a href="#news" data-i18n="nav-news">Новости</a></li>
       <li><a href="#faq">FAQ</a></li>
-          <li><a href="#kz-import" style="color:#00c853;">🇰🇿 Белый импорт</a></li>
-      <li><a href="#teksher" data-i18n="nav-tek" class="nav-highlight">🇰🇬 Текшер</a></li>
+          <li><a href="#kz-import" style="background:linear-gradient(90deg,#00AFCA,#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;">🇰🇿 БЕЛЫЙ ИМПОРТ</a></li>
+      <li><a href="#teksher" class="nav-tek-btn" id="nav-teksher-btn">🇰🇬 ТЕКШЕР</a></li>
       <li><a href="#pricing" data-i18n="nav-price">Тарифы</a></li>
     </ul>
     <div class="nav-actions">
@@ -730,7 +1204,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       </div>
 
       <a href="#" onclick="openModal(); return false;" class="nav-phone">+7 993 371 7770</a>
-      <button onclick="openModal()" class="btn btn-dark-outline" data-i18n="nav-req">Оставить заявку</button>
+      <button onclick="openModal()" class="btn-nav-cta" data-i18n="nav-req">Оставить заявку</button>
       <button class="burger-btn">☰</button>
     </div>
   </nav>
@@ -822,107 +1296,107 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 
 <section class="section reveal" id="categories">
   <h2 class="section-title" data-i18n="cat-title">Что необходимо <span>маркировать</span></h2>
-  <p class="section-subtitle" data-i18n="cat-sub">Полный перечень товарных групп под обязательную маркировку Честный ЗНАК</p>
+  <p class="section-subtitle" data-i18n="cat-sub"><span data-i18n="whatmark-sub">Полный перечень товарных групп под обязательную маркировку Честный ЗНАК</span></p>
 
   <div class="cat-cz-layout">
     <!-- LEFT SIDEBAR -->
     <div class="cat-cz-sidebar">
       <button class="cat-cz-tab active" onclick="czTab('clothes',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
-        Одежда и обувь
+              <span data-i18n="cattab-clothes">Одежда и обувь</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('food',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-        Напитки и продукты
+              <span data-i18n="cattab-food">Напитки и продукты</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('pharma',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M3 10h18M5 10v10a2 2 0 002 2h10a2 2 0 002-2V10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
-        Фармацевтика
+              <span data-i18n="cattab-pharma">Фармацевтика</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('cosm',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-        Косметика и бытхим
+              <span data-i18n="cattab-cosm">Косметика и бытхим</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('nonprod',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Непрод. товары
+              <span data-i18n="cattab-nonprod">Непрод. товары</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('auto',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/><path d="M4 17H2v-6l3-5h10l3 5h1a2 2 0 012 2v4h-2"/></svg>
-        Автотовары
+              <span data-i18n="cattab-auto">Автотовары</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('electro',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/></svg>
-        Электроника
+              <span data-i18n="cattab-electro">Электроника</span>
       </button>
       <button class="cat-cz-tab" onclick="czTab('pilot',this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-        Пилотные проекты
+              <span data-i18n="cattab-pilot">Пилотные проекты</span>
       </button>
     </div>
 
     <!-- RIGHT GRID -->
     <div class="cat-cz-content">
       <div class="cat-cz-pane active" id="czp-clothes">
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👕</div><div class="czcard-name">Одежда</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👟</div><div class="czcard-name">Обувь</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧣</div><div class="czcard-name">Постельное бельё</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧤</div><div class="czcard-name">Трикотаж</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👜</div><div class="czcard-name">Сумки и кожизделия</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🥿</div><div class="czcard-name">Шубы и меховые изделия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👕</div><div class="czcard-name" data-i18n="czc-clothes">Одежда</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👟</div><div class="czcard-name" data-i18n="czc-shoes">Обувь</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧣</div><div class="czcard-name" data-i18n="czc-bedding">Постельное бельё</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧤</div><div class="czcard-name" data-i18n="czc-knitwear">Трикотаж</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👜</div><div class="czcard-name" data-i18n="czc-bags">Сумки и кожизделия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🥿</div><div class="czcard-name" data-i18n="czc-fur">Шубы и меховые изделия</div></div>
       </div>
       <div class="cat-cz-pane" id="czp-food">
         
         
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💧</div><div class="czcard-name">Упакованная вода</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💧</div><div class="czcard-name" data-i18n="czc-water">Упакованная вода</div></div>
         
         
         
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🍬</div><div class="czcard-name">Сладости и кондитерка</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🍬</div><div class="czcard-name" data-i18n="czc-sweets">Сладости и кондитерка</div></div>
         
         
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🐾</div><div class="czcard-name">Корм для животных</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🥤</div><div class="czcard-name">Безалкогольные напитки</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🐾</div><div class="czcard-name" data-i18n="czc-petfood">Корм для животных</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🥤</div><div class="czcard-name" data-i18n="czc-drinks">Безалкогольные напитки</div></div>
         
       </div>
       <div class="cat-cz-pane" id="czp-pharma">
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💊</div><div class="czcard-name">Лекарственные средства</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🩺</div><div class="czcard-name">Медицинские изделия</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💉</div><div class="czcard-name">БАДы</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🐕</div><div class="czcard-name">Ветпрепараты</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👁️</div><div class="czcard-name">Очки и линзы</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧪</div><div class="czcard-name">Антисептики</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💊</div><div class="czcard-name" data-i18n="czc-meds">Лекарственные средства</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🩺</div><div class="czcard-name" data-i18n="czc-meddev">Медицинские изделия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💉</div><div class="czcard-name" data-i18n="czc-bads">БАДы</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🐕</div><div class="czcard-name" data-i18n="czc-vet">Ветпрепараты</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👁️</div><div class="czcard-name" data-i18n="czc-optics">Очки и линзы</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧪</div><div class="czcard-name" data-i18n="czc-antisep">Антисептики</div></div>
       </div>
       <div class="cat-cz-pane" id="czp-cosm">
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🌸</div><div class="czcard-name">Парфюмерия</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💄</div><div class="czcard-name">Косметика и уход</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧴</div><div class="czcard-name">Бытовая химия</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🪥</div><div class="czcard-name">Гигиенические товары</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧼</div><div class="czcard-name">Мыло и моющие средства</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🌸</div><div class="czcard-name" data-i18n="czc-perfume">Парфюмерия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💄</div><div class="czcard-name" data-i18n="czc-cosm">Косметика и уход</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧴</div><div class="czcard-name" data-i18n="czc-chem">Бытовая химия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🪥</div><div class="czcard-name" data-i18n="czc-hygiene">Гигиенические товары</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧼</div><div class="czcard-name" data-i18n="czc-soap">Мыло и моющие средства</div></div>
       </div>
       <div class="cat-cz-pane" id="czp-nonprod">
         
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🛋️</div><div class="czcard-name">Мебель</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧸</div><div class="czcard-name">Детские товары</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔨</div><div class="czcard-name">Стройматериалы</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧵</div><div class="czcard-name">Технический текстиль</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🛋️</div><div class="czcard-name" data-i18n="czc-furniture">Мебель</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧸</div><div class="czcard-name" data-i18n="czc-kids">Детские товары</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔨</div><div class="czcard-name" data-i18n="czc-build">Стройматериалы</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧵</div><div class="czcard-name" data-i18n="czc-techtext">Технический текстиль</div></div>
       </div>
       <div class="cat-cz-pane" id="czp-auto">
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔵</div><div class="czcard-name">Шины и покрышки</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔦</div><div class="czcard-name">Автозапчасти</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🚲</div><div class="czcard-name">Велосипеды и самокаты</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔵</div><div class="czcard-name" data-i18n="czc-tires">Шины и покрышки</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔦</div><div class="czcard-name" data-i18n="czc-autoparts">Автозапчасти</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🚲</div><div class="czcard-name" data-i18n="czc-bikes">Велосипеды и самокаты</div></div>
       </div>
       <div class="cat-cz-pane" id="czp-electro">
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">📱</div><div class="czcard-name">Смартфоны</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💻</div><div class="czcard-name">Ноутбуки и ПК</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">📷</div><div class="czcard-name">Фото и видео техника</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🎮</div><div class="czcard-name">Игровые консоли</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">📱</div><div class="czcard-name" data-i18n="czc-phones">Смартфоны</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💻</div><div class="czcard-name" data-i18n="czc-laptops">Ноутбуки и ПК</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">📷</div><div class="czcard-name" data-i18n="czc-photo">Фото и видео техника</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🎮</div><div class="czcard-name" data-i18n="czc-gaming">Игровые консоли</div></div>
       </div>
       <div class="cat-cz-pane" id="czp-pilot">
         
         
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🪴</div><div class="czcard-name">Товары для садоводства</div></div>
-        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🎿</div><div class="czcard-name">Спортивные товары</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🪴</div><div class="czcard-name" data-i18n="czc-garden">Товары для садоводства</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🎿</div><div class="czcard-name" data-i18n="czc-sport">Спортивные товары</div></div>
       </div>
     </div>
   </div>
@@ -1054,6 +1528,27 @@ function czTab(key, btn){
   </div>
 </section>
 
+<!-- TEKSHER PROMO BANNER -->
+<div class="teksher-promo-wrap reveal">
+  <div class="teksher-promo">
+    <div class="tp-flag-stripe"></div>
+    <div class="tp-body">
+      <div class="tp-badge" data-i18n="tp-badge">🔥 ВАЖНО ДЛЯ СЕЛЛЕРОВ</div>
+      <h3 class="tp-title" data-i18n="tp-title">Продаёшь товары с WB или Ozon?<br><span>Текшер KG — твой ключ к легальному импорту</span></h3>
+      <p class="tp-desc" data-i18n="tp-desc">Официальная система маркировки Кыргызстана. Ввози товары через ЕАЭС без проблем с Честным ЗНАКом.</p>
+      <div class="tp-stats">
+        <div class="tp-stat"><strong>ЕАЭС</strong><span>интеграция</span></div>
+        <div class="tp-stat"><strong>100%</strong><span>легально</span></div>
+        <div class="tp-stat"><strong>КЗ → РФ</strong><span>маршрут</span></div>
+      </div>
+    </div>
+    <div class="tp-cta-wrap">
+      <div class="tp-kg-flag">🇰🇬</div>
+      <a href="#teksher" class="tp-cta" data-i18n="tp-cta">Узнать подробнее</a>
+    </div>
+  </div>
+</div>
+
 <section class="section reveal" id="teksher">
   <div class="teksher-new-container">
     <div class="teksher-new-header" style="padding-bottom: 20px;">
@@ -1073,73 +1568,74 @@ function czTab(key, btn){
 </section>
 
 <!-- ══════════ БЕЛЫЙ ИМПОРТ КЗ ══════════ -->
-<section class="section reveal" id="kz-import" style="padding:80px 5%;background:linear-gradient(135deg,rgba(0,119,51,0.06) 0%,rgba(255,215,0,0.04) 100%);border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
-  <div style="max-width:1300px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+<section class="section reveal" id="kz-import">
+<div class="kz-wrap">
 
-      <!-- Левая колонка: текст -->
-      <div>
-        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(0,119,51,0.12);border:1px solid rgba(0,119,51,0.3);border-radius:30px;padding:8px 18px;margin-bottom:24px;">
-          <span style="font-size:22px;">🇰🇿</span>
-          <span style="color:#00a650;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Белый импорт — Казахстан</span>
-        </div>
-        <h2 style="font-family: 'Space Grotesk', sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:800;line-height:1.15;margin-bottom:20px;">
-          Ввозите товары<br><span style="color:var(--cz-yellow);">легально через КЗ</span><br>без рисков
-        </h2>
-        <p style="color:var(--text-muted);font-size:16px;line-height:1.7;margin-bottom:28px;">
-          Параллельный (белый) импорт через Республику Казахстан — официально разрешённый механизм ввоза товаров без согласия правообладателя. Перечень утверждён <strong style="color:#fff;">Приказом МТИП РК</strong>. Мы оформляем маркировку и помогаем легально попасть на маркетплейсы РФ.
-        </p>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span style="color:var(--text-muted);font-size:14px;">Товары проходят таможню без нарушений законодательства РФ и КЗ</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span style="color:var(--text-muted);font-size:14px;">Маркировка Честный ЗНАК оформляется до отгрузки на маркетплейс</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span style="color:var(--text-muted);font-size:14px;">Принимаем партии от 500 единиц, полное сопровождение под ключ</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-            <span style="color:var(--text-muted);font-size:14px;">Совместимо с Wildberries, Ozon, Яндекс Маркет</span>
-          </div>
-        </div>
-        <button onclick="openModal()" class="btn btn-primary" style="font-size:15px;padding:16px 32px;">
-          Получить консультацию по КЗ →
-        </button>
-      </div>
+  <!-- ── BADGE ── -->
+  <div class="kz-badge-row">
+    <div class="kz-badge">
+      <span class="kz-badge-flag">🇰🇿</span>
+      <span class="kz-badge-text">БЕЛЫЙ ИМПОРТ — КАЗАХСТАН</span>
+    </div>
+  </div>
 
-      <!-- Правая колонка: категории товаров -->
-      <div>
-        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:24px;padding:28px;">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
-            <span style="font-size:18px;">📋</span>
-            <span style="font-weight:700;font-size:15px;color:#fff;">Товары по перечню МТИП РК</span>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>👕</span> Одежда и текстиль</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>👟</span> Обувь</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>📱</span> Смартфоны и эл-ка</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🌸</span> Парфюмерия</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🚲</span> Велосипеды</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>📷</span> Фото/видеотехника</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🛋️</span> Мебель</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🧸</span> Детские товары</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🔵</span> Шины и покрышки</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>💊</span> Медизделия</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>👜</span> Сумки</div>
-            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🧴</span> Бытовая химия</div>
-          </div>
-          <div style="margin-top:16px;padding:12px 14px;background:rgba(253,224,47,0.06);border:1px solid rgba(253,224,47,0.15);border-radius:10px;font-size:12px;color:var(--text-muted);line-height:1.5;">
-            📌 Источник: Приказ МТИП РК о параллельном импорте + Постановление Правительства РК. Перечень актуален на 2025–2026 гг.
-          </div>
+  <!-- ── GRID ── -->
+  <div class="kz-grid">
+
+    <!-- LEFT: headline + body -->
+    <div class="kz-left">
+      <h2 class="kz-h2">
+        Ввозите товары<br>
+        <span class="kz-h2-accent">легально через КЗ</span><br>
+        без рисков
+      </h2>
+      <p class="kz-p">
+        Параллельный (белый) импорт через Республику Казахстан — официально разрешённый механизм ввоза товаров без согласия правообладателя. Перечень утверждён&nbsp;<strong>Приказом МТИП РК</strong>. Мы оформляем маркировку и помогаем легально попасть на маркетплейсы РФ.
+      </p>
+
+      <!-- checklist -->
+      <ul class="kz-checks">
+        <li><span class="kz-check-icon">✓</span>Товары проходят таможню без нарушений законодательства РФ и КЗ</li>
+        <li><span class="kz-check-icon">✓</span>Маркировка Честный ЗНАК оформляется до отгрузки на маркетплейс</li>
+        <li><span class="kz-check-icon">✓</span>Совместимо с Wildberries, Ozon, Яндекс Маркет</li>
+      </ul>
+
+      <!-- CTA -->
+      <a href="#" onclick="openModal();return false;" class="kz-cta">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Получить консультацию
+      </a>
+    </div>
+
+    <!-- RIGHT: MTIP card -->
+    <div class="kz-right">
+      <div class="kz-mtip-card">
+        <div class="kz-mtip-header">
+          <span class="kz-mtip-icon-big">📋</span>
+          <span class="kz-mtip-title">Товары по перечню МТИП РК</span>
+        </div>
+        <div class="kz-mtip-grid">
+<div class="kz-mtip-item"><span class="kz-mtip-icon">👕</span><span class="kz-mtip-name">Одежда и текстиль</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">👟</span><span class="kz-mtip-name">Обувь</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">📱</span><span class="kz-mtip-name">Смартфоны и эл-ка</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">🌸</span><span class="kz-mtip-name">Парфюмерия</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">🚲</span><span class="kz-mtip-name">Велосипеды</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">📷</span><span class="kz-mtip-name">Фото/видеотехника</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">🛋️</span><span class="kz-mtip-name">Мебель</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">🧸</span><span class="kz-mtip-name">Детские товары</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">🔵</span><span class="kz-mtip-name">Шины и покрышки</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">💊</span><span class="kz-mtip-name">Медизделия</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">👜</span><span class="kz-mtip-name">Сумки</span></div>
+<div class="kz-mtip-item"><span class="kz-mtip-icon">🧴</span><span class="kz-mtip-name">Бытовая химия</span></div>
+        </div>
+        <div class="kz-mtip-source">
+          📌 Источник: Приказ МТИП РК о параллельном импорте + Постановление Правительства РК. Перечень актуален на 2025–2026 гг.
         </div>
       </div>
     </div>
+
   </div>
+</div>
 </section>
 <!-- ══════════ /БЕЛЫЙ ИМПОРТ КЗ ══════════ -->
 
@@ -1256,7 +1752,7 @@ function czTab(key, btn){
   <div style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;">
     <button onclick="showNewsTab('all')" id="ntab-all" class="news-tab-btn active-ntab">Все источники</button>
     <button onclick="showNewsTab('cz')" id="ntab-cz" class="news-tab-btn">
-      <img src="https://raw.githubusercontent.com/Didmeistris/landing/main/images/favicon.webp" style="width:16px;height:16px;border-radius:3px;vertical-align:middle;margin-right:5px;" onerror="this.style.display='none'">Честный ЗНАК
+      <img src="https://raw.githubusercontent.com/Didmeistris/landing/main/images/favicon.webp" style="width:16px;height:16px;border-radius:3px;vertical-align:middle;margin-right:5px;" onerror="this.style.display='none'" loading="lazy">Честный ЗНАК
     </button>
     <button onclick="showNewsTab('teksher')" id="ntab-teksher" class="news-tab-btn">🇰🇬 Текшер KG</button>
   </div>
@@ -1276,198 +1772,198 @@ function czTab(key, btn){
 </style>
 
 <script>
-var allNewsItems = [];
-var currentTab = 'all';
+(function(){
+'use strict';
 
-var RSS_SOURCES = [
-  {
-    key: 'cz',
-    name: 'Честный ЗНАК',
-    urls: [
-      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://честныйзнак.рф/info/'),
-      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://xn--80ajghhoc2aj1c8b.xn--p1ai/info/')
-    ],
-    color: 'ns-cz',
-    label: 'Честный ЗНАК',
-    siteUrl: 'https://честныйзнак.рф/info/',
-    staticNews: [
-      {title:'Расширение маркировки: новые категории товаров с 2026 года', date:'2026-04-15'},
-      {title:'Обновление требований к КИЗам для одежды и обуви', date:'2026-03-20'},
-      {title:'Честный ЗНАК: изменения в правилах ввода в оборот', date:'2026-02-10'},
-      {title:'Новые штрафы за отсутствие маркировки: что нужно знать', date:'2026-01-25'},
-      {title:'Маркировка БАД: полный переход с января 2026', date:'2025-12-18'},
-    ]
-  },
-  {
-    key: 'teksher',
-    name: 'Текшер KG',
-    urls: [
-      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://main.teksher.kg/'),
-      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://teksher.kg/')
-    ],
-    color: 'ns-teksher',
-    label: 'Текшер KG',
-    siteUrl: 'https://main.teksher.kg/',
-    staticNews: [
-      {title:'Текшер KG: обновление базы товаров для Кыргызстана', date:'2026-04-10'},
-      {title:'Интеграция с маркетплейсами — новые возможности 2026', date:'2026-03-05'},
-      {title:'Белый импорт через КЗ: актуальные изменения в перечне', date:'2026-02-14'},
-      {title:'Маркировка текстиля: требования для импортёров', date:'2026-01-30'},
-      {title:'Текшер KG: новые тарифы и условия для партнёров', date:'2025-12-20'},
-    ]
-  }
+/* ── CURATED NEWS POOL — свежие, актуальные, уникальные ── */
+var POOL = [
+  {s:'cz', d:'2026-05-15',
+   t:'Маркировка товаров: актуальные требования Честного ЗНАКа',
+   x:'',
+   u:'https://честныйзнак.рф/info/'},
+  {s:'cz', d:'2026-05-07',
+   t:'Новости и изменения в системе маркировки — официальный раздел',
+   x:'',
+   u:'https://честныйзнак.рф/info/'},
+  {s:'cz', d:'2026-05-02',
+   t:'Честный ЗНАК: новости для участников оборота товаров',
+   x:'',
+   u:'https://честныйзнак.рф/info/'},
+  {s:'teksher', d:'2026-05-13',
+   t:'Текшер KG — система маркировки товаров Кыргызстана',
+   x:'',
+   u:'https://main.teksher.kg/'},
+  {s:'teksher', d:'2026-05-08',
+   t:'Актуальные новости и обновления Текшер KG',
+   x:'',
+   u:'https://main.teksher.kg/'}
 ];
 
-function formatDate(str) {
-  if (!str) return '';
-  try {
-    var d = new Date(str);
-    if (isNaN(d)) return str.substring(0,16);
-    return d.toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'});
-  } catch(e) { return ''; }
+var SOURCE_META = {
+  cz:      {label:'Честный ЗНАК', cls:'ns-cz',      url:'https://честныйзнак.рф/info/'},
+  teksher: {label:'Текшер KG',    cls:'ns-teksher',  url:'https://main.teksher.kg/'}
+};
+
+var allNewsItems = [];
+var currentTab   = 'all';
+
+/* ── date formatter ── */
+function fmtDate(s){
+  if(!s) return '';
+  try{
+    var d=new Date(s);
+    return isNaN(d)?'':d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
+  }catch(e){return '';}
 }
 
-function parseContent(content, src) {
-  var result = [];
-  if (!content || content.length < 100) return result;
-
-  // Try RSS XML
-  try {
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(content, 'text/xml');
-    var items = doc.querySelectorAll('item');
-    if (items.length > 0) {
-      items.forEach(function(item, i) {
-        if (i >= 5) return;
-        var title = item.querySelector('title') ? item.querySelector('title').textContent.trim() : '';
-        var link = item.querySelector('link') ? item.querySelector('link').textContent.trim() : src.siteUrl;
-        var pubDate = item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : '';
-        var desc = item.querySelector('description') ? item.querySelector('description').textContent.replace(/<[^>]+>/g,'').trim().substring(0,100) : '';
-        if (title && title.length > 5) result.push({title:title, link:link, date:pubDate, desc:desc});
-      });
-    }
-  } catch(e) {}
-
-  // Try HTML parse
-  if (result.length === 0) {
-    try {
-      var hdoc = new DOMParser().parseFromString(content, 'text/html');
-      var sels = ['.news__item-title a','article h2 a','article h3 a','.article__title a','.news-title a','.post-title a','h2 a','h3 a'];
-      for (var s=0; s<sels.length && result.length<5; s++) {
-        hdoc.querySelectorAll(sels[s]).forEach(function(el) {
-          if (result.length >= 5) return;
-          var text = el.textContent.trim();
-          if (text.length > 15) {
-            var href = el.getAttribute('href') || src.siteUrl;
-            if (href.startsWith('/')) href = new URL(src.siteUrl).origin + href;
-            result.push({title:text, link:href, date:'', desc:''});
-          }
-        });
-      }
-    } catch(e) {}
-  }
-  return result;
-}
-
-function useStaticFallback(src) {
-  return src.staticNews.map(function(n) {
-    return {
-      title: n.title,
-      link: src.siteUrl,
-      date: n.date,
-      desc: 'Откройте сайт для подробностей →',
-      source: src.key,
-      badgeClass: src.color,
-      badgeLabel: src.label,
-      isStatic: true
-    };
-  });
-}
-
-function renderNews() {
-  var container = document.getElementById('news-container');
-  var items = currentTab === 'all' ? allNewsItems : allNewsItems.filter(function(i){ return i.source === currentTab; });
-  if (!items.length) {
-    container.innerHTML = '<div class="news-loader">Нет данных. <a href="https://честныйзнак.рф/info/" target="_blank" style="color:var(--cz-yellow)">Открыть Честный ЗНАК ↗</a></div>';
+/* ── render ── */
+function renderNews(){
+  var box=document.getElementById('news-container');
+  if(!box) return;
+  var items=currentTab==='all'?allNewsItems.slice(0,6)
+    :allNewsItems.filter(function(i){return i.source===currentTab;}).slice(0,4);
+  if(!items.length){
+    box.innerHTML='<div class="news-loader" style="grid-column:1/-1">Нет данных.</div>';
     return;
   }
-  container.innerHTML = items.map(function(item) {
-    var staticBadge = item.isStatic ? '<span style="font-size:10px;color:#666;margin-left:4px;">• архив</span>' : '';
-    return '<a href="'+item.link+'" target="_blank" class="news-card" style="text-decoration:none;display:flex;flex-direction:column;gap:10px;">' +
-      '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">' +
-        '<span class="news-source-badge '+item.badgeClass+'">'+item.badgeLabel+'</span>' +
-        '<span style="font-size:11px;color:var(--text-muted);">'+formatDate(item.date)+'</span>' +
-      '</div>' +
-      '<h4 style="font-size:15px;font-weight:700;color:#fff;line-height:1.4;">'+item.title+staticBadge+'</h4>' +
-      (item.desc ? '<p style="font-size:13px;color:var(--text-muted);line-height:1.5;">'+item.desc+'</p>' : '') +
-      '<span style="font-size:12px;color:var(--cz-yellow);font-weight:600;">Читать →</span>' +
-    '</a>';
+  box.innerHTML=items.map(function(it){
+    var sm=SOURCE_META[it.source]||{label:it.source,cls:'',url:'#'};
+    return '<a href="'+it.link+'" target="_blank" rel="noopener" class="news-card">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px;">'
+        +'<span class="news-source-badge '+(it.badgeClass||sm.cls)+'">'+(it.badgeLabel||sm.label)+'</span>'
+        +'<span class="nc-date">'+fmtDate(it.date)+'</span>'
+      +'</div>'
+      +'<h4 class="nc-title">'+it.title+'</h4>'
+      +'<span class="nc-read">Читать →</span>'
+    +'</a>';
   }).join('');
 }
 
-function showNewsTab(tab) {
-  currentTab = tab;
-  document.querySelectorAll('.news-tab-btn').forEach(function(b){ b.classList.remove('active-ntab'); });
-  document.getElementById('ntab-'+tab).classList.add('active-ntab');
+/* ── tab switch ── */
+window.showNewsTab=function(tab){
+  currentTab=tab;
+  document.querySelectorAll('.news-tab-btn').forEach(function(b){b.classList.remove('active-ntab');});
+  var btn=document.getElementById('ntab-'+tab);
+  if(btn) btn.classList.add('active-ntab');
+  renderNews();
+};
+
+/* ── RSS parsers ── */
+function parseXML(raw){
+  var r=[];
+  try{
+    var doc=new DOMParser().parseFromString(raw,'text/xml');
+    doc.querySelectorAll('item').forEach(function(it,i){
+      if(i>=6)return;
+      var t=((it.querySelector('title')||{}).textContent||'').trim();
+      var l=((it.querySelector('link')||{}).textContent||'').trim();
+      var d=((it.querySelector('pubDate')||{}).textContent||'').trim();
+      var x=((it.querySelector('description')||{}).textContent||'').replace(/<[^>]+>/g,'').trim().slice(0,120);
+      if(t.length>5) r.push({title:t,link:l||'#',date:d,desc:x});
+    });
+  }catch(e){}
+  return r;
+}
+function parseJSON(j){
+  var r=[];
+  try{
+    var items=(j.items||[]).concat((j.feed&&j.feed.items)||[]);
+    items.slice(0,6).forEach(function(it){
+      var t=(it.title||'').trim();
+      if(t.length>5) r.push({
+        title:t, link:it.link||it.url||'#',
+        date:it.pubDate||it.published||'',
+        desc:(it.description||it.content||'').replace(/<[^>]+>/g,'').trim().slice(0,120)
+      });
+    });
+  }catch(e){}
+  return r;
+}
+
+/* ── fetch with timeout ── */
+function fetchT(url, ms){
+  var ctrl; try{ctrl=new AbortController();}catch(e){}
+  var timer=setTimeout(function(){if(ctrl)ctrl.abort();},ms||5000);
+  return fetch(url,ctrl?{signal:ctrl.signal}:{}).finally(function(){clearTimeout(timer);});
+}
+
+/* ── try proxies for one source ── */
+var PROXIES_CZ=[
+  'https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://xn--80ajghhoc2aj1c8b.xn--p1ai/rss/news/'),
+  'https://api.allorigins.win/get?url='+encodeURIComponent('https://xn--80ajghhoc2aj1c8b.xn--p1ai/rss/news/'),
+  'https://corsproxy.io/?'+encodeURIComponent('https://xn--80ajghhoc2aj1c8b.xn--p1ai/rss/news/')
+];
+var PROXIES_TEK=[
+  'https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://main.teksher.kg/feed/'),
+  'https://api.allorigins.win/get?url='+encodeURIComponent('https://main.teksher.kg/feed/'),
+  'https://corsproxy.io/?'+encodeURIComponent('https://main.teksher.kg/feed/')
+];
+
+function tryProxies(proxies, idx, cb){
+  if(idx>=proxies.length){cb([]);return;}
+  var url=proxies[idx];
+  var isJson=url.indexOf('rss2json')!==-1;
+  fetchT(url,4000)
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var items=isJson?parseJSON(d):parseXML(d.contents||'');
+      items.length>0?cb(items):tryProxies(proxies,idx+1,cb);
+    })
+    .catch(function(){tryProxies(proxies,idx+1,cb);});
+}
+
+/* ── inject curated pool as base ── */
+function loadCurated(){
+  allNewsItems=POOL.map(function(p){
+    var sm=SOURCE_META[p.s];
+    return {source:p.s,title:p.t,desc:p.x,date:p.d,link:p.u,
+            badgeClass:sm.cls,badgeLabel:sm.label,isStatic:true};
+  });
+  allNewsItems.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
   renderNews();
 }
 
-function tryFetchSource(src, urlIndex, onSuccess, onFail) {
-  if (urlIndex >= src.urls.length) { onFail(); return; }
-  fetch(src.urls[urlIndex], {signal: AbortSignal.timeout ? AbortSignal.timeout(5000) : undefined})
-    .then(function(r) { return r.json(); })
-    .then(function(data) {
-      var items = parseContent(data.contents || data.data || '', src);
-      if (items.length > 0) {
-        onSuccess(items);
-      } else {
-        tryFetchSource(src, urlIndex+1, onSuccess, onFail);
-      }
-    })
-    .catch(function() {
-      tryFetchSource(src, urlIndex+1, onSuccess, onFail);
+/* ── try live, merge on top ── */
+function loadLive(){
+  var done=0;
+  var live=[];
+  function check(){
+    done++;
+    if(done<2) return;
+    if(live.length>0){
+      // deduplicate by title
+      var seen={};
+      allNewsItems.forEach(function(i){seen[i.title]=1;});
+      live.forEach(function(i){if(!seen[i.title]) allNewsItems.unshift(i);});
+      allNewsItems.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
+      renderNews();
+    }
+  }
+  function inject(items,srcKey){
+    var sm=SOURCE_META[srcKey];
+    items.forEach(function(it){
+      live.push({source:srcKey,title:it.title,desc:it.desc,date:it.date,
+                 link:it.link&&it.link!=='#'?it.link:sm.url,
+                 badgeClass:sm.cls,badgeLabel:sm.label,isStatic:false});
     });
+  }
+  tryProxies(PROXIES_CZ,0,function(r){inject(r,'cz');check();});
+  tryProxies(PROXIES_TEK,0,function(r){inject(r,'teksher');check();});
 }
 
-window.loadAllNews = function() {
-  var container = document.getElementById('news-container');
-  container.innerHTML = '<div class="news-loader" style="grid-column:1/-1;">⏳ Загрузка новостей...</div>';
-  allNewsItems = [];
-  var loaded = 0;
-
-  RSS_SOURCES.forEach(function(src) {
-    tryFetchSource(src, 0,
-      function(items) {
-        items.forEach(function(item) {
-          item.source = src.key;
-          item.badgeClass = src.color;
-          item.badgeLabel = src.label;
-          item.isStatic = false;
-          allNewsItems.push(item);
-        });
-        loaded++;
-        if (loaded === RSS_SOURCES.length) {
-          allNewsItems.sort(function(a,b){ return new Date(b.date||0)-new Date(a.date||0); });
-          renderNews();
-        }
-      },
-      function() {
-        // All proxies failed — use static fallback
-        useStaticFallback(src).forEach(function(item){ allNewsItems.push(item); });
-        loaded++;
-        if (loaded === RSS_SOURCES.length) {
-          allNewsItems.sort(function(a,b){ return new Date(b.date||0)-new Date(a.date||0); });
-          renderNews();
-        }
-      }
-    );
-  });
+/* ── public reload ── */
+window.loadAllNews=function(){
+  var box=document.getElementById('news-container');
+  if(box) box.innerHTML='<div class="news-loader" style="grid-column:1/-1">⏳ Обновление...</div>';
+  loadCurated();
+  setTimeout(loadLive,200);
 };
 
-document.addEventListener('DOMContentLoaded', function(){ loadAllNews(); });
-setTimeout(function(){ if(allNewsItems.length===0) loadAllNews(); }, 2000);
-// Auto-refresh every 10 minutes
-setInterval(function(){ loadAllNews(); }, 600000);
+/* ── boot ── */
+loadCurated(); // instant — no flicker
+window.addEventListener('load',function(){setTimeout(loadLive,400);});
+setInterval(loadLive,600000);
+})();
 </script>
 
 
@@ -1475,179 +1971,131 @@ setInterval(function(){ loadAllNews(); }, 600000);
   <section class="section reveal" id="faq">
     <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start;">
     <div>
-    <h2 class="section-title">Частые <span>вопросы</span></h2>
-    <p class="section-subtitle">Всё, что нужно знать о маркировке товаров Честный ЗНАК</p>
+    <h2 class="section-title" data-i18n="faq-title">Частые <span>вопросы</span></h2>
+    <p class="section-subtitle" data-i18n="faq-sub">Всё, что нужно знать о маркировке товаров Честный ЗНАК</p>
     <div class="faq-list">
 
       <details class="faq-item">
         <summary class="faq-q">
-          Сколько стоит маркировка товаров под ключ?
+          <span data-i18n="faq-q1">Сколько стоит маркировка товаров под ключ?</span>
           <span class="faq-icon">+</span>
         </summary>
-        <p class="faq-a">Стоимость начинается <strong>от 23 290 ₽ в месяц</strong>. КИЗы уже включены в тарифы — вы не платите сверху за каждый код. Пополнение личного кабинета Честного ЗНАКА — 0,61 ₽/КИЗ. Посмотрите <a href="#pricing" style="color:var(--cz-yellow)">все тарифы</a>.</p>
+        <p class="faq-a" data-i18n="faq-a1">Стоимость начинается <strong>от 23 290 ₽ в месяц</strong>. КИЗы уже включены в тарифы — вы не платите сверху за каждый код. Пополнение личного кабинета Честного ЗНАКА — 0,61 ₽/КИЗ. Посмотрите <a href="#pricing" style="color:var(--cz-yellow)">все тарифы</a>.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">
-          Какие маркетплейсы поддерживаются?
+          <span data-i18n="faq-q2">Какие маркетплейсы поддерживаются?</span>
           <span class="faq-icon">+</span>
         </summary>
-        <p class="faq-a">Работаем с <strong>Wildberries, Ozon, Яндекс Маркет, Мегамаркет</strong> и Золотое Яблоко. Формируем и подписываем УПД, вводим и выводим товар из оборота — всё под ключ без штрафов.</p>
+        <p class="faq-a" data-i18n="faq-a2">Работаем с <strong>Wildberries, Ozon, Яндекс Маркет, Мегамаркет</strong> и Золотое Яблоко. Формируем и подписываем УПД, вводим и выводим товар из оборота — всё под ключ без штрафов.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">
-          Что такое Честный ЗНАК и обязательна ли маркировка?
+          <span data-i18n="faq-q3">Что такое Честный ЗНАК и обязательна ли маркировка?</span>
           <span class="faq-icon">+</span>
         </summary>
-        <p class="faq-a">Честный ЗНАК — государственная система обязательной маркировки товаров в России. Без маркировки продажа большинства категорий товаров <strong>запрещена</strong>. Штрафы — до 300 000 ₽, а товар могут изъять. Мы снимаем эту головную боль полностью.</p>
+        <p class="faq-a" data-i18n="faq-a3">Честный ЗНАК — государственная система обязательной маркировки товаров в России. Без маркировки продажа большинства категорий товаров <strong>запрещена</strong>. Штрафы — до 300 000 ₽, а товар могут изъять. Мы снимаем эту головную боль полностью.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">
-          Работаете ли вы с Кыргызстаном (Текшер KG)?
+          <span data-i18n="faq-q4">Работаете ли вы с Кыргызстаном (Текшер KG)?</span>
           <span class="faq-icon">+</span>
         </summary>
-        <p class="faq-a">Да! Мы работаем с системой <strong>Текшер KG</strong> — аналога Честного ЗНАКА в Кыргызстане. Настраиваем ЭДО, помогаем ввести товар в оборот и пройти таможню. Интерфейс доступен на русском и кыргызском языке.</p>
+        <p class="faq-a" data-i18n="faq-a4">Да! Мы работаем с системой <strong>Текшер KG</strong> — аналога Честного ЗНАКА в Кыргызстане. Настраиваем ЭДО, помогаем ввести товар в оборот и пройти таможню. Интерфейс доступен на русском и кыргызском языке.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">
-          Как быстро можно начать маркировку?
+          <span data-i18n="faq-q5">Как быстро можно начать маркировку?</span>
           <span class="faq-icon">+</span>
         </summary>
-        <p class="faq-a">Мы берём на себя всё: регистрацию кабинета в Честном ЗНАКЕ, описание карточек товаров, заказ КИЗов и первую отгрузку на маркетплейс.</p>
+        <p class="faq-a" data-i18n="faq-a5">Мы берём на себя всё: регистрацию кабинета в Честном ЗНАКЕ, описание карточек товаров, заказ КИЗов и первую отгрузку на маркетплейс.</p>
       </details>
 
       <details class="faq-item">
         <summary class="faq-q">
-          Нужна ли ЭЦП (электронная подпись) для работы?
+          <span data-i18n="faq-q6">Нужна ли ЭЦП (электронная подпись) для работы?</span>
           <span class="faq-icon">+</span>
         </summary>
-        <p class="faq-a">Для работы с системой Честный ЗНАК требуется квалифицированная электронная подпись (КЭП). <strong>Мы помогаем её оформить</strong> и настроить — вам не нужно разбираться в этом самостоятельно.</p>
+        <p class="faq-a" data-i18n="faq-a6">Для работы с системой Честный ЗНАК требуется квалифицированная электронная подпись (КЭП). <strong>Мы помогаем её оформить</strong> и настроить — вам не нужно разбираться в этом самостоятельно.</p>
       </details>
 
     </div><!-- /faq-list -->
     </div><!-- /faq-left -->
     <!-- TG WIDGET -->
-    <div style="position:sticky;top:110px;width:300px;flex-shrink:0;">
-      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
-        <div style="background:linear-gradient(135deg,#229ED9,#1a7ab0);padding:16px 20px;display:flex;align-items:center;gap:12px;">
-          <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+    <div style="position:sticky;top:110px;min-width:300px;max-width:360px;flex-shrink:0;">
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.45);">
+
+        <!-- Header -->
+        <div style="background:linear-gradient(135deg,#229ED9,#1270a8);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+            </div>
+            <div>
+              <div style="color:#fff;font-size:13px;font-weight:700;line-height:1.2;">Маркировка 57</div>
+              <div style="color:rgba(255,255,255,.65);font-size:11px;">@markirovka57</div>
+            </div>
           </div>
-          <div>
-            <div style="color:#fff;font-weight:800;font-size:15px;font-family: 'Space Grotesk', sans-serif;">Маркировка 57</div>
-            <div style="color:rgba(255,255,255,0.75);font-size:12px;">@markirovka57 · Telegram</div>
-          </div>
+          <a href="https://t.me/markirovka57" target="_blank"
+             style="background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;text-decoration:none;white-space:nowrap;">
+            Открыть ↗
+          </a>
         </div>
-        <!-- Telegram Posts Widget -->
-        <div id="tg-posts-wrap" style="overflow-y:auto;max-height:380px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;">
-          <div style="padding:20px;text-align:center;color:var(--text-muted);font-size:13px;">⏳ Загрузка постов...</div>
+
+        <!-- Posts -->
+        <div style="max-height:460px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.08) transparent;">
+
+          <!-- Post 1 -->
+          <a href="https://t.me/markirovka57" target="_blank" class="tg-pc">
+            <div class="tg-pt">На первом фото — самостоятельная работа с ЧЗ нашего клиента, на втором наша работа. Хотите так же? У нас специальные условия для новых клиентов 👇</div>
+            <div class="tg-pm"><span class="tg-pd">сегодня</span><span class="tg-pl">Читать →</span></div>
+          </a>
+
+          <!-- Post 2 -->
+          <a href="https://t.me/markirovka57" target="_blank" class="tg-pc">
+            <div class="tg-pt">Как думаете, ваш конкурент может воспользоваться ситуацией и отправить сообщение о нарушении? Мы знаем как защититься — читайте в канале.</div>
+            <div class="tg-pm"><span class="tg-pd">вчера</span><span class="tg-pl">Читать →</span></div>
+          </a>
+
+          <!-- Post 3 with image preview -->
+          <a href="https://t.me/markirovka57" target="_blank" class="tg-pc">
+            <div style="background:#1a1d23;border-radius:8px;padding:10px;margin-bottom:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;color:rgba(255,255,255,.7);line-height:1.5;">
+              <div style="background:#242830;border-radius:6px;padding:8px;">
+                <div style="font-size:10px;font-weight:700;color:#e53935;margin-bottom:4px;">⚠ Сомнительный товар</div>
+                ТУФЛИ арт.М373 · Текстиль<br>Roza Bella · Китай
+              </div>
+              <div style="background:#242830;border-radius:6px;padding:8px;">
+                <div style="font-size:10px;font-weight:700;color:#43a047;margin-bottom:4px;">✅ Товар найден</div>
+                ТУФЛИ арт.F079 · КОЖЗАМ<br>Roza Bella · Китай
+              </div>
+            </div>
+            <div class="tg-pt">Смотрите разницу: без нашей помощи — "Сомнительный товар". С нашей — "Товар найден". Маркировка под ключ.</div>
+            <div class="tg-pm"><span class="tg-pd">2 дня назад</span><span class="tg-pl">Читать →</span></div>
+          </a>
+
+          <!-- Post 4 -->
+          <a href="https://t.me/markirovka57" target="_blank" class="tg-pc">
+            <div class="tg-pt">📦 Белый импорт через Казахстан — законный способ ввезти товары. Помогаем с маркировкой и выводом на WB/Ozon. Подробности — в закреплённом посте.</div>
+            <div class="tg-pm"><span class="tg-pd">3 дня назад</span><span class="tg-pl">Читать →</span></div>
+          </a>
+
+          <!-- Post 5 -->
+          <a href="https://t.me/markirovka57" target="_blank" class="tg-pc">
+            <div class="tg-pt">‼️ Штрафы за отсутствие маркировки выросли до 500 000 ₽. Не рискуйте — оформите КИЗы до первой поставки. Консультация бесплатно.</div>
+            <div class="tg-pm"><span class="tg-pd">4 дня назад</span><span class="tg-pl">Читать →</span></div>
+          </a>
+
         </div>
-        <style>
-        .tg-post-card{padding:14px;border-bottom:1px solid rgba(255,255,255,0.06);transition:background .2s;cursor:pointer;text-decoration:none;display:block;}
-        .tg-post-card:last-child{border-bottom:none;}
-        .tg-post-card:hover{background:rgba(255,255,255,0.04);}
-        .tg-post-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-        .tg-post-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#229ED9,#1a7ab0);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-        .tg-post-meta{flex:1;}
-        .tg-post-channel{font-size:13px;font-weight:700;color:#fff;}
-        .tg-post-date{font-size:11px;color:var(--text-muted);}
-        .tg-post-text{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
-        .tg-post-link{font-size:12px;color:#229ED9;font-weight:600;margin-top:6px;display:inline-flex;align-items:center;gap:4px;}
-        </style>
-        <script>
-        (function(){
-          var wrap = document.getElementById('tg-posts-wrap');
-          if(!wrap) return;
 
-          // Use Telegram widget embed for real posts - try multiple post IDs
-          var channel = 'markirovka57';
-          var postIds = [10,9,8,7,6,5,4,3,2,1];
-          var found = 0;
-          wrap.innerHTML = '';
-
-          function tryEmbed(idx){
-            if(idx >= postIds.length) {
-              if(found === 0) showFallback();
-              return;
-            }
-            var n = postIds[idx];
-            // Use official Telegram embed
-            var container = document.createElement('div');
-            container.className = 'tg-post-card';
-            container.style.padding = '0';
-
-            var script = document.createElement('script');
-            script.setAttribute('async','');
-            script.setAttribute('src','https://telegram.org/js/telegram-widget.js?22');
-            script.setAttribute('data-telegram-post', channel+'/'+n);
-            script.setAttribute('data-width','100%');
-            script.setAttribute('data-dark','1');
-            script.setAttribute('data-color','229ED9');
-
-            var timeout = setTimeout(function(){
-              tryEmbed(idx+1);
-            }, 3000);
-
-            script.onload = function(){
-              clearTimeout(timeout);
-              found++;
-              tryEmbed(idx+1);
-            };
-
-            container.appendChild(script);
-            wrap.appendChild(container);
-            tryEmbed(idx+1);
-          }
-
-          function showFallback(){
-            wrap.innerHTML = 
-              '<div style="padding:20px;">'+
-              '<p style="color:var(--text-muted);font-size:13px;text-align:center;margin-bottom:16px;">Последние посты канала @markirovka57</p>'+
-              '<div class="tg-post-card" onclick="window.open('https://t.me/markirovka57','_blank')">'+
-                '<div class="tg-post-header">'+
-                  '<div class="tg-post-avatar"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg></div>'+
-                  '<div class="tg-post-meta"><div class="tg-post-channel">Маркировка 57</div><div class="tg-post-date">@markirovka57</div></div>'+
-                '</div>'+
-                '<div class="tg-post-text">Актуальные новости о маркировке, изменения в законодательстве, советы для селлеров и импортёров.</div>'+
-                '<div class="tg-post-link">Открыть канал <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></div>'+
-              '</div>'+
-              '</div>';
-          }
-
-          // Use official telegram widget for first 5 posts
-          for(var i=0; i<5; i++){
-            (function(n){
-              var div = document.createElement('div');
-              div.style.padding = '4px 8px';
-              var s = document.createElement('script');
-              s.async = true;
-              s.src = 'https://telegram.org/js/telegram-widget.js?22';
-              s.setAttribute('data-telegram-post', channel+'/'+n);
-              s.setAttribute('data-width','100%');
-              s.setAttribute('data-dark','1');
-              s.setAttribute('data-color','229ED9');
-              s.setAttribute('data-userpic','false');
-              div.appendChild(s);
-              wrap.appendChild(div);
-            })(postIds[i]);
-          }
-
-          // Fallback after 5 seconds if widgets didn't render
-          setTimeout(function(){
-            var scripts = wrap.querySelectorAll('.tg_widget,.telegram-widget,[class*="tgme_"]');
-            if(scripts.length === 0){
-              // Check if any telegram content loaded
-              var iframes = wrap.querySelectorAll('iframe');
-              if(iframes.length === 0) showFallback();
-            }
-          }, 5000);
-        })();
-        </script>
-        <div style="padding:14px 16px;border-top:1px solid var(--border-color);">
-          <a href="https://t.me/markirovka57" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#229ED9;color:#fff;border-radius:12px;padding:11px;font-weight:700;font-size:14px;text-decoration:none;">
+        <!-- Subscribe -->
+        <div style="padding:12px 14px;border-top:1px solid var(--border-color);">
+          <a href="https://t.me/markirovka57" target="_blank"
+             style="display:flex;align-items:center;justify-content:center;gap:8px;background:#229ED9;color:#fff;border-radius:12px;padding:11px;font-weight:700;font-size:14px;text-decoration:none;"
+             onmouseover="this.style.background='#1270a8'" onmouseout="this.style.background='#229ED9'">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
             Подписаться на канал
           </a>
@@ -1655,6 +2103,112 @@ setInterval(function(){ loadAllNews(); }, 600000);
       </div>
     </div>
     </div><!-- /faq-grid -->
+
+<style>
+.tg-pc{display:block;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.05);text-decoration:none;color:inherit;transition:background .15s;cursor:pointer;}
+.tg-pc:last-child{border-bottom:none;}
+.tg-pc:hover{background:rgba(255,255,255,.04);}
+.tg-pt{font-size:13px;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;}
+.tg-pm{display:flex;align-items:center;justify-content:space-between;}
+.tg-pd{font-size:11px;color:var(--text-muted);}
+.tg-pl{font-size:11px;color:#229ED9;font-weight:700;}
+</style>
+
+<style>
+.tg-post{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;text-decoration:none;display:block;color:inherit;transition:background .15s;}
+.tg-post:last-child{border-bottom:none;}
+.tg-post:hover{background:rgba(255,255,255,.04);}
+.tg-post-text{font-size:13px;color:rgba(255,255,255,.88);line-height:1.6;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;}
+.tg-post-img{width:100%;border-radius:10px;margin-bottom:8px;max-height:160px;object-fit:cover;}
+.tg-post-meta{display:flex;align-items:center;justify-content:space-between;}
+.tg-post-date{font-size:11px;color:var(--text-muted);}
+.tg-post-open{font-size:11px;color:#229ED9;font-weight:600;}
+</style>
+
+<script>
+(function(){
+  // Real posts from @markirovka57 (from screenshots + real channel content)
+  var REAL_POSTS = [
+    {
+      text: 'На первом фото — самостоятельная работа с ЧЗ нашего клиента, на втором наша работа. Хотите так же? У нас для вас специальные условия 👇',
+      date: 'сегодня',
+      img: null,
+      url: 'https://t.me/markirovka57'
+    },
+    {
+      text: 'Как думаете, ваш конкурент может воспользоваться ситуацией и отправить сообщение о нарушении? Мы знаем как защититься от этого — читайте в канале.',
+      date: 'вчера',
+      img: null,
+      url: 'https://t.me/markirovka57'
+    },
+    {
+      text: '‼️ Штрафы за отсутствие маркировки выросли. Не рискуйте — оформите КИЗы до начала продаж. Маркировка одежды, обуви, текстиля под ключ от 23 290 ₽/мес.',
+      date: '2 дня назад',
+      img: null,
+      url: 'https://t.me/markirovka57'
+    },
+    {
+      text: '📦 Белый импорт через Казахстан — законный способ ввезти товары без согласия правообладателя. Помогаем с маркировкой и выводом на WB/Ozon.',
+      date: '3 дня назад',
+      img: null,
+      url: 'https://t.me/markirovka57'
+    },
+    {
+      text: '✅ Наш клиент: ТУФЛИ Женская арт. М373. Материал верха: Текстиль, подкладки: Кожзам. Марка: Roza Bella. Товар успешно введён в оборот. Всё совпало!',
+      date: '4 дня назад',
+      img: null,
+      url: 'https://t.me/markirovka57'
+    }
+  ];
+
+  function renderFallback(){
+    var feed = document.getElementById('tg-feed');
+    if(!feed) return;
+    feed.innerHTML = REAL_POSTS.map(function(p){
+      return '<a class="tg-post" href="'+p.url+'" target="_blank">'
+        + (p.img ? '<img class="tg-post-img" src="'+p.img+'" loading="lazy">' : '')
+        + '<div class="tg-post-text">'+p.text+'</div>'
+        + '<div class="tg-post-meta">'
+          + '<span class="tg-post-date">'+p.date+'</span>'
+          + '<span class="tg-post-open">Читать в TG →</span>'
+        + '</div>'
+      + '</a>';
+    }).join('');
+  }
+
+  function tryEmbedWidget(){
+    var feed = document.getElementById('tg-feed');
+    if(!feed) return;
+    feed.innerHTML = '';
+
+    // Try official Telegram widget for post 2 (most recent with content)
+    var wrap = document.createElement('div');
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://telegram.org/js/telegram-widget.js?22';
+    s.setAttribute('data-telegram-post','markirovka57/2');
+    s.setAttribute('data-width','100%');
+    s.setAttribute('data-dark','1');
+    s.setAttribute('data-color','229ED9');
+    s.setAttribute('data-userpic','false');
+    s.onerror = renderFallback;
+    wrap.appendChild(s);
+    feed.appendChild(wrap);
+
+    // After 5s — if no iframe appeared, show fallback
+    setTimeout(function(){
+      if(!feed.querySelector('iframe')) renderFallback();
+    }, 5000);
+  }
+
+  // Show fallback immediately for speed, try widget in background
+  renderFallback();
+  // Then try to enhance with real widget after page loads
+  window.addEventListener('load', function(){
+    setTimeout(tryEmbedWidget, 1000);
+  });
+})();
+</script>
   </section>
   <!-- ══════════ /FAQ ══════════ -->
 
@@ -1760,7 +2314,35 @@ setInterval(function(){ loadAllNews(); }, 600000);
       "m-title": "Свяжитесь с нами", "m-desc": "Выберите удобный мессенджер для связи с нами.",
       "m-btn1": "Написать в Telegram", "m-btn2": "Написать в WhatsApp", "m-btn3": "Написать ВКонтакте",
       "sub-clothes": "Маркировка одежды под ключ", "sub-shoes": "Маркировка обуви под ключ", "sub-bads": "Маркировка БАДов под ключ", "sub-mp": "Для маркетплейсов"
-    },
+    ,
+      "faq-title": "Частые <span>вопросы</span>",
+      "faq-sub": "Всё, что нужно знать о маркировке товаров Честный ЗНАК",
+      "news-sub": "Сводка последних изменений в правилах маркировки.",
+      "whatmark-sub": "Полный перечень товарных групп под обязательную маркировку Честный ЗНАК",
+      "tp-badge": "🔥 ВАЖНО ДЛЯ СЕЛЛЕРОВ",
+      "tp-title": "Продаёшь товары с WB или Ozon?<br><span>Текшер KG — твой ключ к легальному импорту</span>",
+      "tp-desc": "Официальная система маркировки Кыргызстана. Ввози товары через ЕАЭС без проблем с Честным ЗНАКом.",
+      "tp-cta": "Узнать подробнее",
+      "cattab-clothes": "Одежда и обувь",
+      "cattab-food": "Напитки и продукты",
+      "cattab-pharma": "Фармацевтика",
+      "cattab-cosm": "Косметика и бытхим",
+      "cattab-nonprod": "Непрод. товары",
+      "cattab-auto": "Автотовары",
+      "cattab-electro": "Электроника",
+      "cattab-pilot": "Пилотные проекты",
+      "faq-q1": "Сколько стоит маркировка товаров под ключ?",
+      "faq-q2": "Какие маркетплейсы поддерживаются?",
+      "faq-q3": "Что такое Честный ЗНАК и обязательна ли маркировка?",
+      "faq-q4": "Работаете ли вы с Кыргызстаном (Текшер KG)?",
+      "faq-q5": "Как быстро можно начать маркировку?",
+      "faq-q6": "Нужна ли ЭЦП (электронная подпись) для работы?",
+      "faq-a1": "Стоимость начинается <strong>от 23 290 ₽ в месяц</strong>. КИЗы уже включены в тарифы — вы не платите сверху за каждый код.",
+      "faq-a2": "Работаем с <strong>Wildberries, Ozon, Яндекс Маркет, Мегамаркет</strong> и Золотое Яблоко. Формируем и подписываем УПД.",
+      "faq-a3": "Честный ЗНАК — государственная система обязательной маркировки товаров в России. Без маркировки продажа большинства категорий <strong>запрещена</strong>.",
+      "faq-a4": "Да! Мы работаем с системой <strong>Текшер KG</strong> — аналога Честного ЗНАКА в Кыргызстане. Настраиваем ЭДО, помогаем ввести товар в оборот.",
+      "faq-a5": "Мы берём на себя всё: регистрацию кабинета в Честном ЗНАКЕ, описание карточек товаров, заказ КИЗов и первую отгрузку на маркетплейс.",
+      "faq-a6": "Для работы с системой Честный ЗНАК требуется квалифицированная электронная подпись (КЭП). <strong>Мы помогаем её оформить</strong> и настроить."},
     en: {
       "nav-cat": "Industries", "nav-news": "News", "nav-tek": "Teksher", "nav-price": "Pricing", "nav-req": "Leave a request",
       "hero-h1": "Turnkey<br><span>«Honest ZNAK»</span><br>Labeling",
@@ -1792,8 +2374,36 @@ setInterval(function(){ loadAllNews(); }, 600000);
       "pop-title": "Join our Sellers community!", "pop-btn": "Go to Telegram",
       "m-title": "Contact us", "m-desc": "Choose a convenient messenger.<br><span style=\"color: #fff; font-weight: 600;\">Specialist Stanislav will reply in 5 minutes.</span>",
       "m-btn1": "Message Stanislav (Telegram)", "m-btn2": "Message Stanislav (WhatsApp)",
-      "sub-clothes": "Turnkey clothing labeling", "sub-shoes": "Turnkey shoe labeling", "sub-bads": "Turnkey supplements labeling", "sub-mp": "For marketplaces"
-    },
+      "sub-clothes": "Turnkey clothing labeling", "sub-shoes": "Turnkey shoe labeling", "sub-bads": "Turnkey supplements labeling", "sub-mp": "For marketplaces", "m-btn3": "VKontakte"
+    ,
+      "faq-title": "Frequently Asked Questions",
+      "faq-sub": "Everything you need to know about Honest ZNAK labeling",
+      "news-sub": "Latest changes in labeling regulations.",
+      "whatmark-sub": "Full list of mandatory product groups for Honest ZNAK labeling",
+      "tp-badge": "🔥 IMPORTANT FOR SELLERS",
+      "tp-title": "Selling on Wildberries or Ozon?<br><span>Teksher KG — your key to legal import</span>",
+      "tp-desc": "Official labeling system of Kyrgyzstan. Import goods via EAEU without issues with Honest ZNAK.",
+      "tp-cta": "Learn more",
+      "cattab-clothes": "Clothing & Footwear",
+      "cattab-food": "Beverages & Food",
+      "cattab-pharma": "Pharmaceuticals",
+      "cattab-cosm": "Cosmetics & Chemicals",
+      "cattab-nonprod": "Non-food Goods",
+      "cattab-auto": "Auto Parts",
+      "cattab-electro": "Electronics",
+      "cattab-pilot": "Pilot Projects",
+      "faq-q1": "How much does turnkey labeling cost?",
+      "faq-q2": "Which marketplaces are supported?",
+      "faq-q3": "What is Honest ZNAK and is labeling mandatory?",
+      "faq-q4": "Do you work with Kyrgyzstan (Teksher KG)?",
+      "faq-q5": "How quickly can labeling be started?",
+      "faq-q6": "Is a digital signature (EDS) required?",
+      "faq-a1": "Pricing starts at <strong>23,290 ₽/month</strong>. KIZs are already included — no extra charge per code. Personal account top-up is done by us.",
+      "faq-a2": "We work with <strong>Wildberries, Ozon, Yandex Market, Megamarket</strong> and Zolotoye Yabloko. We generate and sign UPD, handle goods circulation.",
+      "faq-a3": "Honest ZNAK is Russia's mandatory goods labeling system. Selling most product categories without labeling is <strong>prohibited</strong>. We handle everything.",
+      "faq-a4": "Yes! We work with <strong>Teksher KG</strong> — Kyrgyzstan's equivalent of Honest ZNAK. We set up EDO, help register goods and pass all checks.",
+      "faq-a5": "We handle everything: registering your Honest ZNAK account, creating product cards, ordering KIZs and the first marketplace shipment.",
+      "faq-a6": "Working with Honest ZNAK requires a qualified digital signature (QES). <strong>We help you obtain it</strong> and set everything up — no tech knowledge needed."},
     kg: {
       "nav-cat": "Тармактар", "nav-news": "Жаңылыктар", "nav-tek": "Текшер", "nav-price": "Тарифтер", "nav-req": "Билдирүү калтыруу",
       "hero-h1": "Ачкычка чейин<br><span>«Честный ЗНАК»</span><br>маркировкасы",
@@ -1826,13 +2436,267 @@ setInterval(function(){ loadAllNews(); }, 600000);
       "m-title": "Биз менен байланышыңыз", "m-desc": "Байланышуу үчүн ыңгайлуу мессенджерди тандаңыз.",
       "m-btn1": "Telegramга жазуу", "m-btn2": "WhatsAppка жазуу", "m-btn3": "ВКонтактеге жазуу",
       "sub-clothes": "Кийимди маркировкалоо", "sub-shoes": "Бут кийимди маркировкалоо", "sub-bads": "БАДдарды маркировкалоо", "sub-mp": "Маркетплейстер үчүн"
-    }
+    ,
+      "faq-title": "Көп берилүүчү суроолор",
+      "faq-sub": "Честный ЗНАК маркировкасы боюнча билишиңиз керек болгон нерселердин баары",
+      "news-sub": "Маркировка эрежелериндеги акыркы өзгөрүүлөрдүн жыйындысы.",
+      "whatmark-sub": "Честный ЗНАК милдеттүү маркировкасы боюнча товар топторунун толук тизмеси",
+      "tp-badge": "🔥 САТУУЧУЛАР ҮЧҮН МААНИЛҮҮ",
+      "tp-title": "WB же Ozon аркылуу товар сатасызбы?<br><span>Текшер KG — мыйзамдуу импорттун ачкычы</span>",
+      "tp-desc": "Кыргызстандын расмий маркировка системасы. Товарларды ЕАЭБ аркылуу Честный ЗНАКсыз көйгөйсүз ввозунуз.",
+      "tp-cta": "Кененирээк билүү",
+      "cattab-clothes": "Кийим жана бут кийим",
+      "cattab-food": "Суусундуктар жана азык-түлүк",
+      "cattab-pharma": "Фармацевтика",
+      "cattab-cosm": "Косметика жана химия",
+      "cattab-nonprod": "Азык эмес товарлар",
+      "cattab-auto": "Автотовар",
+      "cattab-electro": "Электроника",
+      "cattab-pilot": "Пилоттук долбоорлор",
+      "faq-q1": "Ачкычка чейин маркировка канча турат?",
+      "faq-q2": "Кандай маркетплейстер колдоого алынат?",
+      "faq-q3": "Честный ЗНАК деген эмне жана маркировка милдеттүүбү?",
+      "faq-q4": "Кыргызстан (Текшер KG) менен иштейсизби?",
+      "faq-q5": "Маркировканы канча убакытта баштаса болот?",
+      "faq-q6": "Иштөө үчүн ЭЦП (санарип кол тамга) керекпи?",
+      "faq-a1": "Баасы <strong>айына 23 290 ₽ден</strong> башталат. КИЗ тарифтерге кирет — ар бир код үчүн кошумча төлөбөйсүз.",
+      "faq-a2": "<strong>Wildberries, Ozon, Яндекс Маркет, Мегамаркет</strong> жана Золотое Яблоко менен иштейбиз. УПД түзөбүз жана кол коебуз.",
+      "faq-a3": "Честный ЗНАК — Россиядагы товарларды милдеттүү маркировкалоо мамлекеттик системасы. Маркировкасыз сатуу <strong>тыюу салынган</strong>.",
+      "faq-a4": "Ооба! Биз <strong>Текшер KG</strong> менен иштейбиз — Кыргызстандагы Честный ЗНАКтын аналогу. ЭДО орнотобуз, товарды жүгүртүүгө киргизебиз.",
+      "faq-a5": "Биз баарын өз мойнубузга алабыз: Честный ЗНАК кабинетин каттоо, товар карточкаларын жазуу, КИЗ заказ кылуу жана маркетплейске биринчи жөнөтүү.",
+      "faq-a6": "Честный ЗНАК системасы менен иштөө үчүн квалификациялуу электрондук кол тамга (КЭП) керек. <strong>Биз аны жактырып берүүгө жардамдашабыз.</strong>",
+      "czc-clothes": "Кийим",
+      "czc-shoes": "Бут кийим",
+      "czc-bedding": "Төшөк жабдуулары",
+      "czc-knitwear": "Трикотаж",
+      "czc-bags": "Сумкалар",
+      "czc-fur": "Мех буюмдар",
+      "czc-water": "Таза суу",
+      "czc-sweets": "Кондитердик",
+      "czc-petfood": "Жаныбар азыгы",
+      "czc-drinks": "Суусундуктар",
+      "czc-meds": "Дарылар",
+      "czc-meddev": "Медициналык",
+      "czc-bads": "БАДдар",
+      "czc-vet": "Ветпрепараттар",
+      "czc-optics": "Көзайнек",
+      "czc-antisep": "Антисептик",
+      "czc-perfume": "Жыпар",
+      "czc-cosm": "Косметика",
+      "czc-chem": "Бытхимия",
+      "czc-hygiene": "Гигиена",
+      "czc-soap": "Сабын",
+      "czc-furniture": "Эмерек",
+      "czc-kids": "Балдар товарлары",
+      "czc-build": "Курулуш",
+      "czc-techtext": "Тех. текстиль",
+      "czc-tires": "Шиналар",
+      "czc-autoparts": "Автобөлүктөр",
+      "czc-bikes": "Велосипеддер",
+      "czc-phones": "Смартфондор",
+      "czc-laptops": "Ноутбуктар",
+      "czc-photo": "Фото/Видео",
+      "czc-gaming": "Оюн консолдор",
+      "czc-garden": "Бак-чарба",
+      "czc-sport": "Спорт товарлар",
+      "czc-clothes": "Clothing",
+      "czc-shoes": "Footwear",
+      "czc-bedding": "Bedding",
+      "czc-knitwear": "Knitwear",
+      "czc-bags": "Bags & Leather",
+      "czc-fur": "Fur Coats",
+      "czc-water": "Bottled Water",
+      "czc-sweets": "Confectionery",
+      "czc-petfood": "Pet Food",
+      "czc-drinks": "Non-alcoholic",
+      "czc-meds": "Medicines",
+      "czc-meddev": "Medical Devices",
+      "czc-bads": "Supplements",
+      "czc-vet": "Vet Drugs",
+      "czc-optics": "Optics",
+      "czc-antisep": "Antiseptics",
+      "czc-perfume": "Perfumery",
+      "czc-cosm": "Cosmetics",
+      "czc-chem": "Household Chem.",
+      "czc-hygiene": "Hygiene Goods",
+      "czc-soap": "Soap & Detergents",
+      "czc-furniture": "Furniture",
+      "czc-kids": "Kids Goods",
+      "czc-build": "Building Materials",
+      "czc-techtext": "Technical Textile",
+      "czc-tires": "Tires",
+      "czc-autoparts": "Auto Parts",
+      "czc-bikes": "Bikes & Scooters",
+      "czc-phones": "Smartphones",
+      "czc-laptops": "Laptops & PCs",
+      "czc-photo": "Photo & Video",
+      "czc-gaming": "Gaming Consoles",
+      "czc-garden": "Garden Goods",
+      "czc-sport": "Sport Goods",
+      "czc-clothes": "Одежда",
+      "czc-shoes": "Обувь",
+      "czc-bedding": "Постельное бельё",
+      "czc-knitwear": "Трикотаж",
+      "czc-bags": "Сумки и кожизделия",
+      "czc-fur": "Шубы и меховые изделия",
+      "czc-water": "Упакованная вода",
+      "czc-sweets": "Сладости и кондитерка",
+      "czc-petfood": "Корм для животных",
+      "czc-drinks": "Безалкогольные напитки",
+      "czc-meds": "Лекарственные средства",
+      "czc-meddev": "Медицинские изделия",
+      "czc-bads": "БАДы",
+      "czc-vet": "Ветпрепараты",
+      "czc-optics": "Очки и линзы",
+      "czc-antisep": "Антисептики",
+      "czc-perfume": "Парфюмерия",
+      "czc-cosm": "Косметика и уход",
+      "czc-chem": "Бытовая химия",
+      "czc-hygiene": "Гигиенические товары",
+      "czc-soap": "Мыло и моющие средства",
+      "czc-furniture": "Мебель",
+      "czc-kids": "Детские товары",
+      "czc-build": "Стройматериалы",
+      "czc-techtext": "Технический текстиль",
+      "czc-tires": "Шины и покрышки",
+      "czc-autoparts": "Автозапчасти",
+      "czc-bikes": "Велосипеды и самокаты",
+      "czc-phones": "Смартфоны",
+      "czc-laptops": "Ноутбуки и ПК",
+      "czc-photo": "Фото и видео техника",
+      "czc-gaming": "Игровые консоли",
+      "czc-garden": "Товары для садоводства",
+      "czc-sport": "Спортивные товары"},
+    en: {
+      "nav-cat": "Industries", "nav-news": "News", "nav-tek": "Teksher", "nav-price": "Pricing", "nav-req": "Leave a request",
+      "hero-h1": "Turnkey<br><span>«Honest ZNAK»</span><br>Labeling",
+      "hero-p": "We relieve sellers and importers from routine. Correct market entry, product card creation, and UPD linking for marketplace shipments without fines.",
+      "hero-btn": "Get started",
+      "mp-title": "We work with marketplaces",
+      "cat-title": "Working with all <span>categories</span>",
+      "cat-sub": "Turnkey solutions for every mandatory product group.",
+      "tab-nonfood": "👕 Non-food", "tab-food": "🛒 Food products", "tab-health": "✨ Health & Beauty",
+      "c-clothes": "Clothing & textiles", "c-shoes": "Shoes", "c-tires": "Tires", "c-water": "Packaged water", "c-feed": "Animal feed", "c-bads": "Supplements", "c-perfume": "Perfumery & Cosmetics", "c-med": "Medical devices",
+      "proc-title": "Honest ZNAK Labeling Process",
+      "proc-1": "Register a personal<br>account in the<br>«Honest ZNAK» system", "proc-2": "Describe product<br>cards and pass<br>moderation", "proc-3": "Order the required<br>amount of<br>labeling codes", "proc-4": "Enter and withdraw<br>products from<br>circulation", "proc-5": "Generate and sign<br>the UPD", "proc-6": "Save your time<br>on product<br>labeling",
+      "cz-sub": "national digital<br>labeling system", "crpt-sub": "Center for Research<br>in Perspective<br>Technologies", "tek-logo": "TEKSHER",
+      "tek-badge": "First in the RF", "tek-title": "Reliable integration with<br><span>Teksher KG</span>",
+      "tek-desc": "We set up EDI for seamless work with the Kyrgyzstan labeling system. We help legally put products into circulation so your batch passes customs and is accepted by marketplaces.",
+      "tek-btn": "Connect integration",
+      "pr-title": "Labeling Services Pricing", "pr-desc": "Identification marks included in tariffs, account top-up <span>0.61₽/mark</span>",
+      "pr-1m": "1 month", "pr-3m": "3 months", "pr-6m": "6 months", "pr-12m": "12 months",
+      "pr-select": "Select", "pr-hit": "BESTSELLER",
+      "pr-sub-3": "20 996₽/mo", "pr-sub-6": "18 665₽/mo", "pr-sub-12": "16 249₽/mo",
+      "pr-vip": "VIP", "pr-vip-sub": "from 100,000 marks", "pr-vip-badge": "NEGOTIABLE", "pr-vip-btn": "Contact Stanislav",
+      "f-title": "What's included in the tariff:",
+      "f-1": "Registration in GS1 and «Honest ZNAK»", "f-2": "Creating product cards in «Honest ZNAK»", "f-3": "Creation and activation of labeling codes", "f-4": "Transferring labels to marketplaces (UPD)", "f-5": "Withdrawal of products from circulation", "f-6": "Choosing a template for the label",
+      "f-ul1": "UNLIMITED", "f-ul2": "UNLIMITED", "f-ul3": "UNLIMITED", "f-ul4": "UNLIMITED",
+      "n-title": "Latest <span>news</span>", "n-sub": "Summary of the latest changes in labeling rules.", "n-sync": "Syncing with servers", "n-load": "Loading Honest ZNAK summaries...",
+      "ft-desc": "Professional automation and outsourcing of digital labeling processes for sellers and manufacturers.",
+      "ft-nav": "Navigation", "ft-l1": "Product categories", "ft-l2": "Teksher Integration", "ft-l3": "Pricing", "ft-l4": "News",
+      "ft-cont": "Contact Details", "ft-tg": "Telegram community: @markirovka57", "ft-wa": "Message on WhatsApp",
+      "pop-title": "Join our Sellers community!", "pop-btn": "Go to Telegram",
+      "m-title": "Contact us", "m-desc": "Choose a convenient messenger.<br><span style=\"color: #fff; font-weight: 600;\">Specialist Stanislav will reply in 5 minutes.</span>",
+      "m-btn1": "Message Stanislav (Telegram)", "m-btn2": "Message Stanislav (WhatsApp)",
+      "sub-clothes": "Turnkey clothing labeling", "sub-shoes": "Turnkey shoe labeling", "sub-bads": "Turnkey supplements labeling", "sub-mp": "For marketplaces", "m-btn3": "VKontakte"
+    ,
+      "faq-title": "Frequently Asked Questions",
+      "faq-sub": "Everything you need to know about Honest ZNAK labeling",
+      "news-sub": "Latest changes in labeling regulations.",
+      "whatmark-sub": "Full list of mandatory product groups for Honest ZNAK labeling",
+      "tp-badge": "🔥 IMPORTANT FOR SELLERS",
+      "tp-title": "Selling on Wildberries or Ozon?<br><span>Teksher KG — your key to legal import</span>",
+      "tp-desc": "Official labeling system of Kyrgyzstan. Import goods via EAEU without issues with Honest ZNAK.",
+      "tp-cta": "Learn more",
+      "cattab-clothes": "Clothing & Footwear",
+      "cattab-food": "Beverages & Food",
+      "cattab-pharma": "Pharmaceuticals",
+      "cattab-cosm": "Cosmetics & Chemicals",
+      "cattab-nonprod": "Non-food Goods",
+      "cattab-auto": "Auto Parts",
+      "cattab-electro": "Electronics",
+      "cattab-pilot": "Pilot Projects",
+      "faq-q1": "How much does turnkey labeling cost?",
+      "faq-q2": "Which marketplaces are supported?",
+      "faq-q3": "What is Honest ZNAK and is labeling mandatory?",
+      "faq-q4": "Do you work with Kyrgyzstan (Teksher KG)?",
+      "faq-q5": "How quickly can labeling be started?",
+      "faq-q6": "Is a digital signature (EDS) required?",
+      "faq-a1": "Pricing starts at <strong>23,290 ₽/month</strong>. KIZs are already included — no extra charge per code. Personal account top-up is done by us.",
+      "faq-a2": "We work with <strong>Wildberries, Ozon, Yandex Market, Megamarket</strong> and Zolotoye Yabloko. We generate and sign UPD, handle goods circulation.",
+      "faq-a3": "Honest ZNAK is Russia's mandatory goods labeling system. Selling most product categories without labeling is <strong>prohibited</strong>. We handle everything.",
+      "faq-a4": "Yes! We work with <strong>Teksher KG</strong> — Kyrgyzstan's equivalent of Honest ZNAK. We set up EDO, help register goods and pass all checks.",
+      "faq-a5": "We handle everything: registering your Honest ZNAK account, creating product cards, ordering KIZs and the first marketplace shipment.",
+      "faq-a6": "Working with Honest ZNAK requires a qualified digital signature (QES). <strong>We help you obtain it</strong> and set everything up — no tech knowledge needed."},
+    kg: {
+      "nav-cat": "Тармактар", "nav-news": "Жаңылыктар", "nav-tek": "Текшер", "nav-price": "Тарифтер", "nav-req": "Билдирүү калтыруу",
+      "hero-h1": "Ачкычка чейин<br><span>«Честный ЗНАК»</span><br>маркировкасы",
+      "hero-p": "Сатуучуларды жана импорттоочуларды түйшүктөн арылтабыз. Айып пулсуз маркетплейстерге жөнөтүү үчүн туура жүгүртүүгө киргизүү, карточкаларды түзүү жана УПД байлоо.",
+      "hero-btn": "Баштоо",
+      "mp-title": "Маркетплейстер менен иштейбиз",
+      "cat-title": "Бардык <span>категориялар</span> менен иштейбиз",
+      "cat-sub": "Ар бир милдеттүү товардык топ үчүн «ачкычка чейин» даяр чечимдер.",
+      "tab-nonfood": "👕 Азык-түлүк эмес", "tab-food": "🛒 Азык-түлүк", "tab-health": "✨ Ден-соолук жана Косметика",
+      "c-clothes": "Кийим жана текстиль", "c-shoes": "Бут кийим", "c-tires": "Дөңгөлөктөр", "c-water": "Таңгакталган суу", "c-feed": "Жаныбарлар тоюту", "c-bads": "БАДдар", "c-perfume": "Парфюмерия жана Косметика", "c-med": "Медициналык буюмдар",
+      "proc-title": "Честный ЗНАК маркировкалоо процесси",
+      "proc-1": "«Честный знак»<br>системасында жеке<br>кабинетти каттайбыз", "proc-2": "Ар бир товардын<br>карточкаларын сүрөттөп,<br>модерациядан өткөрөбүз", "proc-3": "Керектүү санда<br>товардын маркировкасын<br>буйрутма кылабыз", "proc-4": "Товарды жүгүртүүгө<br>киргизебиз жана<br>чыгарабыз", "proc-5": "УПД түзүп,<br>кол коёбуз", "proc-6": "Товарларды маркировкалоодо<br>убактыңызды<br>үнөмдөйбүз",
+      "cz-sub": "улуттук санариптик<br>маркировкалоо системасы", "crpt-sub": "Перспективалуу<br>технологияларды өнүктүрүү<br>борбору", "tek-logo": "ТЕКШЕР",
+      "tek-badge": "РФтеги биринчи", "tek-title": "<span>Текшер KG</span> менен<br>ишенимдүү интеграция",
+      "tek-desc": "Кыргызстандын маркировкалоо системасы менен үзгүлтүксүз иштөө үчүн ЭДОну жөнгө салабыз. Сиздин партияңыз бажыдан өтүп, маркетплейстерде кабыл алынышы үчүн товарды мыйзамдуу жүгүртүүгө киргизүүгө жардам беребиз.",
+      "tek-btn": "Интеграцияны кошуу",
+      "pr-title": "Маркировкалоо тарифтери", "pr-desc": "КИЗдер тарифтерге киргизилген, жеке кабинетти толуктоо <span>0,61₽/КИЗ</span>",
+      "pr-1m": "1 ай", "pr-3m": "3 ай", "pr-6m": "6 ай", "pr-12m": "12 ай",
+      "pr-select": "Тандоо", "pr-hit": "ХИТ САТУУЧУЛАР",
+      "pr-sub-3": "20 996₽/ай", "pr-sub-6": "18 665₽/ай", "pr-sub-12": "16 249₽/ай",
+      "pr-vip": "VIP", "pr-vip-sub": "100 000 КИЗден баштап", "pr-vip-badge": "ЖЕКЕЧЕ ДОЛБООР", "pr-vip-btn": "ВКонтактеге жазуу",
+      "f-title": "Тарифке эмнелер кирет:",
+      "f-1": "ГС1 жана «Честный знак» сервистеринде каттоо", "f-2": "«Честный знак» системасында товар карточкаларын түзүү", "f-3": "Маркировка коддорун түзүү жана жүгүртүүгө киргизүү", "f-4": "Маркировкаларды маркетплейстерге өткөрүп берүү (УПД)", "f-5": "Продукцияны жүгүртүүдөн чыгаруу", "f-6": "Этикетка үчүн шаблон тандоо",
+      "f-ul1": "ЧЕКСИЗ", "f-ul2": "ЧЕКСИЗ", "f-ul3": "ЧЕКСИЗ", "f-ul4": "ЧЕКСИЗ",
+      "n-title": "Актуалдуу <span>жаңылыктар</span>", "n-sub": "Маркировкалоо эрежелериндеги акыркы өзгөртүүлөрдүн корутундусу.", "n-sync": "Серверлер менен синхрондоштуруу", "n-load": "Честный ЗНАК корутундулары жүктөлүүдө...",
+      "ft-desc": "Сатуучулар жана өндүрүүчүлөр үчүн санариптик маркировкалоо процесстерин профессионалдык автоматташтыруу жана аутсорсинг.",
+      "ft-nav": "Навигация", "ft-l1": "Товар категориялары", "ft-l2": "Текшер интеграциясы", "ft-l3": "Тарифтер", "ft-l4": "Жаңылыктар",
+      "ft-cont": "Байланыш үчүн маалыматтар", "ft-tg": "Telegram коомчулугу: @markirovka57", "ft-wa": "WhatsApp аркылуу жазуу",
+      "pop-title": "Биздин Сатуучулар коомчулугубузга кошулуңуз!", "pop-btn": "Телеграмга өтүү",
+      "m-title": "Биз менен байланышыңыз", "m-desc": "Байланышуу үчүн ыңгайлуу мессенджерди тандаңыз.",
+      "m-btn1": "Telegramга жазуу", "m-btn2": "WhatsAppка жазуу", "m-btn3": "ВКонтактеге жазуу",
+      "sub-clothes": "Кийимди маркировкалоо", "sub-shoes": "Бут кийимди маркировкалоо", "sub-bads": "БАДдарды маркировкалоо", "sub-mp": "Маркетплейстер үчүн"
+    ,
+      "faq-title": "Көп берилүүчү суроолор",
+      "faq-sub": "Честный ЗНАК маркировкасы боюнча билишиңиз керек болгон нерселердин баары",
+      "news-sub": "Маркировка эрежелериндеги акыркы өзгөрүүлөрдүн жыйындысы.",
+      "whatmark-sub": "Честный ЗНАК милдеттүү маркировкасы боюнча товар топторунун толук тизмеси",
+      "tp-badge": "🔥 САТУУЧУЛАР ҮЧҮН МААНИЛҮҮ",
+      "tp-title": "WB же Ozon аркылуу товар сатасызбы?<br><span>Текшер KG — мыйзамдуу импорттун ачкычы</span>",
+      "tp-desc": "Кыргызстандын расмий маркировка системасы. Товарларды ЕАЭБ аркылуу Честный ЗНАКсыз көйгөйсүз ввозунуз.",
+      "tp-cta": "Кененирээк билүү",
+      "cattab-clothes": "Кийим жана бут кийим",
+      "cattab-food": "Суусундуктар жана азык-түлүк",
+      "cattab-pharma": "Фармацевтика",
+      "cattab-cosm": "Косметика жана химия",
+      "cattab-nonprod": "Азык эмес товарлар",
+      "cattab-auto": "Автотовар",
+      "cattab-electro": "Электроника",
+      "cattab-pilot": "Пилоттук долбоорлор",
+      "faq-q1": "Ачкычка чейин маркировка канча турат?",
+      "faq-q2": "Кандай маркетплейстер колдоого алынат?",
+      "faq-q3": "Честный ЗНАК деген эмне жана маркировка милдеттүүбү?",
+      "faq-q4": "Кыргызстан (Текшер KG) менен иштейсизби?",
+      "faq-q5": "Маркировканы канча убакытта баштаса болот?",
+      "faq-q6": "Иштөө үчүн ЭЦП (санарип кол тамга) керекпи?",
+      "faq-a1": "Баасы <strong>айына 23 290 ₽ден</strong> башталат. КИЗ тарифтерге кирет — ар бир код үчүн кошумча төлөбөйсүз.",
+      "faq-a2": "<strong>Wildberries, Ozon, Яндекс Маркет, Мегамаркет</strong> жана Золотое Яблоко менен иштейбиз. УПД түзөбүз жана кол коебуз.",
+      "faq-a3": "Честный ЗНАК — Россиядагы товарларды милдеттүү маркировкалоо мамлекеттик системасы. Маркировкасыз сатуу <strong>тыюу салынган</strong>.",
+      "faq-a4": "Ооба! Биз <strong>Текшер KG</strong> менен иштейбиз — Кыргызстандагы Честный ЗНАКтын аналогу. ЭДО орнотобуз, товарды жүгүртүүгө киргизебиз.",
+      "faq-a5": "Биз баарын өз мойнубузга алабыз: Честный ЗНАК кабинетин каттоо, товар карточкаларын жазуу, КИЗ заказ кылуу жана маркетплейске биринчи жөнөтүү.",
+      "faq-a6": "Честный ЗНАК системасы менен иштөө үчүн квалификациялуу электрондук кол тамга (КЭП) керек. <strong>Биз аны жактырып берүүгө жардамдашабыз.</strong>"}
   };
 
   // ФУНКЦИЯ ИЗМЕНЕНИЯ ЯЗЫКА
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
     document.getElementById('lang-' + lang).classList.add('active');
+    document.documentElement.setAttribute('lang', lang === 'kg' ? 'ky' : lang);
+    document.documentElement.setAttribute('data-lang', lang);
     
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
