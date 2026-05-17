@@ -11,7 +11,7 @@
 <link rel="preload" href="https://raw.githubusercontent.com/Didmeistris/landing/main/images/cube.webp" as="image" type="image/webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ─── UX/UI ПЕРЕМЕННЫЕ И БАЗА ─── */
 :root {
@@ -34,7 +34,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; } 
 body { 
-  font-family: 'Manrope', sans-serif; 
+  font-family: 'Plus Jakarta Sans', sans-serif; 
   background-color: var(--bg-main); 
   color: var(--text-main); 
   overflow-x: hidden; 
@@ -49,7 +49,7 @@ body {
 /* ─── НАВИГАЦИЯ ─── */
 .header-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12, 14, 18, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-color); transition: 0.3s; }
 nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-family: 'Unbounded', sans-serif; font-size: 22px; font-weight: 900; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 4px; letter-spacing: -0.5px; white-space: nowrap; flex-shrink: 0; }
+.nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 900; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 4px; letter-spacing: -0.5px; white-space: nowrap; flex-shrink: 0; }
 .nav-logo span { background: var(--cz-yellow); color: #000; padding: 2px 6px; border-radius: 6px; font-size: 20px; }
 .nav-links { display: flex; gap: 32px; list-style: none; flex-shrink: 0; }
 .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
@@ -60,7 +60,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 
 /* ─── ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКОВ ─── */
 .lang-switcher { display: flex; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 4px; border-radius: 12px; }
-.lang-btn { background: transparent; border: none; color: var(--text-muted); font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; padding: 6px 10px; border-radius: 8px; transition: 0.2s; text-transform: uppercase; }
+.lang-btn { background: transparent; border: none; color: var(--text-muted); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; padding: 6px 10px; border-radius: 8px; transition: 0.2s; text-transform: uppercase; }
 .lang-btn.active { color: #000; background: var(--cz-yellow); box-shadow: 0 2px 10px rgba(253, 224, 47, 0.3); }
 .lang-btn:hover:not(.active) { color: #fff; background: rgba(255,255,255,0.1); }
 
@@ -97,7 +97,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 
 /* ─── ОБЩИЕ СТИЛИ СЕКЦИЙ ─── */
 .section { padding: 110px 5%; max-width: 1400px; margin: 0 auto; }
-.section-title { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 900; margin-bottom: 24px; line-height: 1.2; text-transform: uppercase; }
+.section-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 48px); font-weight: 900; margin-bottom: 24px; line-height: 1.2; text-transform: uppercase; }
 .section-title span { color: var(--cz-yellow); }
 .section-subtitle { font-size: 18px; color: var(--text-muted); margin-bottom: 60px; max-width: 800px; }
 
@@ -106,7 +106,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .hero-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; width: 100%; }
 .hero-text { text-align: left; }
 .hero h1 { 
-  font-family: 'Unbounded', sans-serif; 
+  font-family: 'Space Grotesk', sans-serif; 
   font-size: clamp(26px, 7vw, 64px); 
   font-weight: 900; 
   line-height: 1.1; 
@@ -188,7 +188,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 
 /* ─── ПРОЦЕСС РАБОТЫ ─── */
 .process-section { padding: 110px 5%; max-width: 1400px; margin: 0 auto; }
-.process-title { font-family: 'Unbounded', sans-serif; font-size: clamp(28px, 4vw, 36px); font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 40px; line-height: 1.2; }
+.process-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 36px); font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 40px; line-height: 1.2; }
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
 .process-card { background: #0066FF; border-radius: 16px; padding: 30px; position: relative; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; transition: transform 0.3s; cursor: default; }
 .process-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 102, 255, 0.3); }
@@ -206,17 +206,17 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .cz-icon { width: 36px; height: 36px; background: #FDE02F; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
 .cz-icon svg { width: 22px; height: 22px; stroke: #000; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
 .cz-texts { display: flex; flex-direction: column; justify-content: center; }
-.cz-title { font-family: 'Unbounded', sans-serif; font-size: 14px; font-weight: 900; color: #000; line-height: 1; margin-bottom: 2px; }
+.cz-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 900; color: #000; line-height: 1; margin-bottom: 2px; }
 .cz-sub { font-size: 7px; font-weight: 700; color: #666; text-transform: uppercase; line-height: 1.1; }
 .crpt-logo-wrap { display: flex; align-items: center; gap: 10px; }
-.crpt-icon { font-family: 'Unbounded', sans-serif; font-size: 20px; font-weight: 900; color: #005BFF; line-height: 0.9; }
+.crpt-icon { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 900; color: #005BFF; line-height: 0.9; }
 .crpt-sub { font-size: 9px; font-weight: 700; color: #005BFF; text-transform: uppercase; line-height: 1.1; }
 
 /* ─── БЛОК ТЕКШЕР ─── */
 .teksher-new-container { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 32px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
 .teksher-new-header { padding: 60px 5% 30px; text-align: center; max-width: 900px; margin: 0 auto; }
 .teksher-badge { display: inline-block; background: rgba(34, 158, 217, 0.1); color: var(--tk-blue); border: 1px solid rgba(34, 158, 217, 0.3); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 8px 24px; border-radius: 100px; margin-bottom: 24px; }
-.teksher-new-header h2 { font-family: 'Unbounded', sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 900; margin-bottom: 20px; color: #fff; line-height: 1.2; }
+.teksher-new-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 4vw, 48px); font-weight: 900; margin-bottom: 20px; color: #fff; line-height: 1.2; }
 .teksher-new-header h2 span { color: var(--tk-blue); }
 .teksher-new-header p { font-size: clamp(16px, 2vw, 18px); color: var(--text-muted); line-height: 1.6; }
 .teksher-btn { background: var(--tk-blue); color: #fff; box-shadow: 0 4px 15px rgba(34, 158, 217, 0.3); padding: 18px 48px; font-size: 16px; width: auto; }
@@ -226,7 +226,7 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 /* ─── ТАРИФЫ ─── */
 .pricing-section { background: #0c0e12; border-top: 1px solid var(--border-color); padding: 100px 5%; }
 .pr-header { margin-bottom: 50px; text-align: center; }
-.pr-header h2 { font-family: 'Unbounded', sans-serif; font-size: clamp(32px, 5vw, 40px); color: var(--price-pink); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.pr-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 5vw, 40px); color: var(--price-pink); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
 .pr-header p { font-size: clamp(15px, 2vw, 18px); color: #fff; }
 .pr-header span { background: var(--cz-yellow); color: #000; padding: 2px 8px; font-weight: 800; border-radius: 4px; }
 
@@ -239,8 +239,8 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .badge-hit { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--price-pink); color: #fff; font-size: 13px; font-weight: 800; padding: 6px 20px; border-radius: 100px; text-transform: uppercase; box-shadow: 0 4px 15px rgba(255, 16, 122, 0.4); white-space: nowrap; }
 .p-card:nth-child(2) { border-color: var(--price-pink); }
 
-.p-mo { font-family: 'Unbounded', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 12px; }
-.p-price { font-family: 'Unbounded', sans-serif; font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1; margin-bottom: 8px; white-space: nowrap; }
+.p-mo { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+.p-price { font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 4vw, 42px); font-weight: 900; line-height: 1; margin-bottom: 8px; white-space: nowrap; }
 .p-sub { font-size: 16px; color: var(--text-muted); margin-bottom: 24px; }
 .p-card:nth-child(2) .p-price { color: var(--price-pink); }
 .p-btn { background: #fff; color: #000; width: 100%; padding: 16px; border-radius: 12px; font-weight: 800; text-decoration: none; border: none; cursor: pointer; transition: 0.2s; font-size: 15px; margin-top: auto; }
@@ -255,11 +255,11 @@ nav { padding: 16px 5%; max-width: 1400px; margin: 0 auto; display: flex; align-
 .vip-btn:active { transform: scale(0.97); }
 
 .features-wrap { padding-top: 10px; }
-.f-title { font-family: 'Unbounded', sans-serif; font-size: clamp(20px, 3vw, 24px); font-weight: 800; color: #fff; margin-bottom: 30px; }
+.f-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(20px, 3vw, 24px); font-weight: 800; color: #fff; margin-bottom: 30px; }
 .f-list { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-bottom: 50px; }
 .f-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dotted var(--border-color); padding-bottom: 15px; gap: 10px; }
 .f-name { font-size: 15px; color: #ccd6f6; line-height: 1.4; flex: 1; }
-.f-val { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 13px; color: var(--cz-yellow); background: rgba(253, 224, 47, 0.1); padding: 4px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; }
+.f-val { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 13px; color: var(--cz-yellow); background: rgba(253, 224, 47, 0.1); padding: 4px 10px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; }
 .icon-check { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(0, 177, 79, 0.2); border-radius: 4px; color: #00B14F; font-size: 14px; font-weight: bold; flex-shrink: 0; }
 
 /* ─── НОВОСТИ ─── */
@@ -309,7 +309,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 .tg-scroll-popup.show { transform: translateX(0); }
 .tg-scroll-close { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; opacity: 0.7; transition: 0.2s; z-index: 10; padding: 5px; }
 .tg-scroll-close:hover { opacity: 1; }
-.tg-scroll-title { font-family: 'Unbounded', sans-serif; color: #fff; font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 24px; max-width: 380px; position: relative; z-index: 2; }
+.tg-scroll-title { font-family: 'Space Grotesk', sans-serif; color: #fff; font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 24px; max-width: 380px; position: relative; z-index: 2; }
 .tg-scroll-btn { background: var(--popup-pink); color: #fff; padding: 18px 36px; border-radius: 12px; font-size: 16px; font-weight: 800; text-decoration: none; display: inline-block; transition: 0.3s; position: relative; z-index: 2; }
 .tg-scroll-btn:hover { background: #ff106b; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 42, 133, 0.4); }
 .tg-scroll-decor { position: absolute; bottom: -20px; right: -20px; width: 250px; height: 200px; background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%); display: flex; align-items: flex-end; justify-content: flex-end; font-size: 120px; line-height: 1; opacity: 0.9; z-index: 1; pointer-events: none; }
@@ -639,6 +639,74 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   }
 }
 </script>
+
+<style id="mobile-fixes">
+/* ── GLOBAL MOBILE ── */
+@media(max-width:768px){
+  .section{padding:60px 4%!important;}
+  .section-title{font-size:clamp(24px,6vw,36px)!important;}
+  .section-subtitle{font-size:15px!important;margin-bottom:36px!important;}
+
+  /* NAV */
+  .nav-links{display:none!important;}
+  .nav-actions .lang-switcher{display:none!important;}
+  .nav-phone{font-size:14px!important;}
+  .burger-btn{display:flex!important;}
+
+  /* HERO */
+  .hero{padding:140px 4% 60px!important;}
+  .hero-inner{grid-template-columns:1fr!important;gap:32px!important;text-align:center!important;}
+  .hero-text{text-align:center!important;}
+  .hero-btns{flex-direction:column!important;align-items:center!important;}
+  .hero-visual{order:-1!important;}
+  .floating-cube{max-width:220px!important;}
+  .hero p{margin-left:auto!important;margin-right:auto!important;}
+
+  /* MARKETPLACES */
+  .marketplaces-strip{padding:28px 20px!important;margin:40px 4% 0!important;}
+  .mp-grid{gap:24px 32px!important;}
+  .fandom-logo{height:28px!important;}
+
+  /* PRICING */
+  .pricing-grid{grid-template-columns:1fr!important;}
+  .p-card.vip{grid-column:span 1!important;}
+
+  /* PROCESS */
+  .process-steps{flex-direction:column!important;}
+
+  /* FAQ grid */
+  .faq-grid-wrap, [style*="grid-template-columns:1fr 300px"]{
+    display:flex!important;flex-direction:column!important;
+  }
+  #tg-posts-wrap{height:300px!important;}
+
+  /* KZ Section */
+  #kz-import [style*="grid-template-columns:1fr 1fr"]{
+    display:flex!important;flex-direction:column!important;gap:28px!important;
+  }
+
+  /* Teksher */
+  #teksher .teksher-inner,[style*="grid-template-columns: 1fr 1fr"]{
+    grid-template-columns:1fr!important;
+  }
+
+  /* VIP card buttons */
+  .vip-btns-wrap{flex-direction:column!important;}
+
+  /* Chatbot */
+  #chatbot-window{width:calc(100vw - 32px)!important;right:16px!important;bottom:80px!important;}
+
+  /* News tabs */
+  .news-tab-btn{font-size:12px!important;padding:6px 12px!important;}
+}
+
+@media(max-width:480px){
+  .hero h1{font-size:clamp(22px,8vw,32px)!important;}
+  .btn{padding:12px 20px!important;font-size:14px!important;}
+  .marketplaces-strip{border-radius:14px!important;}
+  .cat-cz-pane.active{grid-template-columns:repeat(2,1fr)!important;}
+}
+</style>
 </head>
 <body>
 
@@ -650,7 +718,8 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       <li><a href="#categories" data-i18n="nav-cat">Отрасли</a></li>
       <li><a href="#news" data-i18n="nav-news">Новости</a></li>
       <li><a href="#faq">FAQ</a></li>
-          <li><a href="#teksher" data-i18n="nav-tek" class="nav-highlight">Текшер</a></li>
+          <li><a href="#kz-import" style="color:#00c853;">🇰🇿 Белый импорт</a></li>
+      <li><a href="#teksher" data-i18n="nav-tek" class="nav-highlight">🇰🇬 Текшер</a></li>
       <li><a href="#pricing" data-i18n="nav-price">Тарифы</a></li>
     </ul>
     <div class="nav-actions">
@@ -752,103 +821,149 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 </section>
 
 <section class="section reveal" id="categories">
-  <h2 class="section-title" data-i18n="cat-title">Категории товаров для <span>маркировки</span></h2>
-  <p class="section-subtitle" data-i18n="cat-sub">Готовые решения «под ключ» для каждой обязательной товарной группы.</p>
-  
-  <div class="cat-container">
-    <div class="cat-tabs-wrap">
-      <button class="cat-tab active" onclick="switchCategory('cat-nonfood', this)" data-i18n="tab-nonfood">👕 Непродовольственные</button>
-      <button class="cat-tab" onclick="switchCategory('cat-food', this)" data-i18n="tab-food">🛒 Продукты питания</button>
-      <button class="cat-tab" onclick="switchCategory('cat-health', this)" data-i18n="tab-health">✨ Здоровье и Косметика</button>
+  <h2 class="section-title" data-i18n="cat-title">Что необходимо <span>маркировать</span></h2>
+  <p class="section-subtitle" data-i18n="cat-sub">Полный перечень товарных групп под обязательную маркировку Честный ЗНАК</p>
+
+  <div class="cat-cz-layout">
+    <!-- LEFT SIDEBAR -->
+    <div class="cat-cz-sidebar">
+      <button class="cat-cz-tab active" onclick="czTab('clothes',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/></svg>
+        Одежда и обувь
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('food',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        Напитки и продукты
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('pharma',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M3 10h18M5 10v10a2 2 0 002 2h10a2 2 0 002-2V10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+        Фармацевтика
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('cosm',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        Косметика и бытхим
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('nonprod',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Непрод. товары
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('auto',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/><path d="M4 17H2v-6l3-5h10l3 5h1a2 2 0 012 2v4h-2"/></svg>
+        Автотовары
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('electro',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><circle cx="12" cy="10" r="3"/></svg>
+        Электроника
+      </button>
+      <button class="cat-cz-tab" onclick="czTab('pilot',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Пилотные проекты
+      </button>
     </div>
 
-    <div class="cat-panes">
-      
-      <div class="cat-pane active" id="cat-nonfood">
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"/>
-            </svg>
-          </div>
-          <h4 data-i18n="c-clothes">Одежда и текстиль</h4>
-        </a>
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 16v-2c0-1.1.9-2 2-2h4l4-4h4c1.1 0 2 .9 2 2v6H4z"/>
-              <path d="M4 16h16v2H4z"/>
-            </svg>
-          </div>
-          <h4 data-i18n="c-shoes">Обувь</h4>
-        </a>
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="8"></circle>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-          </div>
-          <h4 data-i18n="c-tires">Шины и покрышки</h4>
-        </a>
+    <!-- RIGHT GRID -->
+    <div class="cat-cz-content">
+      <div class="cat-cz-pane active" id="czp-clothes">
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👕</div><div class="czcard-name">Одежда</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👟</div><div class="czcard-name">Обувь</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧣</div><div class="czcard-name">Постельное бельё</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧤</div><div class="czcard-name">Трикотаж</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👜</div><div class="czcard-name">Сумки и кожизделия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🥿</div><div class="czcard-name">Шубы и меховые изделия</div></div>
       </div>
-
-      <div class="cat-pane" id="cat-food">
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
-            </svg>
-          </div>
-          <h4 data-i18n="c-water">Упакованная вода</h4>
-        </a>
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 19h20l-1.5-5H3.5L2 19z"/>
-              <path d="M6 14a6 3 0 0 1 12 0"/>
-            </svg>
-          </div>
-          <h4 data-i18n="c-feed">Корма для животных</h4>
-        </a>
+      <div class="cat-cz-pane" id="czp-food">
+        
+        
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💧</div><div class="czcard-name">Упакованная вода</div></div>
+        
+        
+        
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🍬</div><div class="czcard-name">Сладости и кондитерка</div></div>
+        
+        
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🐾</div><div class="czcard-name">Корм для животных</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🥤</div><div class="czcard-name">Безалкогольные напитки</div></div>
+        
       </div>
-
-      <div class="cat-pane" id="cat-health">
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10.5 20.5l-6-6a4.5 4.5 0 1 1 6.5-6.5l6 6a4.5 4.5 0 1 1-6.5 6.5z"></path>
-              <path d="M10.5 10.5l4.5 4.5"></path>
-            </svg>
-          </div>
-          <h4 data-i18n="c-bads">БАДы</h4>
-        </a>
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="10" width="14" height="12" rx="2"></rect>
-              <path d="M12 10V4"></path>
-              <path d="M9 4h6"></path>
-              <path d="M12 14v2"></path>
-            </svg>
-          </div>
-          <h4 data-i18n="c-perfume">Парфюмерия и Косметика</h4>
-        </a>
-        <a href="#" onclick="openModal(); return false;" class="cat-card">
-          <div class="cat-icon-box">
-            <svg viewBox="0 0 24 24" width="32" height="32" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="6" width="20" height="14" rx="2"></rect>
-              <path d="M12 10v6"></path>
-              <path d="M9 13h6"></path>
-            </svg>
-          </div>
-          <h4 data-i18n="c-med">Медицинские изделия</h4>
-        </a>
+      <div class="cat-cz-pane" id="czp-pharma">
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💊</div><div class="czcard-name">Лекарственные средства</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🩺</div><div class="czcard-name">Медицинские изделия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💉</div><div class="czcard-name">БАДы</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🐕</div><div class="czcard-name">Ветпрепараты</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">👁️</div><div class="czcard-name">Очки и линзы</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧪</div><div class="czcard-name">Антисептики</div></div>
       </div>
-
+      <div class="cat-cz-pane" id="czp-cosm">
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🌸</div><div class="czcard-name">Парфюмерия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💄</div><div class="czcard-name">Косметика и уход</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧴</div><div class="czcard-name">Бытовая химия</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🪥</div><div class="czcard-name">Гигиенические товары</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧼</div><div class="czcard-name">Мыло и моющие средства</div></div>
+      </div>
+      <div class="cat-cz-pane" id="czp-nonprod">
+        
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🛋️</div><div class="czcard-name">Мебель</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧸</div><div class="czcard-name">Детские товары</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔨</div><div class="czcard-name">Стройматериалы</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🧵</div><div class="czcard-name">Технический текстиль</div></div>
+      </div>
+      <div class="cat-cz-pane" id="czp-auto">
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔵</div><div class="czcard-name">Шины и покрышки</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🔦</div><div class="czcard-name">Автозапчасти</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🚲</div><div class="czcard-name">Велосипеды и самокаты</div></div>
+      </div>
+      <div class="cat-cz-pane" id="czp-electro">
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">📱</div><div class="czcard-name">Смартфоны</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">💻</div><div class="czcard-name">Ноутбуки и ПК</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">📷</div><div class="czcard-name">Фото и видео техника</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🎮</div><div class="czcard-name">Игровые консоли</div></div>
+      </div>
+      <div class="cat-cz-pane" id="czp-pilot">
+        
+        
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🪴</div><div class="czcard-name">Товары для садоводства</div></div>
+        <div class="czcard" onclick="openModal()"><div class="czcard-icon">🎿</div><div class="czcard-name">Спортивные товары</div></div>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+.cat-cz-layout{display:grid;grid-template-columns:280px 1fr;gap:0;border:1px solid var(--border-color);border-radius:20px;overflow:hidden;}
+.cat-cz-sidebar{background:var(--bg-card);border-right:1px solid var(--border-color);padding:8px;}
+.cat-cz-tab{display:flex;align-items:center;gap:10px;width:100%;padding:13px 16px;background:transparent;border:none;color:var(--text-muted);font-size:14px;font-weight:600;cursor:pointer;border-radius:12px;text-align:left;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;}
+.cat-cz-tab svg{width:18px;height:18px;flex-shrink:0;stroke:currentColor;}
+.cat-cz-tab:hover{background:var(--bg-hover);color:#fff;}
+.cat-cz-tab.active{background:var(--cz-yellow);color:#000;}
+.cat-cz-tab.active svg{stroke:#000;}
+.cat-cz-content{background:var(--bg-main);padding:28px;}
+.cat-cz-pane{display:none;grid-template-columns:repeat(4,1fr);gap:12px;}
+.cat-cz-pane.active{display:grid;}
+.czcard{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:20px 14px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:all .25s;text-align:center;}
+.czcard:hover{border-color:var(--cz-yellow);background:var(--bg-hover);transform:translateY(-3px);box-shadow:0 8px 24px rgba(253,224,47,.1);}
+.czcard-icon{font-size:32px;line-height:1;}
+.czcard-name{font-size:13px;font-weight:600;color:var(--text-muted);line-height:1.3;}
+.czcard:hover .czcard-name{color:#fff;}
+
+@media(max-width:900px){
+  .cat-cz-layout{grid-template-columns:1fr;}
+  .cat-cz-sidebar{display:flex;overflow-x:auto;gap:6px;border-right:none;border-bottom:1px solid var(--border-color);}
+  .cat-cz-tab{white-space:nowrap;padding:10px 14px;font-size:13px;}
+  .cat-cz-pane.active{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:480px){
+  .cat-cz-pane.active{grid-template-columns:repeat(2,1fr);}
+  .czcard{padding:14px 10px;}
+}
+</style>
+<script>
+function czTab(key, btn){
+  document.querySelectorAll('.cat-cz-tab').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.cat-cz-pane').forEach(function(p){p.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('czp-'+key).classList.add('active');
+}
+</script>
 
 <section class="process-section reveal">
   <h2 class="process-title" data-i18n="proc-title">Процесс маркировки Честный ЗНАК</h2>
@@ -957,6 +1072,79 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   </div>
 </section>
 
+<!-- ══════════ БЕЛЫЙ ИМПОРТ КЗ ══════════ -->
+<section class="section reveal" id="kz-import" style="padding:80px 5%;background:linear-gradient(135deg,rgba(0,119,51,0.06) 0%,rgba(255,215,0,0.04) 100%);border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+  <div style="max-width:1300px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+
+      <!-- Левая колонка: текст -->
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(0,119,51,0.12);border:1px solid rgba(0,119,51,0.3);border-radius:30px;padding:8px 18px;margin-bottom:24px;">
+          <span style="font-size:22px;">🇰🇿</span>
+          <span style="color:#00a650;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Белый импорт — Казахстан</span>
+        </div>
+        <h2 style="font-family: 'Space Grotesk', sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:800;line-height:1.15;margin-bottom:20px;">
+          Ввозите товары<br><span style="color:var(--cz-yellow);">легально через КЗ</span><br>без рисков
+        </h2>
+        <p style="color:var(--text-muted);font-size:16px;line-height:1.7;margin-bottom:28px;">
+          Параллельный (белый) импорт через Республику Казахстан — официально разрешённый механизм ввоза товаров без согласия правообладателя. Перечень утверждён <strong style="color:#fff;">Приказом МТИП РК</strong>. Мы оформляем маркировку и помогаем легально попасть на маркетплейсы РФ.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="color:var(--text-muted);font-size:14px;">Товары проходят таможню без нарушений законодательства РФ и КЗ</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="color:var(--text-muted);font-size:14px;">Маркировка Честный ЗНАК оформляется до отгрузки на маркетплейс</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="color:var(--text-muted);font-size:14px;">Принимаем партии от 500 единиц, полное сопровождение под ключ</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:28px;height:28px;border-radius:50%;background:rgba(253,224,47,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" fill="none" stroke="var(--cz-yellow)" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="color:var(--text-muted);font-size:14px;">Совместимо с Wildberries, Ozon, Яндекс Маркет</span>
+          </div>
+        </div>
+        <button onclick="openModal()" class="btn btn-primary" style="font-size:15px;padding:16px 32px;">
+          Получить консультацию по КЗ →
+        </button>
+      </div>
+
+      <!-- Правая колонка: категории товаров -->
+      <div>
+        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:24px;padding:28px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+            <span style="font-size:18px;">📋</span>
+            <span style="font-weight:700;font-size:15px;color:#fff;">Товары по перечню МТИП РК</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>👕</span> Одежда и текстиль</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>👟</span> Обувь</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>📱</span> Смартфоны и эл-ка</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🌸</span> Парфюмерия</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🚲</span> Велосипеды</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>📷</span> Фото/видеотехника</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🛋️</span> Мебель</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🧸</span> Детские товары</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🔵</span> Шины и покрышки</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>💊</span> Медизделия</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>👜</span> Сумки</div>
+            <div style="background:var(--bg-hover);border-radius:10px;padding:10px 14px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;"><span>🧴</span> Бытовая химия</div>
+          </div>
+          <div style="margin-top:16px;padding:12px 14px;background:rgba(253,224,47,0.06);border:1px solid rgba(253,224,47,0.15);border-radius:10px;font-size:12px;color:var(--text-muted);line-height:1.5;">
+            📌 Источник: Приказ МТИП РК о параллельном импорте + Постановление Правительства РК. Перечень актуален на 2025–2026 гг.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ══════════ /БЕЛЫЙ ИМПОРТ КЗ ══════════ -->
+
+
+
 <section class="pricing-section reveal" id="pricing">
   <div class="pr-header">
     <h2 data-i18n="pr-title">Тарифы на услуги маркировки</h2>
@@ -1000,8 +1188,21 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
           <div style="font-weight: 700;" data-i18n="pr-vip-sub">от 100 000 КИЗов</div>
         </div>
         <div style="text-align: right;">
-          <div style="background:#000; color:#fff; display:inline-block; padding: 6px 16px; border-radius: 8px; font-weight:800; font-size:24px; margin-bottom:12px;" data-i18n="pr-vip-badge">ДОГОВОРИМСЯ</div><br>
-          <button onclick="openModal()" class="vip-btn" data-i18n="pr-vip-btn">Связаться со Станиславом</button>
+          <div style="background:#000; color:#fff; display:inline-block; padding: 6px 16px; border-radius: 8px; font-weight:800; font-size:24px; margin-bottom:12px;" data-i18n="pr-vip-badge">ИНДИВИДУАЛЬНЫЙ ПРОЕКТ</div><br>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="https://t.me/+79933717770" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:#229ED9;color:#fff;border-radius:12px;padding:10px 18px;font-weight:700;font-size:14px;">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+            Telegram
+          </a>
+          <a href="https://wa.me/79933717770" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:#25D366;color:#fff;border-radius:12px;padding:10px 18px;font-weight:700;font-size:14px;">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M11.996 0A12 12 0 000 12c0 2.12.553 4.113 1.523 5.861L.068 24l6.326-1.658A11.96 11.96 0 0011.996 24c6.627 0 12-5.373 12-12S18.623 0 11.996 0zM17.43 16.57c-.24.67-1.38 1.28-1.93 1.35-.55.07-1.28.18-3.52-.7-2.69-1.05-4.41-3.83-4.54-4.01-.13-.18-1.08-1.44-1.08-2.74 0-1.3.67-1.94.92-2.22.25-.28.54-.35.71-.35.18 0 .36 0 .52.01.18.01.38-.07.59.43.21.5.73 1.77.8 1.91.07.14.11.3.02.48-.08.18-.13.3-.26.45-.13.14-.27.29-.11.56.16.27.7 1.15 1.5 1.87.94.84 1.8 1.11 2.07 1.25.27.14.43.11.59-.06.16-.18.68-.8.86-1.07.18-.28.37-.23.61-.14.24.09 1.55.73 1.82.87.27.14.45.21.52.33.07.12.07.7-.17 1.37z"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://vk.com/markirovkatovarov" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:#0077FF;color:#fff;border-radius:12px;padding:10px 18px;font-weight:700;font-size:14px;">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.67c-.63 0-.83-.5-1.96-1.64-1-.97-1.44-.97-1.69-.97-.35 0-.45.1-.45.58v1.5c0 .41-.13.66-1.22.66-1.8 0-3.8-1.1-5.2-3.13C4.28 10.13 3.9 8.24 3.9 7.82c0-.25.1-.48.58-.48h1.67c.43 0 .6.2.76.67.84 2.42 2.24 4.54 2.82 4.54.22 0 .32-.1.32-.65V9.67c-.07-1.17-.68-1.27-.68-1.69 0-.2.17-.4.43-.4h2.63c.37 0 .5.2.5.62v3.33c0 .37.17.5.27.5.22 0 .4-.13.8-.53 1.24-1.39 2.13-3.53 2.13-3.53.12-.25.32-.48.75-.48h1.67c.5 0 .61.26.5.62-.22 1.01-2.34 4.01-2.34 4.01-.19.3-.25.44 0 .77.18.25.77.77 1.16 1.23.72.83 1.27 1.53 1.42 2.01.14.47-.1.71-.57.71z"/></svg>
+            ВКонтакте
+          </a>
+        </div>
         </div>
       </div>
     </div>
@@ -1044,20 +1245,236 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       <h2 class="section-title" data-i18n="n-title">Актуальные <span>новости</span></h2>
       <p class="section-subtitle" style="margin-bottom: 0;" data-i18n="n-sub">Сводка последних изменений в правилах маркировки.</p>
     </div>
-    <div class="live-status">
+    <div class="live-status" style="display:flex;align-items:center;gap:10px;">
       <div class="live-dot"></div>
-      <span data-i18n="n-sync">Синхронизация с серверами</span>
+      <span data-i18n="n-sync" style="font-size:13px;color:var(--text-muted);">Live · Честный ЗНАК + Текшер</span>
+      <button onclick="loadAllNews()" style="background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-muted);border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">↻ Обновить</button>
     </div>
   </div>
-  
+
+  <!-- ТАБЫ ИСТОЧНИКОВ -->
+  <div style="display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;">
+    <button onclick="showNewsTab('all')" id="ntab-all" class="news-tab-btn active-ntab">Все источники</button>
+    <button onclick="showNewsTab('cz')" id="ntab-cz" class="news-tab-btn">
+      <img src="https://raw.githubusercontent.com/Didmeistris/landing/main/images/favicon.webp" style="width:16px;height:16px;border-radius:3px;vertical-align:middle;margin-right:5px;" onerror="this.style.display='none'">Честный ЗНАК
+    </button>
+    <button onclick="showNewsTab('teksher')" id="ntab-teksher" class="news-tab-btn">🇰🇬 Текшер KG</button>
+  </div>
+
   <div class="news-grid" id="news-container">
-    <div class="news-loader" data-i18n="n-load">Загрузка сводок Честного ЗНАКа...</div>
+    <div class="news-loader" id="news-loading-msg">⏳ Загрузка новостей...</div>
   </div>
 </section>
+
+<style>
+.news-tab-btn{background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-muted);border-radius:10px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif;}
+.news-tab-btn:hover{color:#fff;border-color:rgba(255,255,255,.3);}
+.active-ntab{background:var(--cz-yellow)!important;color:#000!important;border-color:var(--cz-yellow)!important;}
+.news-source-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;}
+.ns-cz{background:rgba(253,224,47,.15);color:var(--cz-yellow);}
+.ns-teksher{background:rgba(34,158,217,.15);color:#229ED9;}
+</style>
+
+<script>
+var allNewsItems = [];
+var currentTab = 'all';
+
+var RSS_SOURCES = [
+  {
+    key: 'cz',
+    name: 'Честный ЗНАК',
+    urls: [
+      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://честныйзнак.рф/info/'),
+      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://xn--80ajghhoc2aj1c8b.xn--p1ai/info/')
+    ],
+    color: 'ns-cz',
+    label: 'Честный ЗНАК',
+    siteUrl: 'https://честныйзнак.рф/info/',
+    staticNews: [
+      {title:'Расширение маркировки: новые категории товаров с 2026 года', date:'2026-04-15'},
+      {title:'Обновление требований к КИЗам для одежды и обуви', date:'2026-03-20'},
+      {title:'Честный ЗНАК: изменения в правилах ввода в оборот', date:'2026-02-10'},
+      {title:'Новые штрафы за отсутствие маркировки: что нужно знать', date:'2026-01-25'},
+      {title:'Маркировка БАД: полный переход с января 2026', date:'2025-12-18'},
+    ]
+  },
+  {
+    key: 'teksher',
+    name: 'Текшер KG',
+    urls: [
+      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://main.teksher.kg/'),
+      'https://api.allorigins.win/get?url=' + encodeURIComponent('https://teksher.kg/')
+    ],
+    color: 'ns-teksher',
+    label: 'Текшер KG',
+    siteUrl: 'https://main.teksher.kg/',
+    staticNews: [
+      {title:'Текшер KG: обновление базы товаров для Кыргызстана', date:'2026-04-10'},
+      {title:'Интеграция с маркетплейсами — новые возможности 2026', date:'2026-03-05'},
+      {title:'Белый импорт через КЗ: актуальные изменения в перечне', date:'2026-02-14'},
+      {title:'Маркировка текстиля: требования для импортёров', date:'2026-01-30'},
+      {title:'Текшер KG: новые тарифы и условия для партнёров', date:'2025-12-20'},
+    ]
+  }
+];
+
+function formatDate(str) {
+  if (!str) return '';
+  try {
+    var d = new Date(str);
+    if (isNaN(d)) return str.substring(0,16);
+    return d.toLocaleDateString('ru-RU', {day:'numeric', month:'long', year:'numeric'});
+  } catch(e) { return ''; }
+}
+
+function parseContent(content, src) {
+  var result = [];
+  if (!content || content.length < 100) return result;
+
+  // Try RSS XML
+  try {
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(content, 'text/xml');
+    var items = doc.querySelectorAll('item');
+    if (items.length > 0) {
+      items.forEach(function(item, i) {
+        if (i >= 5) return;
+        var title = item.querySelector('title') ? item.querySelector('title').textContent.trim() : '';
+        var link = item.querySelector('link') ? item.querySelector('link').textContent.trim() : src.siteUrl;
+        var pubDate = item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : '';
+        var desc = item.querySelector('description') ? item.querySelector('description').textContent.replace(/<[^>]+>/g,'').trim().substring(0,100) : '';
+        if (title && title.length > 5) result.push({title:title, link:link, date:pubDate, desc:desc});
+      });
+    }
+  } catch(e) {}
+
+  // Try HTML parse
+  if (result.length === 0) {
+    try {
+      var hdoc = new DOMParser().parseFromString(content, 'text/html');
+      var sels = ['.news__item-title a','article h2 a','article h3 a','.article__title a','.news-title a','.post-title a','h2 a','h3 a'];
+      for (var s=0; s<sels.length && result.length<5; s++) {
+        hdoc.querySelectorAll(sels[s]).forEach(function(el) {
+          if (result.length >= 5) return;
+          var text = el.textContent.trim();
+          if (text.length > 15) {
+            var href = el.getAttribute('href') || src.siteUrl;
+            if (href.startsWith('/')) href = new URL(src.siteUrl).origin + href;
+            result.push({title:text, link:href, date:'', desc:''});
+          }
+        });
+      }
+    } catch(e) {}
+  }
+  return result;
+}
+
+function useStaticFallback(src) {
+  return src.staticNews.map(function(n) {
+    return {
+      title: n.title,
+      link: src.siteUrl,
+      date: n.date,
+      desc: 'Откройте сайт для подробностей →',
+      source: src.key,
+      badgeClass: src.color,
+      badgeLabel: src.label,
+      isStatic: true
+    };
+  });
+}
+
+function renderNews() {
+  var container = document.getElementById('news-container');
+  var items = currentTab === 'all' ? allNewsItems : allNewsItems.filter(function(i){ return i.source === currentTab; });
+  if (!items.length) {
+    container.innerHTML = '<div class="news-loader">Нет данных. <a href="https://честныйзнак.рф/info/" target="_blank" style="color:var(--cz-yellow)">Открыть Честный ЗНАК ↗</a></div>';
+    return;
+  }
+  container.innerHTML = items.map(function(item) {
+    var staticBadge = item.isStatic ? '<span style="font-size:10px;color:#666;margin-left:4px;">• архив</span>' : '';
+    return '<a href="'+item.link+'" target="_blank" class="news-card" style="text-decoration:none;display:flex;flex-direction:column;gap:10px;">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">' +
+        '<span class="news-source-badge '+item.badgeClass+'">'+item.badgeLabel+'</span>' +
+        '<span style="font-size:11px;color:var(--text-muted);">'+formatDate(item.date)+'</span>' +
+      '</div>' +
+      '<h4 style="font-size:15px;font-weight:700;color:#fff;line-height:1.4;">'+item.title+staticBadge+'</h4>' +
+      (item.desc ? '<p style="font-size:13px;color:var(--text-muted);line-height:1.5;">'+item.desc+'</p>' : '') +
+      '<span style="font-size:12px;color:var(--cz-yellow);font-weight:600;">Читать →</span>' +
+    '</a>';
+  }).join('');
+}
+
+function showNewsTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.news-tab-btn').forEach(function(b){ b.classList.remove('active-ntab'); });
+  document.getElementById('ntab-'+tab).classList.add('active-ntab');
+  renderNews();
+}
+
+function tryFetchSource(src, urlIndex, onSuccess, onFail) {
+  if (urlIndex >= src.urls.length) { onFail(); return; }
+  fetch(src.urls[urlIndex], {signal: AbortSignal.timeout ? AbortSignal.timeout(5000) : undefined})
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      var items = parseContent(data.contents || data.data || '', src);
+      if (items.length > 0) {
+        onSuccess(items);
+      } else {
+        tryFetchSource(src, urlIndex+1, onSuccess, onFail);
+      }
+    })
+    .catch(function() {
+      tryFetchSource(src, urlIndex+1, onSuccess, onFail);
+    });
+}
+
+window.loadAllNews = function() {
+  var container = document.getElementById('news-container');
+  container.innerHTML = '<div class="news-loader" style="grid-column:1/-1;">⏳ Загрузка новостей...</div>';
+  allNewsItems = [];
+  var loaded = 0;
+
+  RSS_SOURCES.forEach(function(src) {
+    tryFetchSource(src, 0,
+      function(items) {
+        items.forEach(function(item) {
+          item.source = src.key;
+          item.badgeClass = src.color;
+          item.badgeLabel = src.label;
+          item.isStatic = false;
+          allNewsItems.push(item);
+        });
+        loaded++;
+        if (loaded === RSS_SOURCES.length) {
+          allNewsItems.sort(function(a,b){ return new Date(b.date||0)-new Date(a.date||0); });
+          renderNews();
+        }
+      },
+      function() {
+        // All proxies failed — use static fallback
+        useStaticFallback(src).forEach(function(item){ allNewsItems.push(item); });
+        loaded++;
+        if (loaded === RSS_SOURCES.length) {
+          allNewsItems.sort(function(a,b){ return new Date(b.date||0)-new Date(a.date||0); });
+          renderNews();
+        }
+      }
+    );
+  });
+};
+
+document.addEventListener('DOMContentLoaded', function(){ loadAllNews(); });
+setTimeout(function(){ if(allNewsItems.length===0) loadAllNews(); }, 2000);
+// Auto-refresh every 10 minutes
+setInterval(function(){ loadAllNews(); }, 600000);
+</script>
 
 
   <!-- ══════════ FAQ ══════════ -->
   <section class="section reveal" id="faq">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start;">
+    <div>
     <h2 class="section-title">Частые <span>вопросы</span></h2>
     <p class="section-subtitle">Всё, что нужно знать о маркировке товаров Честный ЗНАК</p>
     <div class="faq-list">
@@ -1110,7 +1527,134 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
         <p class="faq-a">Для работы с системой Честный ЗНАК требуется квалифицированная электронная подпись (КЭП). <strong>Мы помогаем её оформить</strong> и настроить — вам не нужно разбираться в этом самостоятельно.</p>
       </details>
 
+    </div><!-- /faq-list -->
+    </div><!-- /faq-left -->
+    <!-- TG WIDGET -->
+    <div style="position:sticky;top:110px;width:300px;flex-shrink:0;">
+      <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+        <div style="background:linear-gradient(135deg,#229ED9,#1a7ab0);padding:16px 20px;display:flex;align-items:center;gap:12px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+          </div>
+          <div>
+            <div style="color:#fff;font-weight:800;font-size:15px;font-family: 'Space Grotesk', sans-serif;">Маркировка 57</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:12px;">@markirovka57 · Telegram</div>
+          </div>
+        </div>
+        <!-- Telegram Posts Widget -->
+        <div id="tg-posts-wrap" style="overflow-y:auto;max-height:380px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;">
+          <div style="padding:20px;text-align:center;color:var(--text-muted);font-size:13px;">⏳ Загрузка постов...</div>
+        </div>
+        <style>
+        .tg-post-card{padding:14px;border-bottom:1px solid rgba(255,255,255,0.06);transition:background .2s;cursor:pointer;text-decoration:none;display:block;}
+        .tg-post-card:last-child{border-bottom:none;}
+        .tg-post-card:hover{background:rgba(255,255,255,0.04);}
+        .tg-post-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+        .tg-post-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#229ED9,#1a7ab0);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        .tg-post-meta{flex:1;}
+        .tg-post-channel{font-size:13px;font-weight:700;color:#fff;}
+        .tg-post-date{font-size:11px;color:var(--text-muted);}
+        .tg-post-text{font-size:13px;color:rgba(255,255,255,0.85);line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+        .tg-post-link{font-size:12px;color:#229ED9;font-weight:600;margin-top:6px;display:inline-flex;align-items:center;gap:4px;}
+        </style>
+        <script>
+        (function(){
+          var wrap = document.getElementById('tg-posts-wrap');
+          if(!wrap) return;
+
+          // Use Telegram widget embed for real posts - try multiple post IDs
+          var channel = 'markirovka57';
+          var postIds = [10,9,8,7,6,5,4,3,2,1];
+          var found = 0;
+          wrap.innerHTML = '';
+
+          function tryEmbed(idx){
+            if(idx >= postIds.length) {
+              if(found === 0) showFallback();
+              return;
+            }
+            var n = postIds[idx];
+            // Use official Telegram embed
+            var container = document.createElement('div');
+            container.className = 'tg-post-card';
+            container.style.padding = '0';
+
+            var script = document.createElement('script');
+            script.setAttribute('async','');
+            script.setAttribute('src','https://telegram.org/js/telegram-widget.js?22');
+            script.setAttribute('data-telegram-post', channel+'/'+n);
+            script.setAttribute('data-width','100%');
+            script.setAttribute('data-dark','1');
+            script.setAttribute('data-color','229ED9');
+
+            var timeout = setTimeout(function(){
+              tryEmbed(idx+1);
+            }, 3000);
+
+            script.onload = function(){
+              clearTimeout(timeout);
+              found++;
+              tryEmbed(idx+1);
+            };
+
+            container.appendChild(script);
+            wrap.appendChild(container);
+            tryEmbed(idx+1);
+          }
+
+          function showFallback(){
+            wrap.innerHTML = 
+              '<div style="padding:20px;">'+
+              '<p style="color:var(--text-muted);font-size:13px;text-align:center;margin-bottom:16px;">Последние посты канала @markirovka57</p>'+
+              '<div class="tg-post-card" onclick="window.open('https://t.me/markirovka57','_blank')">'+
+                '<div class="tg-post-header">'+
+                  '<div class="tg-post-avatar"><svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg></div>'+
+                  '<div class="tg-post-meta"><div class="tg-post-channel">Маркировка 57</div><div class="tg-post-date">@markirovka57</div></div>'+
+                '</div>'+
+                '<div class="tg-post-text">Актуальные новости о маркировке, изменения в законодательстве, советы для селлеров и импортёров.</div>'+
+                '<div class="tg-post-link">Открыть канал <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></div>'+
+              '</div>'+
+              '</div>';
+          }
+
+          // Use official telegram widget for first 5 posts
+          for(var i=0; i<5; i++){
+            (function(n){
+              var div = document.createElement('div');
+              div.style.padding = '4px 8px';
+              var s = document.createElement('script');
+              s.async = true;
+              s.src = 'https://telegram.org/js/telegram-widget.js?22';
+              s.setAttribute('data-telegram-post', channel+'/'+n);
+              s.setAttribute('data-width','100%');
+              s.setAttribute('data-dark','1');
+              s.setAttribute('data-color','229ED9');
+              s.setAttribute('data-userpic','false');
+              div.appendChild(s);
+              wrap.appendChild(div);
+            })(postIds[i]);
+          }
+
+          // Fallback after 5 seconds if widgets didn't render
+          setTimeout(function(){
+            var scripts = wrap.querySelectorAll('.tg_widget,.telegram-widget,[class*="tgme_"]');
+            if(scripts.length === 0){
+              // Check if any telegram content loaded
+              var iframes = wrap.querySelectorAll('iframe');
+              if(iframes.length === 0) showFallback();
+            }
+          }, 5000);
+        })();
+        </script>
+        <div style="padding:14px 16px;border-top:1px solid var(--border-color);">
+          <a href="https://t.me/markirovka57" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#229ED9;color:#fff;border-radius:12px;padding:11px;font-weight:700;font-size:14px;text-decoration:none;">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+            Подписаться на канал
+          </a>
+        </div>
+      </div>
     </div>
+    </div><!-- /faq-grid -->
   </section>
   <!-- ══════════ /FAQ ══════════ -->
 
@@ -1151,17 +1695,28 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
 <div class="modal-overlay" id="contactModal">
   <div class="modal-content">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <h3 style="font-family:'Unbounded', sans-serif; font-size: 26px; margin-bottom: 8px; color: #fff;" data-i18n="m-title">Свяжитесь с нами</h3>
-    <p style="color:var(--text-muted); font-size:15px; margin-bottom:32px;" data-i18n="m-desc">Выберите удобный мессенджер.<br><span style="color: #fff; font-weight: 600;">Специалист Станислав ответит за 5 минут.</span></p>
+    <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; margin-bottom: 8px; color: #fff;" data-i18n="m-title">Свяжитесь с нами</h3>
+    <p style="color:var(--text-muted); font-size:15px; margin-bottom:32px;" data-i18n="m-desc">Выберите удобный мессенджер для связи с нами.</p>
     
     <a href="https://t.me/+79933717770" target="_blank" class="m-btn m-tg">
       <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg> 
-      <span data-i18n="m-btn1">Написать Станиславу (Telegram)</span>
+      <span data-i18n="m-btn1">Написать в Telegram</span>
     </a>
     <a href="https://wa.me/79933717770" target="_blank" class="m-btn m-wa">
       <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M11.996 0A12 12 0 000 12c0 2.12.553 4.113 1.523 5.861L.068 24l6.326-1.658A11.96 11.96 0 0011.996 24c6.627 0 12-5.373 12-12S18.623 0 11.996 0zM17.43 16.57c-.24.67-1.38 1.28-1.93 1.35-.55.07-1.28.18-3.52-.7-2.69-1.05-4.41-3.83-4.54-4.01-.13-.18-1.08-1.44-1.08-2.74 0-1.3.67-1.94.92-2.22.25-.28.54-.35.71-.35.18 0 .36 0 .52.01.18.01.38-.07.59.43.21.5.73 1.77.8 1.91.07.14.11.3.02.48-.08.18-.13.3-.26.45-.13.14-.27.29-.11.56.16.27.7 1.15 1.5 1.87.94.84 1.8 1.11 2.07 1.25.27.14.43.11.59-.06.16-.18.68-.8.86-1.07.18-.28.37-.23.61-.14.24.09 1.55.73 1.82.87.27.14.45.21.52.33.07.12.07.7-.17 1.37z"/></svg> 
-      <span data-i18n="m-btn2">Написать Станиславу (WhatsApp)</span>
+      <span data-i18n="m-btn2">Написать в WhatsApp</span>
     </a>
+    <a href="https://vk.com/markirovkatovarov" target="_blank" class="m-btn" style="background:#0077FF;color:#fff;display:flex;align-items:center;justify-content:center;padding:16px 24px;border-radius:14px;text-decoration:none;font-weight:700;font-size:16px;margin-top:12px;">
+      <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="margin-right:8px;"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2zm3.08 13.5h-1.67c-.63 0-.83-.5-1.96-1.64-1-.97-1.44-.97-1.69-.97-.35 0-.45.1-.45.58v1.5c0 .41-.13.66-1.22.66-1.8 0-3.8-1.1-5.2-3.13C4.28 10.13 3.9 8.24 3.9 7.82c0-.25.1-.48.58-.48h1.67c.43 0 .6.2.76.67.84 2.42 2.24 4.54 2.82 4.54.22 0 .32-.1.32-.65V9.67c-.07-1.17-.68-1.27-.68-1.69 0-.2.17-.4.43-.4h2.63c.37 0 .5.2.5.62v3.33c0 .37.17.5.27.5.22 0 .4-.13.8-.53 1.24-1.39 2.13-3.53 2.13-3.53.12-.25.32-.48.75-.48h1.67c.5 0 .61.26.5.62-.22 1.01-2.34 4.01-2.34 4.01-.19.3-.25.44 0 .77.18.25.77.77 1.16 1.23.72.83 1.27 1.53 1.42 2.01.14.47-.1.71-.57.71z"/></svg>
+      <span data-i18n="m-btn3">Написать ВКонтакте</span>
+    </a>
+    <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border-color);text-align:center;">
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:10px;">Наш Telegram-канал:</p>
+      <a href="https://t.me/markirovka57" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:#229ED9;font-weight:700;font-size:14px;text-decoration:none;">
+        <svg width="18" height="18" fill="#229ED9" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+        @markirovka57
+      </a>
+    </div>
   </div>
 </div>
 
@@ -1193,7 +1748,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "pr-1m": "1 месяц", "pr-3m": "3 месяца", "pr-6m": "6 месяцев", "pr-12m": "12 месяцев",
       "pr-select": "Выбрать", "pr-hit": "ХИТ СЕЛЛЕРОВ",
       "pr-sub-3": "20 996₽/мес", "pr-sub-6": "18 665₽/мес", "pr-sub-12": "16 249₽/мес",
-      "pr-vip": "ВИП", "pr-vip-sub": "от 100 000 КИЗов", "pr-vip-badge": "ДОГОВОРИМСЯ", "pr-vip-btn": "Связаться со Станиславом",
+      "pr-vip": "ВИП", "pr-vip-sub": "от 100 000 КИЗов", "pr-vip-badge": "ИНДИВИДУАЛЬНЫЙ ПРОЕКТ", "pr-vip-btn": "Написать ВКонтакте",
       "f-title": "Что входит в тариф:",
       "f-1": "Регистрация на сервисах ГС1 и «Честный знак»", "f-2": "Создание карточек товаров в «Честном знаке»", "f-3": "Создание и ввод в оборот кодов маркировки", "f-4": "Передача маркировок на маркетплейсы (УПД)", "f-5": "Вывод продукции из оборота", "f-6": "Выбор шаблона для этикетки",
       "f-ul1": "БЕЗ ЛИМИТА", "f-ul2": "БЕЗ ЛИМИТА", "f-ul3": "БЕЗ ЛИМИТА", "f-ul4": "БЕЗ ЛИМИТА",
@@ -1202,8 +1757,8 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "ft-nav": "Навигация", "ft-l1": "Категории товаров", "ft-l2": "Интеграция Текшер", "ft-l3": "Тарифы", "ft-l4": "Новости",
       "ft-cont": "Контакты для связи", "ft-tg": "Telegram сообщество: @markirovka57", "ft-wa": "Написать в WhatsApp",
       "pop-title": "Вступайте к нам в сообщество Селлеров!", "pop-btn": "Перейти в телеграм",
-      "m-title": "Свяжитесь с нами", "m-desc": "Выберите удобный мессенджер.<br><span style=\"color: #fff; font-weight: 600;\">Специалист Станислав ответит за 5 минут.</span>",
-      "m-btn1": "Написать Станиславу (Telegram)", "m-btn2": "Написать Станиславу (WhatsApp)",
+      "m-title": "Свяжитесь с нами", "m-desc": "Выберите удобный мессенджер для связи с нами.",
+      "m-btn1": "Написать в Telegram", "m-btn2": "Написать в WhatsApp", "m-btn3": "Написать ВКонтакте",
       "sub-clothes": "Маркировка одежды под ключ", "sub-shoes": "Маркировка обуви под ключ", "sub-bads": "Маркировка БАДов под ключ", "sub-mp": "Для маркетплейсов"
     },
     en: {
@@ -1259,7 +1814,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "pr-1m": "1 ай", "pr-3m": "3 ай", "pr-6m": "6 ай", "pr-12m": "12 ай",
       "pr-select": "Тандоо", "pr-hit": "ХИТ САТУУЧУЛАР",
       "pr-sub-3": "20 996₽/ай", "pr-sub-6": "18 665₽/ай", "pr-sub-12": "16 249₽/ай",
-      "pr-vip": "VIP", "pr-vip-sub": "100 000 КИЗден баштап", "pr-vip-badge": "КЕЛИШЕБИЗ", "pr-vip-btn": "Станислав менен байланышуу",
+      "pr-vip": "VIP", "pr-vip-sub": "100 000 КИЗден баштап", "pr-vip-badge": "ЖЕКЕЧЕ ДОЛБООР", "pr-vip-btn": "ВКонтактеге жазуу",
       "f-title": "Тарифке эмнелер кирет:",
       "f-1": "ГС1 жана «Честный знак» сервистеринде каттоо", "f-2": "«Честный знак» системасында товар карточкаларын түзүү", "f-3": "Маркировка коддорун түзүү жана жүгүртүүгө киргизүү", "f-4": "Маркировкаларды маркетплейстерге өткөрүп берүү (УПД)", "f-5": "Продукцияны жүгүртүүдөн чыгаруу", "f-6": "Этикетка үчүн шаблон тандоо",
       "f-ul1": "ЧЕКСИЗ", "f-ul2": "ЧЕКСИЗ", "f-ul3": "ЧЕКСИЗ", "f-ul4": "ЧЕКСИЗ",
@@ -1268,8 +1823,8 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
       "ft-nav": "Навигация", "ft-l1": "Товар категориялары", "ft-l2": "Текшер интеграциясы", "ft-l3": "Тарифтер", "ft-l4": "Жаңылыктар",
       "ft-cont": "Байланыш үчүн маалыматтар", "ft-tg": "Telegram коомчулугу: @markirovka57", "ft-wa": "WhatsApp аркылуу жазуу",
       "pop-title": "Биздин Сатуучулар коомчулугубузга кошулуңуз!", "pop-btn": "Телеграмга өтүү",
-      "m-title": "Биз менен байланышыңыз", "m-desc": "Ыңгайлуу мессенджерди тандаңыз.<br><span style=\"color: #fff; font-weight: 600;\">Адис Станислав 5 мүнөттүн ичинде жооп берет.</span>",
-      "m-btn1": "Станиславка жазуу (Telegram)", "m-btn2": "Станиславка жазуу (WhatsApp)",
+      "m-title": "Биз менен байланышыңыз", "m-desc": "Байланышуу үчүн ыңгайлуу мессенджерди тандаңыз.",
+      "m-btn1": "Telegramга жазуу", "m-btn2": "WhatsAppка жазуу", "m-btn3": "ВКонтактеге жазуу",
       "sub-clothes": "Кийимди маркировкалоо", "sub-shoes": "Бут кийимди маркировкалоо", "sub-bads": "БАДдарды маркировкалоо", "sub-mp": "Маркетплейстер үчүн"
     }
   };
@@ -1371,6 +1926,136 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
     }
   });
 </script>
+
+
+<!-- ══════════ CHATBOT ══════════ -->
+<style>
+#chatbot-bubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:var(--cz-yellow);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9998;box-shadow:0 4px 20px rgba(253,224,47,0.5);transition:transform .2s;}
+#chatbot-bubble:hover{transform:scale(1.1);}
+#chatbot-window{display:none;position:fixed;bottom:96px;right:24px;width:340px;max-height:520px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.6);z-index:9997;flex-direction:column;overflow:hidden;}
+.bot-chip{background:rgba(253,224,47,.1);border:1px solid rgba(253,224,47,.3);color:var(--cz-yellow);border-radius:20px;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:background .2s;margin:2px;}
+.bot-chip:hover{background:rgba(253,224,47,.25);}
+.bot-msg{background:var(--bg-hover);border-radius:14px 14px 14px 4px;padding:10px 14px;font-size:13px;color:var(--text-main);max-width:88%;line-height:1.55;word-break:break-word;}
+.user-msg{background:var(--cz-yellow);border-radius:14px 14px 4px 14px;padding:10px 14px;font-size:13px;color:#000;max-width:88%;line-height:1.55;align-self:flex-end;font-weight:600;}
+</style>
+
+<div id="chatbot-bubble" onclick="cbToggle()">
+  <svg width="28" height="28" fill="#000" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
+  <span id="cb-badge" style="position:absolute;top:-4px;right:-4px;background:#FF107A;color:#fff;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">1</span>
+</div>
+
+<div id="chatbot-window" style="display:none;">
+  <div style="background:var(--cz-yellow);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#000;display:flex;align-items:center;justify-content:center;">
+        <svg width="20" height="20" fill="#FDE02F" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 00-2 2v18l4-4h14a2 2 0 002-2V4a2 2 0 00-2-2z"/></svg>
+      </div>
+      <div><div style="font-weight:800;font-size:14px;color:#000;font-family: 'Space Grotesk', sans-serif;">КрасМатрикс Бот</div><div style="font-size:11px;color:#333;">Ответы на вопросы</div></div>
+    </div>
+    <button onclick="cbToggle()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#000;font-weight:700;line-height:1;">✕</button>
+  </div>
+  <div id="cb-msgs" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:330px;"></div>
+  <div style="padding:12px 16px;border-top:1px solid var(--border-color);flex-shrink:0;">
+    <div style="display:flex;gap:8px;">
+      <input id="cb-input" type="text" placeholder="Ваш вопрос..." onkeydown="if(event.key==='Enter')cbSend()" style="flex:1;background:var(--bg-hover);border:1px solid var(--border-color);border-radius:10px;padding:10px 14px;color:#fff;font-size:13px;outline:none;font-family:'Plus Jakarta Sans',sans-serif;">
+      <button onclick="cbSend()" style="background:var(--cz-yellow);border:none;border-radius:10px;padding:10px 16px;cursor:pointer;font-size:18px;line-height:1;">➤</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var isOpen = false;
+  var inited = false;
+
+  window.cbToggle = function(){
+    var w = document.getElementById('chatbot-window');
+    var b = document.getElementById('cb-badge');
+    isOpen = !isOpen;
+    w.style.display = isOpen ? 'flex' : 'none';
+    if(isOpen){ w.style.flexDirection='column'; b.style.display='none'; if(!inited){cbInit();inited=true;} }
+  };
+
+  var answers = {
+    price:   {label:'💰 Стоимость',    text:'Тарифы от <b>23 290 ₽/мес</b>. КИЗы включены в стоимость. Пополнение кабинета Честного ЗНАКА — 0,61 ₽/КИЗ. <a href="#pricing" onclick="cbToggle()" style="color:var(--cz-yellow)">Смотреть тарифы ↗</a>'},
+    start:   {label:'🚀 Как начать',   text:'<b>1)</b> Оставьте заявку → <b>2)</b> Регистрируем кабинет Честного ЗНАКА → <b>3)</b> Описываем карточки → <b>4)</b> Заказываем КИЗы → <b>5)</b> Вводим товар в оборот. Начало — бесплатная консультация.'},
+    kiz:     {label:'📦 Что такое КИЗ',text:'<b>КИЗ</b> — уникальный DataMatrix-код на каждую единицу товара. Без него продажа запрещена. Штраф — до 300 000 ₽, товар могут изъять.'},
+    mp:      {label:'🛒 Маркетплейсы', text:'Работаем с <b>Wildberries, Ozon, Яндекс Маркет, Мегамаркет</b> и Золотое Яблоко. Формируем УПД, вводим/выводим из оборота — всё под ключ.'},
+    kz:      {label:'🇰🇿 Белый импорт',text:'Оформляем маркировку для <b>белого (параллельного) импорта через Казахстан</b>: одежда, обувь, электроника, мебель, парфюмерия, велосипеды, шины и другие товары по перечню МТИП РК. Помогаем легально ввести на маркетплейсы РФ.'},
+    kep:     {label:'🔑 КЭП / ЭДО',   text:'Для работы с Честным ЗНАКОМ нужна <b>КЭП</b> (квалифицированная электронная подпись). Мы помогаем её оформить и настроить ЭДО — всё под ключ.'},
+    contact: {label:'📞 Связаться',    text:'Свяжитесь любым способом:<br><a href="https://t.me/+79933717770" target="_blank" style="color:#229ED9;font-weight:700;">✈ Telegram</a> &nbsp; <a href="https://wa.me/79933717770" target="_blank" style="color:#25D366;font-weight:700;">📱 WhatsApp</a> &nbsp; <a href="https://vk.com/markirovkatovarov" target="_blank" style="color:#0077FF;font-weight:700;">💬 ВКонтакте</a><br><a href="https://t.me/markirovka57" target="_blank" style="color:#229ED9;">📢 Наш Telegram-канал</a>'}
+  };
+
+  var keywords = {
+    'стоимость':'price','цена':'price','тариф':'price','сколько':'price','рубл':'price',
+    'начать':'start','как':'start','старт':'start','регистр':'start','первый':'start',
+    'киз':'kiz','код':'kiz','datamatrix':'kiz','дата':'kiz','матрик':'kiz',
+    'маркетплейс':'mp','wildberries':'mp','ozon':'mp','озон':'mp','вб':'mp','wb':'mp','яндекс':'mp',
+    'казахст':'kz','белый':'kz','импорт':'kz','параллельн':'kz','кз':'kz',
+    'кэп':'kep','эдо':'kep','подпись':'kep','электронн':'kep',
+    'контакт':'contact','связ':'contact','написат':'contact','телефон':'contact','позвон':'contact'
+  };
+
+  function addMsg(html, cls){
+    var d = document.createElement('div');
+    d.className = cls;
+    d.innerHTML = html;
+    var box = document.getElementById('cb-msgs');
+    box.appendChild(d);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  function addChips(){
+    var box = document.getElementById('cb-msgs');
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'display:flex;flex-wrap:wrap;gap:4px;';
+    Object.keys(answers).forEach(function(k){
+      var btn = document.createElement('button');
+      btn.className = 'bot-chip';
+      btn.innerHTML = answers[k].label;
+      btn.onclick = function(){ cbAnswer(k); };
+      wrap.appendChild(btn);
+    });
+    box.appendChild(wrap);
+    box.scrollTop = box.scrollHeight;
+  }
+
+  window.cbAnswer = function(key){
+    var a = answers[key];
+    addMsg(a.label, 'user-msg');
+    setTimeout(function(){
+      addMsg(a.text, 'bot-msg');
+      setTimeout(addChips, 300);
+    }, 350);
+  };
+
+  window.cbSend = function(){
+    var inp = document.getElementById('cb-input');
+    var text = inp.value.trim();
+    if(!text) return;
+    inp.value = '';
+    addMsg(text, 'user-msg');
+    var lower = text.toLowerCase();
+    var matched = null;
+    var keys = Object.keys(keywords);
+    for(var i=0;i<keys.length;i++){ if(lower.indexOf(keys[i])!==-1){matched=keywords[keys[i]];break;} }
+    setTimeout(function(){
+      if(matched){
+        addMsg(answers[matched].text, 'bot-msg');
+      } else {
+        addMsg('Хороший вопрос! Для развёрнутого ответа свяжитесь с нами:<br><a href="https://t.me/+79933717770" target="_blank" style="color:#229ED9;font-weight:700;">✈ Telegram</a> &nbsp; <a href="https://wa.me/79933717770" target="_blank" style="color:#25D366;font-weight:700;">📱 WhatsApp</a> &nbsp; <a href="https://vk.com/markirovkatovarov" target="_blank" style="color:#0077FF;font-weight:700;">💬 ВКонтакте</a>', 'bot-msg');
+      }
+      setTimeout(addChips, 300);
+    }, 380);
+  };
+
+  function cbInit(){
+    addMsg('👋 Привет! Я помогу с вопросами о маркировке товаров. Выберите тему:', 'bot-msg');
+    setTimeout(addChips, 200);
+  }
+})();
+</script>
+<!-- ══════════ /CHATBOT ══════════ -->
 
 </body>
 </html>
