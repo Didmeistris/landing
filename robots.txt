@@ -1,26 +1,39 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /*?*utm_
 
-# Настройки для Яндекса
+# Yandex specific
 User-agent: Yandex
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /*?*utm_
-Crawl-delay: 2
+Crawl-delay: 5
 
-# Настройки для Google
-User-agent: Googlebot
+User-agent: YandexBot
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /*?*utm_
+Crawl-delay: 5
 
-# Ссылка на карту сайта
+User-agent: YandexImages
+Allow: /
+
+User-agent: YandexMedia
+Allow: /
+
+User-agent: YandexVideo
+Allow: /
+
+# Block service paths
+Disallow: /cdn-cgi/
+Disallow: /*.json$
+
+# Allow assets (critical for Yandex JS rendering)
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.webp$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+# Sitemaps
 Sitemap: https://krasmatrix.com/sitemap.xml
+Sitemap: https://krasmatrix.com/sitemap-images.xml
+
+# Host directive — Yandex uses this as canonical domain signal
+Host: krasmatrix.com
