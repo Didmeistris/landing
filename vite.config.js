@@ -1,30 +1,33 @@
 import { defineConfig } from 'vite';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import { createHtmlPlugin } from 'vite-plugin-html';
+import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/', // Т.к. у тебя привязан кастомный домен krasmatrix.com (файл CNAME)
   build: {
-    target: 'esnext',
+    // Минификация CSS и JS
+    cssMinify: true,
     minify: 'terser',
-    cssMinify: 'lightningcss',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Убираем console.log в продакшене
+        drop_debugger: true
+      }
+    },
     rollupOptions: {
+      // Явно указываем все страницы, чтобы Vite их правильно скомпилировал
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        ozon: resolve(__dirname, 'ozon/index.html'),
+        wildberries: resolve(__dirname, 'wildberries/index.html'),
+        chestnyZnak: resolve(__dirname, 'chestny-znak/index.html'),
+        teksher: resolve(__dirname, 'teksher/index.html'),
+        404: resolve(__dirname, '404.html'),
+      },
       output: {
-        // Разбиваем бандл, чтобы кэш браузера работал эффективнее
-        manualChunks: undefined,
-        assetFileNames: 'assets/[name].[hash][extname]',
-        chunkFileNames: 'assets/[name].[hash].js',
+        // Хеширование имен файлов (решает проблему с кэшем у пользователей при обновлениях сайта)
         entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
       }
     }
-  },
-  plugins: [
-    ViteImageOptimizer({
-      webp: { quality: 80 },
-      svg: { multipass: true },
-    }),
-    createHtmlPlugin({
-      minify: true, // Полностью жмет index.html (убирает пробелы, комменты)
-    }),
-  ],
+  }
 });
