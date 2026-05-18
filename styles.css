@@ -1,0 +1,38 @@
+/* Подключение современных фич CSS */
+html {
+    scroll-behavior: smooth; /* Плавный скролл силами CSS, а не JS */
+}
+
+/* Оптимизация рендеринга текста */
+body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* СЕНЬОРСКАЯ ФИЧА: Изоляция рендеринга */
+/* Браузер не будет тратить ресурсы на отрисовку блоков, которых сейчас нет на экране */
+section {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px; /* Примерная высота секции */
+}
+
+/* Защита от CLS для медиа */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Выносим анимации на видеокарту (GPU) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform; /* Подсказка браузеру */
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
