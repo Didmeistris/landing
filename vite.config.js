@@ -3,33 +3,28 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import { createHtmlPlugin } from 'vite-plugin-html';
 
 export default defineConfig({
-  // Базовый путь важен для GitHub Pages, если сайт не на кастомном домене. 
-  // Так как у нас привязан krasmatrix.com, оставляем корень:
-  base: '/', 
+  base: '/', // Т.к. у тебя привязан кастомный домен krasmatrix.com (файл CNAME)
   build: {
-    target: 'es2015',
+    target: 'esnext',
     minify: 'terser',
-    cssMinify: true,
+    cssMinify: 'lightningcss',
     rollupOptions: {
       output: {
-        // Разделяем вендорные скрипты и наш код для лучшего кэширования
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        }
+        // Разбиваем бандл, чтобы кэш браузера работал эффективнее
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name].[hash][extname]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js',
       }
     }
   },
   plugins: [
     ViteImageOptimizer({
       webp: { quality: 80 },
-      avif: { quality: 70 },
-      jpg: { quality: 80 },
-      png: { quality: 80, compressionLevel: 8 },
+      svg: { multipass: true },
     }),
     createHtmlPlugin({
-      minify: true, // Убирает все пробелы и комментарии из финального HTML
+      minify: true, // Полностью жмет index.html (убирает пробелы, комменты)
     }),
   ],
 });
