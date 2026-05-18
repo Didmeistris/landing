@@ -1,0 +1,31 @@
+/* Базовые оптимизации отрисовки */
+:root {
+  --primary-color: #0056b3;
+  --bg-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Оптимизация скролла на мобильных */
+  overscroll-behavior-y: none; 
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  /* Подсказываем браузеру, что контент ниже сгиба можно не рендерить сразу */
+  content-visibility: auto; 
+}
+
+/* Аппаратное ускорение только для тех элементов, которые реально анимируются */
+.animate-element {
+  will-change: transform, opacity;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  /* Предотвращает Layout Shifts (CLS) */
+  object-fit: cover;
+  display: block;
+}
