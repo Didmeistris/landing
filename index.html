@@ -390,6 +390,7 @@ footer { border-top: 1px solid var(--border-color); padding: 60px 5% 40px; backg
   
   .mp-grid { gap: 30px; }
   .fandom-logo { height: 32px; }
+  .marketplaces-strip { padding: 32px 20px; margin-top: 40px; }
   
   .tg-scroll-title { font-size: 20px; max-width: 100%; }
   .tg-scroll-decor { opacity: 0.15; }
@@ -702,7 +703,8 @@ grid-template-columns:1fr!important;
 @media(max-width:480px){
 .hero h1{font-size:clamp(22px,8vw,32px)!important;}
 .btn{padding:12px 20px!important;font-size:14px!important;}
-.marketplaces-strip{border-radius:14px!important;}
+.marketplaces-strip{border-radius:14px!important; padding:24px 16px!important; margin-top:32px!important;}
+.mp-grid{gap:20px 24px!important;}
 }
 
 @media (max-width: 900px) {
@@ -750,6 +752,15 @@ flex-direction: column !important;
 padding: 12px 0 20px;
 z-index: 999;
 box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+/* Fix: override 992px fullscreen values */
+height: auto !important;
+min-height: unset !important;
+justify-content: flex-start !important;
+align-items: stretch !important;
+gap: 0 !important;
+opacity: 1 !important;
+visibility: visible !important;
+transform: none !important;
 }
 .nav-links.active {
 display: flex !important;
