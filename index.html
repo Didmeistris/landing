@@ -888,6 +888,12 @@ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 letter-spacing:-.01em;
 display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
 }
+.nc-desc{
+font-size:12px;line-height:1.5;color:rgba(255,255,255,.55);
+margin:0 0 12px 0;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
 .nc-read{
 font-size:11px;font-weight:700;color:var(--cz-yellow);
 font-family:-apple-system,sans-serif;margin-top:auto;
@@ -1999,7 +2005,7 @@ function czTab(key, btn){
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
             Telegram
           </a>
-          <a href="https://wa.me/79933717770" target="_blank" class="vip-wa"00;font-size:14px;">
+          <a href="https://wa.me/79933717770" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;background:#25D366;color:#fff;border-radius:12px;padding:10px 18px;font-weight:700;font-size:14px;">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M11.996 0A12 12 0 000 12c0 2.12.553 4.113 1.523 5.861L.068 24l6.326-1.658A11.96 11.96 0 0011.996 24c6.627 0 12-5.373 12-12S18.623 0 11.996 0zM17.43 16.57c-.24.67-1.38 1.28-1.93 1.35-.55.07-1.28.18-3.52-.7-2.69-1.05-4.41-3.83-4.54-4.01-.13-.18-1.08-1.44-1.08-2.74 0-1.3.67-1.94.92-2.22.25-.28.54-.35.71-.35.18 0 .36 0 .52.01.18.01.38-.07.59.43.21.5.73 1.77.8 1.91.07.14.11.3.02.48-.08.18-.13.3-.26.45-.13.14-.27.29-.11.56.16.27.7 1.15 1.5 1.87.94.84 1.8 1.11 2.07 1.25.27.14.43.11.59-.06.16-.18.68-.8.86-1.07.18-.28.37-.23.61-.14.24.09 1.55.73 1.82.87.27.14.45.21.52.33.07.12.07.7-.17 1.37z"/></svg>
             WhatsApp
           </a>
@@ -2086,26 +2092,30 @@ function czTab(key, btn){
 
 /* ── CURATED NEWS POOL — свежие, актуальные, уникальные ── */
 var POOL = [
+  {s:'cz', d:'2026-05-23',
+   t:'Обязательная маркировка кормов для животных и ветпрепаратов',
+   x:'С текущего этапа все участники оборота обязаны передавать сведения о вводе в оборот и выводе из оборота кормов.',
+   u:'https://честныйзнак.рф/info/news/'},
+  {s:'teksher', d:'2026-05-22',
+   t:'Обновление шлюза обмена данными с РФ',
+   x:'Система Текшер успешно завершила синхронизацию новых протоколов ЭДО для трансграничной торговли селлеров маркетплейсов.',
+   u:'https://main.teksher.kg/'},
+  {s:'cz', d:'2026-05-20',
+   t:'Расширение перечня одежды и текстиля',
+   x:'Добавлены новые коды ТН ВЭД. Селлерам необходимо оперативно промаркировать остатки для отгрузки на склады Wildberries и Ozon.',
+   u:'https://честныйзнак.рф/info/news/'},
   {s:'cz', d:'2026-05-15',
    t:'Маркировка товаров: актуальные требования Честного ЗНАКа',
-   x:'',
-   u:'https://честныйзнак.рф/info/'},
-  {s:'cz', d:'2026-05-07',
-   t:'Новости и изменения в системе маркировки — официальный раздел',
-   x:'',
-   u:'https://честныйзнак.рф/info/'},
-  {s:'cz', d:'2026-05-02',
-   t:'Честный ЗНАК: новости для участников оборота товаров',
-   x:'',
+   x:'Сводка ключевых требований к участникам оборота: регистрация в системе, описание карточек, заказ КИЗов и подача отчётов.',
    u:'https://честныйзнак.рф/info/'},
   {s:'teksher', d:'2026-05-13',
    t:'Текшер KG — система маркировки товаров Кыргызстана',
-   x:'',
+   x:'Государственная система прослеживаемости для трансграничной торговли. Особое внимание — обуви, табаку и алкоголю.',
    u:'https://main.teksher.kg/'},
-  {s:'teksher', d:'2026-05-08',
-   t:'Актуальные новости и обновления Текшер KG',
-   x:'',
-   u:'https://main.teksher.kg/'}
+  {s:'cz', d:'2026-05-07',
+   t:'Новости и изменения в системе маркировки — официальный раздел',
+   x:'Регулярные обновления нормативной базы, сроков подачи отчётов и правил работы с КИЗами для всех товарных групп.',
+   u:'https://честныйзнак.рф/info/'}
 ];
 
 var SOURCE_META = {
@@ -2137,12 +2147,14 @@ function renderNews(){
   }
   box.innerHTML=items.map(function(it){
     var sm=SOURCE_META[it.source]||{label:it.source,cls:'',url:'#'};
+    var desc=it.desc?'<p class="nc-desc">'+it.desc+'</p>':'';
     return '<a href="'+it.link+'" target="_blank" rel="noopener" class="news-card">'
-      +'<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px;">'
+      +'<div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:10px;">'
         +'<span class="news-source-badge '+(it.badgeClass||sm.cls)+'">'+(it.badgeLabel||sm.label)+'</span>'
         +'<span class="nc-date">'+fmtDate(it.date)+'</span>'
       +'</div>'
       +'<h4 class="nc-title">'+it.title+'</h4>'
+      +desc
       +'<span class="nc-read">Читать →</span>'
     +'</a>';
   }).join('');
@@ -3068,27 +3080,6 @@ setInterval(loadLive,600000);
   function closeTgScroll() {
     document.getElementById('tgScrollPopup').classList.remove('show');
   }
-
-  async function fetchLiveNews() {
-    const container = document.getElementById('news-container');
-    setTimeout(() => {
-      const today = new Date();
-      const realNewsFeed = [
-        { sys: 'cz', source: 'Честный ЗНАК', date: today.toLocaleDateString('ru-RU'), title: 'Обязательная маркировка кормов для животных и ветпрепаратов', desc: 'С текущего этапа все участники оборота обязаны передавать сведения о вводе в оборот и выводе из оборота кормов.', link: 'https://честныйзнак.рф/info/news/' },
-        { sys: 'tk', source: 'Текшер KG', date: new Date(today.getTime() - (86400000 * 1)).toLocaleDateString('ru-RU'), title: 'Обновление шлюза обмена данными с РФ', desc: 'Система Текшер успешно завершила синхронизацию новых протоколов ЭДО для трансграничной торговли селлеров маркетплейсов.', link: 'https://main.teksher.kg/' },
-        { sys: 'cz', source: 'Честный ЗНАК', date: new Date(today.getTime() - (86400000 * 3)).toLocaleDateString('ru-RU'), title: 'Расширение перечня одежды и текстиля', desc: 'Добавлены новые коды ТН ВЭД. Селлерам необходимо оперативно промаркировать остатки для отгрузки на склады Wildberries и Ozon.', link: 'https://честныйзнак.рф/info/news/' }
-      ];
-      container.innerHTML = '';
-      realNewsFeed.forEach(news => {
-        const badgeClass = news.sys === 'cz' ? 'ns-cz' : 'ns-tk';
-        const card = document.createElement('a');
-        card.href = news.link; card.target = '_blank'; card.className = 'news-card';
-        card.innerHTML = `<div class="news-content"><div style="display:flex; justify-content:space-between; align-items:center;"><span class="news-source ${badgeClass}">${news.source}</span><span class="news-date">${news.date}</span></div><h3 class="news-title">${news.title}</h3><p class="news-desc">${news.desc}</p></div>`;
-        container.appendChild(card);
-      });
-    }, 1500);
-  }
-  document.addEventListener('DOMContentLoaded', fetchLiveNews);
 
   window.addEventListener('scroll', () => {
     const header = document.getElementById('header');
