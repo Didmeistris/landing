@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Честный ЗНАК под ключ | KrasMatrix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-main: #0c0e12; --bg-card: #151820; --bg-hover: #1e222d; --border-color: #262b36; --text-main: #ffffff; --text-muted: #94a1b2; --cz-yellow: #FDE02F; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Manrope', sans-serif; background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .header-wrapper { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(12, 14, 18, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-color); }
+        nav { padding: 16px 5%; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
+        .nav-logo { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
+        .nav-logo span { color: var(--cz-yellow); }
+        .hero-inner { padding: 160px 5% 80px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-inner h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; margin-bottom: 24px; line-height: 1.2; }
+        .hero-inner p { font-size: 18px; color: var(--text-muted); margin-bottom: 40px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; padding: 0 5% 80px; max-width: 1200px; margin: 0 auto; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 40px; transition: transform 0.3s, border-color 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--cz-yellow); box-shadow: 0 10px 30px rgba(253, 224, 47, 0.05); }
+        .feature-icon { font-size: 32px; color: var(--cz-yellow); margin-bottom: 20px; font-weight: 800; }
+        .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .feature-card p { font-size: 15px; color: var(--text-muted); }
+        .btn-main { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; font-size: 16px; font-weight: 800; color: #000; background: var(--cz-yellow); border-radius: 12px; text-decoration: none; transition: 0.3s; }
+        .btn-main:hover { background: #ffea5c; box-shadow: 0 8px 24px rgba(253, 224, 47, 0.3); }
+        .btn-outline { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; font-size: 16px; font-weight: 700; color: #fff; background: transparent; border: 1px solid var(--border-color); border-radius: 12px; text-decoration: none; margin-left: 16px; transition: 0.3s; }
+        .btn-outline:hover { background: var(--bg-hover); border-color: var(--text-muted); }
+        footer { border-top: 1px solid var(--border-color); padding: 40px 5%; text-align: center; color: var(--text-muted); font-size: 14px; margin-top: 40px; background: #0b0c10; }
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+        <nav>
+            <a href="/" class="nav-logo">Kras<span>Matrix</span></a>
+            <a href="/#pricing" class="btn-outline" style="padding: 10px 20px; font-size: 14px; margin:0;">Тарифы</a>
+        </nav>
+    </div>
+
+    <section class="hero-inner">
+        <h1>Честный ЗНАК под ключ</h1>
+        <p>Комплексный аутсорс для селлеров и импортеров. От регистрации в Национальном каталоге до перемаркировки остатков.</p>
+        <a href="/#pricing" class="btn-main">Узнать стоимость</a>
+        <a href="/" class="btn-outline">На главную</a>
+    </section>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">❖</div>
+            <h3>Эмиссия КИЗ</h3>
+            <p>Быстрый заказ и выпуск кодов Data Matrix для любой товарной категории.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✓</div>
+            <h3>Работа в ГС1 РУС</h3>
+            <p>Регистрируем, получаем GTIN и детально описываем атрибуты ваших товаров.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📄</div>
+            <h3>Аудит остатков</h3>
+            <p>Помогаем легализовать партии на складах и исправляем чужие ошибки маркировки.</p>
+        </div>
+    </div>
+
+    <footer>© 2026 KrasMatrix. Маркировка под ключ.</footer>
+</body>
+</html>
