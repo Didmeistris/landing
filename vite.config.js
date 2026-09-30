@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/landing/', // Сохранение правильного пути для GitHub Pages
+  base: '/', // Custom domain: krasmatrix.com
   build: {
     // Минификация CSS и JS
     cssMinify: true,

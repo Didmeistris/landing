@@ -69,73 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // 3. ОПТИМИЗАЦИЯ НОВОСТЕЙ
-    const POOL = [
-      {s:'cz', d:'2026-05-15', t:'Маркировка товаров: актуальные требования Честного ЗНАКа', x:'', u:'https://честныйзнак.рф/info/'},
-      {s:'cz', d:'2026-05-07', t:'Новости и изменения в системе маркировки — официальный раздел', x:'', u:'https://честныйзнак.рф/info/'},
-      {s:'cz', d:'2026-05-02', t:'Честный ЗНАК: новости для участников оборота товаров', x:'', u:'https://честныйзнак.рф/info/'},
-      {s:'teksher', d:'2026-05-13', t:'Текшер KG — система маркировки товаров Кыргызстана', x:'', u:'https://main.teksher.kg/'},
-      {s:'teksher', d:'2026-05-08', t:'Актуальные новости и обновления Текшер KG', x:'', u:'https://main.teksher.kg/'}
-    ];
-    const SOURCE_META = {
-      cz:      {label:'Честный ЗНАК', cls:'ns-cz',      url:'https://честныйзнак.рф/info/'},
-      teksher: {label:'Текшер KG',    cls:'ns-teksher', url:'https://main.teksher.kg/'}
-    };
-    let allNewsItems = [];
-    let currentTab = 'all';
-
-    function fmtDate(s){
-      if(!s) return '';
-      try{
-        const d = new Date(s);
-        return isNaN(d) ? '' : d.toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});
-      }catch(e){return '';}
-    }
-
-    function renderNews(){
-      const box = document.getElementById('news-container');
-      if(!box) return;
-      const items = currentTab === 'all' ? allNewsItems.slice(0,6) : allNewsItems.filter(i => i.source === currentTab).slice(0,4);
-      if(!items.length){
-        box.innerHTML='<div class="news-loader" style="grid-column:1/-1">Нет данных.</div>';
-        return;
-      }
-      box.innerHTML = items.map(it => {
-        const sm = SOURCE_META[it.source] || {label:it.source, cls:'', url:'#'};
-        return `<a href="${it.link}" target="_blank" rel="noopener" class="news-card">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:8px;">
-            <span class="news-source-badge ${it.badgeClass||sm.cls}">${it.badgeLabel||sm.label}</span>
-            <span class="nc-date">${fmtDate(it.date)}</span>
-          </div>
-          <h4 class="nc-title">${it.title}</h4>
-          <span class="nc-read">Читать →</span>
-        </a>`;
-      }).join('');
-    }
-
-    window.showNewsTab = function(tab){
-      currentTab = tab;
-      document.querySelectorAll('.news-tab-btn').forEach(b => b.classList.remove('active-ntab'));
-      const btn = document.getElementById('ntab-'+tab);
-      if(btn) btn.classList.add('active-ntab');
-      renderNews();
-    };
-
-    function loadCurated(){
-      allNewsItems = POOL.map(p => {
-        const sm = SOURCE_META[p.s];
-        return {source:p.s, title:p.t, desc:p.x, date:p.d, link:p.u, badgeClass:sm.cls, badgeLabel:sm.label, isStatic:true};
-      });
-      allNewsItems.sort((a,b) => new Date(b.date) - new Date(a.date));
-      renderNews();
-    }
-
-    window.loadAllNews = function(){
-      const box = document.getElementById('news-container');
-      if(box) box.innerHTML='<div class="news-loader" style="grid-column:1/-1">⏳ Обновление...</div>';
-      loadCurated();
-    };
-    loadCurated();
+    // News is managed exclusively by news.js.
 
     // 4. SCROLL REVEAL
     function reveal() {
